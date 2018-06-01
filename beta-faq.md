@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-06-01"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-05-24"
 
 ## What are the costs for participating in this Beta release program, if any, beyond my usual account costs?
 
-IBM Cloud VPC and the related network services are free during the Beta release phase, except for the bandwidth used through a public gateway, for which bandwidth charges may apply.
+IBM Cloud VPC and the related network and compute services are free during the Beta release phase, except for the bandwidth used through a public gateway, for which bandwidth charges may apply.
 
 ## During Floating IP assignment, the customer must specify the vNIC of VSI, is that correct?
 
