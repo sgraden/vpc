@@ -48,6 +48,12 @@ To create a VPC and subnet:
 1. Select an access control list for the subnet. Let's select **Use VPC default** to use the default access control list that will be created for this VPC.
 --->
 <!---
+
+### Subnet range constraint for Beta
+
+Our current IBM Console UI enforces that customers must pick a subnet prefix from the fixed range. This requirement applies only until address prefixes are available in the release, then customer will have the flexibility to add new address prefix pools.
+
+
 ## Configuring the access control list 
 
 You can configure the access control list to limit inbound and outbound traffic to the subnet. By default, all traffic is allowed.
