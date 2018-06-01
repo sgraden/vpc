@@ -1,0 +1,43 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="vpc" audience="service" href="/docs/infrastructure/vpc/getting-started.html"}
+Virtual Private Cloud (VPC)
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    about-vpc-beta.md
+    about.md
+    planned-experience.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    how-to-verify-access.md
+    use-cli.md
+    sl-2-factor-auth.md
+    vpc-user-permissions.md
+    vpc-setup-with-apis.md
+    vpc-security.md
+    vpc-connectivity.md
+    vpc-regions-and-subnets.md
+    security-groups.md
+    using-acls.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    api-summary.md
+    vpc-glossary.md
+    apis.md
+    cli-network-reference.md
+    cli-compute-reference.md
+    example-code.md
+    [Linking IaaS and PaaS Accounts](https://www.ibm.com/blogs/bluemix/2018/03/follow-steps-link-iaas-paas-accounts/)
+    related-links.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    beta-faq.md
+    known-limitations.md
+    troubleshooting.md
+    getting-help.md
+    {: .navgroup-end}
