@@ -16,7 +16,7 @@ lastupdated: "2018-06-01"
 
 # Setting up security in your IBM Cloud VPC
 
-![Security for Internal Beta](/images/VPC-internal-beta.png)
+![Security for Beta](/images/VPC-internal-beta.png)
 
 Figure: A customer can subdivide a Virtual Private Cloud with subnets. 
 
@@ -29,7 +29,7 @@ Figure: A customer can subdivide a Virtual Private Cloud with subnets.
 This [glossary](vpc-glossary) provides definitions and descriptions of ACLs and SGs, and the actions you can perform with them. The sectio nthat follows descibes
 
 ### Access Control List
-An **Access Control List (ACL)** can manage (that is, it can allow or deny) ingress and egress traffic for a subnet. An ACL is stateless. Each ACL consists of rules, based upon a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*. 
+An **Access Control List (ACL)** can manage (that is, it can allow or deny) ingress and egress traffic for a subnet. An ACL is stateless, which means that ingress and egress rules must be specified separately and explicitly. Each ACL consists of rules, based upon a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*. 
 
 In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbound and outbound traffic, but customers can create custom ACLs. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets. For more information about how to use ACLs during the Beta release, please see our [ACL guide](using-acls.html).
 
