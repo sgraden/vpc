@@ -27,7 +27,7 @@ You can configure your virtual topology automatically, using our suggested prefi
 
 ## Global Connectivity
 
-You can scope your services locally or globally, without bounds, to span across multiple regions. Using VPNaaS, you can create private connections to other projects and other portions of your hybrid cloud deployments.
+You can scope your services locally or globally, without bounds, to span across multiple regions. Using VPN, you can create private connections to other projects and other portions of your hybrid cloud deployments.
 
 ## Network Security
 
