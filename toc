@@ -16,7 +16,6 @@ Virtual Private Cloud (VPC)
     use-cli.md
     sl-2-factor-auth.md
     vpc-user-permissions.md
-    vpc-setup-with-apis.md
     vpc-security.md
     vpc-connectivity.md
     vpc-regions-and-subnets.md

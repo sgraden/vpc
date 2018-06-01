@@ -38,6 +38,6 @@ Know your zone (for example _US-South_)
  * You can use Public Gateway
  * You can get a key
  * [You can use security groups](security-groups.html)
- * You can use network ACLs
+ * [You can use network ACLs](using-acls.html)
   
  **Note:** ALL IBM Cloud REST APIs are part of IBM Cloud VPC Regional Infrastructure API Service (RIAS).
