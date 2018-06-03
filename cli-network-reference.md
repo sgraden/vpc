@@ -16,7 +16,7 @@ lastupdated: "2018-06-01"
 
 # VPC Beta Network CLI reference
 
-This document provides a reference of the CLI commands available for the Netowrk functionality of the IBM Cloud Virtual Private Cloud Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
+This document provides a reference of the CLI commands available for the Network functionality of the IBM Cloud Virtual Private Cloud Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
 
 ## Floating IPs
 
