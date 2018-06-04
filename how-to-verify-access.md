@@ -79,7 +79,7 @@ Once your account has been granted access, you will receive an email with the AP
 ### Step 1: Log in to IBM Cloud.
 
 ```
-ibmcloud login --sso -a https://api.bluemix.net
+ibmcloud login --sso -a https://api.ng.bluemix.net
  ```
 {: codeblock}
 
