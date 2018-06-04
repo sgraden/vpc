@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -16,11 +16,11 @@ lastupdated: "2018-06-01"
 
 # Features available for Beta release 
 
-These features are available using the IBM Cloud UI, the API, and the CLI:
+These features are available using the IBM Cloud Console UI, the API, and the CLI:
 
  * Create a Virtual Private Cloud
  * Create subnets, and bring your own private IP (BYOIP)
- * Create and manage Virtual Server Instances (VSIs) using Ubuntu 16.04 or CentOS 7.x.
+ * Create and manage Virtual Server Instances (VSIs) using Ubuntu 16.04 or CentOS 7.x
  * Reserve and associate a Floating IPv4
  * Get Internet access to subnets by creating a public gateway (PGW), one per Zone
  * Create and assign security groups to your VSIs
