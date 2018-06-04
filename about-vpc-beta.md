@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -16,11 +16,11 @@ lastupdated: "2018-06-01"
 
 # Features available for Beta release 
 
-These features are available using the IBM Cloud UI, the API, and the CLI:
+These features are available using the IBM Cloud Console UI, the API, and the CLI:
 
  * Create a Virtual Private Cloud
  * Create subnets, and bring your own private IP (BYOIP)
- * Create and manage Virtual Server Instances (VSIs) using Ubuntu 16.04 or CentOS 7.x.
+ * Create and manage Virtual Server Instances (VSIs) using Ubuntu 16.04 or CentOS 7.x
  * Reserve and associate a Floating IPv4
  * Get Internet access to subnets by creating a public gateway (PGW)
  * Create and assign security groups to your VSIs
@@ -34,8 +34,8 @@ These features are available using the IBM Cloud UI, the API, and the CLI:
  * Internet access by VPN
  * Elastic Load Balancing (ELB) that's native to VPC
  * Peered VPC with IBM Cloud Classic Infrastructure 
- * Direct Link connectivity via peered VPC with IBM Cloud Classic Infrastructure 
- * Accessing bare metal server in IBM Cloud Classic Infrastructure via peered VPC
+ * Direct Link connectivity through peered VPC with IBM Cloud Classic Infrastructure 
+ * Access to bare metal servers in IBM Cloud Classic Infrastructure through peered VPC
  * Private VPC service endpints for other IBM Cloud services
  * Multi-homed, multi-vNIC Virtual Server Instances (VSIs)
 
