@@ -49,7 +49,7 @@ Resources are limited in the Beta environment, therefore the following quotas ha
 |   Resource     | Maximum Number |
 | ------- | :------: |
 | Virtual Private Clouds | 5 per account|
-| Subnets | 5 per Virtual Private Cloud |
+| Subnets | 3 per Virtual Private Cloud |
 | Servers (VSIs) | 25 per account |
 | Floating IP addresses | 1 per server |
 
