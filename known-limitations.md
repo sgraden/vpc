@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -63,7 +63,7 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 1. A Virtual Private Cloud cannot be peered with other Virtual Private Clouds.
 
-2. A Virtual Private Cloud cannot be peered with IBM Cloud Classic environment. This feature will be brought by GA. Peering will enable the VPC resources to communicate IBM Cloud Classic resources such as bare metal servers and direct link service.
+2. A Virtual Private Cloud cannot be peered with the IBM Cloud Classic environment. This feature will be available by GA. Peering will enable the VPC resources to communicate IBM Cloud Classic resources, such as bare metal servers and Direct Link service.
 
 3. Customers cannot migrate their existing IBM Cloud VSI or bare-metal servers into their IBM Cloud VPC.
 
@@ -75,7 +75,7 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 7. IBM Cloud VPC does not provide end-to-end encryption, but it supports it.
 
-8. Here's the list of core IBM Cloud services that an IBM Cloud VPC customer can use: NTP, Logging, DNS resolvers. Other services are not accessable.
+8. Here's the list of core IBM Cloud services that an IBM Cloud VPC customer can use: NTP, Logging, DNS resolvers. Other services are not accessible.
 
 9. A subnet cannot be on multiple Zones.
 
