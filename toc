@@ -9,7 +9,7 @@ Virtual Private Cloud (VPC)
     about-vpc-beta.md
     about.md
     planned-experience.md
-    console-tutorial.html
+    console-tutorial.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
