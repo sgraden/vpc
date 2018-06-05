@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-24"
 {:tip: .tip}
 {:download: .download}
 
-# VPC API Reference
+# VPC Beta API Reference
 The VPC APIs are a portion of the Regional Infrastructure API Service (RIAS) APIs and they are fully integrated into the IBM Cloud APIs. 
 
 For the Beta release, the VPC APIs include Network, Compute, and Geography APIS. These are REST APIs, which include the standard functionalities: CREATE, UPDATE, DELETE, LIST.
