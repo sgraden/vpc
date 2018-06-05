@@ -39,7 +39,7 @@ In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbou
   * List all ACLs
   * List all rules in certain ACLs (Ingress + egress categories)
   * CRUD (Create, Read, Update, Delete) the ACL
-  * Charges up to 25 ingress and egress rules are free (All rules are free during Beta release.)
+  * Charges for up to 25 ingress and egress rules are bypassed for the duration of the Beta release phase. (In fact, all rules are free during the Beta release phase. Later, there will be some cost for more than 25 ingress and egress rules.)
 
 ### Security Group
 A **security group** acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of rules that specify whether to allow traffic for an associated VSI. 
