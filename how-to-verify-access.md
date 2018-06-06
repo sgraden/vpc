@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-04"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -37,10 +37,16 @@ If you do not have a public SSH key or if you forgot the password of an existing
 
 The VPC CLI actions use the extension `is`. 
 
-### Step 1: Install the VPC Plugin to the IBM Cloud CLI.
+### Step 1: Install or update the VPC Plugin to the IBM Cloud CLI.
 
 ```
 ibmcloud plugin install infrastructure-service
+```
+
+Or to update:
+
+```
+ibmcloud plugin update
 ```
 
 ### Step 2: Log in to IBM Cloud.
