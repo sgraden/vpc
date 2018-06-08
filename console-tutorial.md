@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-06-01"
 
 # Creating a VPC using the {{site.data.keyword.cloud_notm}} console (Beta)
 
-This tutorial shows you how to create and configure an {{site.data.keyword.cloud}} IBM Virtual Private Cloud (VPC) using {{site.data.keyword.cloud_notm}} console.
+This guide shows you how to create and configure an {{site.data.keyword.cloud}} IBM Virtual Private Cloud (VPC) using {{site.data.keyword.cloud_notm}} console.
 
 Follow these steps to create and configure your VPC:
 
@@ -51,7 +51,7 @@ To create a virtual server instance in the newly created subnet:
 1. Click **Virtual server instance** in the navigation panel and click **New instance**.
 1. Enter a name for the instance, such as `my_instance`.
 1. Select the VPC that you created.
-1. Note the **Location** field (read-only) that shows the location of the subnet where the instance is created.
+1. Note the **Location** field (read-only) that shows the location of the subnet on which the instance is created.
 1. Select an image (that is, operating system and version) such as Ubuntu 16.04.
 1. Select one of the popular profiles, or click **All profiles** to choose a different core and RAM combination that is most appropriate for your workload.
 1. Select an existing SSH key or add an SSH key that will be used to access the virtual server instance. To add an SSH key, click **Add SSH key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
@@ -85,4 +85,4 @@ Since you provisioned your instance with a public SSH key, you can now connect t
 
 ## Congratulations!
 
-You've successfully created and configured a VPC and subnet, a virtual server instance, and a floating IP address. You can continue to develop your VPC by adding more instances and subnets.
+You've successfully created and configured a VPC and a subnet, a virtual server instance, and a floating IP address. You can continue to develop your VPC by adding more instances and subnets.
