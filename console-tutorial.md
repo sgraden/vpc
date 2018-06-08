@@ -40,7 +40,7 @@ To create a VPC and subnet:
 1. Enter a name for the VPC, such as `my_vpc`.
 1. Enter a name for the new subnet in your VPC, such as `my_subnet`.
 1. Select a location for the subnet. The location consists of a region and a zone. For this Beta release, only one location is available.
-1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/22`. The value must be within the IP range that is listed for the selected location. For the Beta release, you must pick a subnet prefix from a predefined range. When address prefixes are available in the release, you will have the flexibility to add new address prefix pools.
+1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/22`. The value must be within the IP range that is listed for the selected location. 
 1. Attach a public gateway to the subnet to allow all attached resources to communicate with the public Internet.
 1. Click **Create virtual private cloud**.
 
