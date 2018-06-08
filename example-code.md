@@ -16,7 +16,7 @@ lastupdated: "2018-06-01"
 
 # Example Code Tutorial
 
-The following example will help you create an IBM Cloud VPC, a subnet, a gateway, a server, and associate a floating IP address, using the IBM CLoud VPC (Beta) REST APIs.
+The following example will help you create an IBM Cloud VPC, a subnet, a gateway, a server, and associate a floating IP address, using the IBM Cloud VPC (Beta) REST APIs.
 
 ## Verify access to the Regional APIs
 
@@ -176,7 +176,7 @@ If the `ims_subject` is not formatted correctly, the server will appear to have 
 
 
 ```bash
-curl -X POST $rias_endpoint/v1/servers \
+curl -X POST $rias_endpoint/v1/instances \
   -u $credentials \
   -H "X-Auth-Token:$iam_token" -H "X-Subject-Token:$ims_subject" \
   -d '{
@@ -189,7 +189,7 @@ curl -X POST $rias_endpoint/v1/servers \
           "id": "'$vpc'"
         },
         "primary_network_interface": {
-          "port_speed": 10000,
+          "port_speed": 1000,
           "subnet": {
             "id": "'$subnet'"
           }

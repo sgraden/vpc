@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -31,11 +31,11 @@ However, if we add an "address" resource in the API under the networking area, w
  
 Yes.
 
-## In the UI, there is only a ”toggle" for each subnet to attach or detach to or from the Public Gateway. Who creates the PGW? Will the PGW default to be ready when the customer wants to attach the subnet to the PGW in the UI?
+## In the UI, there is only a ”toggle" for each subnet to attach or detach to or from the Public Gateway. Who creates the PGW? Will the PGW default to be ready when a customer wants to attach the subnet to the PGW in the UI?
 
 The PGW needs to be created explicitly through the API as it stands now, because the API requires an explicit association of a subnet to a particular public gateway.
 
-## Imagine that VSI1 has only vNIC1 and it is attached to Subnet1. Subnet1 is attached to a Public Gateway (PGW). Can the customer still assign a Floating IP to VSI1?
+## Imagine that VSI1 has only vNIC1 and it is attached to Subnet1. Subnet1 is attached to a Public Gateway (PGW). Can a customer still assign a Floating IP to VSI1?
 
 Yes, a server can be on a subnet attached to a public gateway and also have a floating IP. The assignment of floating IP to a VSI is not related to whether there is a public gateway attached to the subnet. A floating IP associated to a VSI will take precedence over the public gateway attached to the subnet.
 
@@ -55,7 +55,7 @@ No.
 
 No.
 
-## During the PGW creation, does customer need to reserve the FIP, or does the system automatically reserve the FIP? Will customer see that Floating IP when he queries all of his Floating IPs?
+## During the PGW creation, does customer need to reserve the FIP, or does the system automatically reserve the FIP? Will a customer see that Floating IP when he queries all of his Floating IPs?
 
 As the spec is currently defined, RIAS automatically creates a floating IP along with the public gateway if an existing floating IP is not specified. And yes, that floating IP will show up in the list.
 

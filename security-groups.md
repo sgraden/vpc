@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-06"
 
 ---
 
@@ -17,19 +17,34 @@ lastupdated: "2018-06-01"
 
 # Using Security Groups in VPC Beta
 
-Security groups provide a convenient way to apply rules that establish filtering, based on IP address, to each network interface of a virtual server instance (VSI).
+Security groups give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance (VSI), based on IP address.
 
-A security group denies all traffic by default. Rules are added to a security group, to define all traffic that the security group permits. Rules are _stateful_, which means that reverse traffic in response to allowed traffic is automatically permitted. So for example, a rule allowing inbound TCP traffic on port 80 also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for an additional rule.
+By default, a security group denies all traffic. As rules are added to a security group, it defines the traffic that the security group permits. 
 
-Security groups are scoped to a VPC. Therefore, servers can be added to a group only if those servers are in the same VPC as the group.
+Rules are _stateful_, which means that reverse traffic in response to allowed traffic is automatically permitted. So for example, a rule allowing inbound TCP traffic on port 80 also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for an additional rule.
 
-Servers created without any security groups will be put into their VPC's _default_ security group. This group has rules to allow:
+Security groups are scoped to a single VPC. This scoping implies that security group can be attached _only_ to network interfaces of VSIs within the same VPC.
+
+When a VSI is created without any security groups specified, the VSI's primary network interface is put into the _default_ security group of that VSI's VPC. IBM Cloud VPC Beta release has a defined default security group that does allow certain traffic.
+
+### Default Security Groups
+
+Each VPC has a default group, with rules to allow:
+
 * Inbound traffic from all other members of the group.
 * Outbound traffic from all other members of the group.
 * Inbound SSH traffic from everywhere.
 * Inbound ping traffic from everywhere.
 
-By following the example given in this document, you'll be able to create a VSI in your VPC with a security group enabled.
+If you edit the rules of the default security group, those edited rules will then apply to all current and future servers in the group.
+
+**Note:** Because Security Groups are not currently editable in the IBM Console UI, rule modifications to the default security group must be made using the REST API, or the experimental `ibmcloud cli`, for example:
+
+```
+# Add rules allowing SSH and PING
+ibmcloud is sg-rule-add --direction ingress --protocol tcp --ipv 4 --min-port 22 --max-port 22 634533 
+ibmcloud is sg-rule-add --direction ingress --protocol icmp --icmp-type 8 --icmp-code 0 634533
+```
 
 ## APIs and CLIs currently available
 
@@ -38,46 +53,50 @@ These endpoints can be used to manage a VPC's default security group.
 | Description | API | CLI |
 |-------------|-----|-----|
 |Retrieve a single security group specified by the identifier in the URL path. | GET /security_groups/{id}| `ibmcloud is security-group`, `sg`|
-|Update a security group with the information provided in a security group patch object. The security group patch object is structured in the same way as a retrieved security group and contains only the information to be updated. | PATCH /security_groups/{id}| `ibmcloud is security-group-update`, `sgu`|
+|Update a security group with the information provided in a security group patch object. The security group patch object is structured in the same way as a retrieved security group. It contains only the information to be updated. | PATCH /security_groups/{id}| `ibmcloud is security-group-update`, `sgu`|
 |Retrieve all the rules for a particular security group. | GET /security_groups/{security_group_id}/rules| `ibmcloud is security-group-rules`, `sg-rules`|
 |Retrieve a single security group rule specified by the identifier in the URL path. | GET /security_groups/{security_group_id}/rules/{id}| `ibmcloud is security-group-rule`, `sg-rule`|
-|Create a new security group rule from a security group rule template. The rule template object is structured in the same way as a retrieved security group rule and contains the information necessary to create the rule. The rule is applied to all the networking interfaces in the security group. | POST /security_groups/{security_group_id}/rules| `ibmcloud is security-group-rule-add`, `sg-rulec`|
-|Update a security group rule with the information provided in a rule patch object. The patch object is structured in the same way as a retrieved security group rule and only needs to contain the information to be updated. | PATCH /security_groups/{security_group_id}/rules/{id}| |
-|Delete a security group rule. This will not end any existing connections that were allowed by that rule. This operation cannot be reversed. | DELETE /security_groups/{security_group_id}/rules/{id}| `ibmcloud is security-group-rule-delete`, `sg-ruled`|
+|Create a new security group rule from a security group rule template. The rule template object is structured in the same way as a retrieved security group rule. It contains the information necessary to create the rule. The rule is applied to all the networking interfaces in the security group. | POST /security_groups/{security_group_id}/rules| `ibmcloud is security-group-rule-add`, `sg-rulec`|
+|Update a security group rule with the information provided in a rule patch object. The patch object is structured in the same way as a retrieved security group rule. It should contain only the information to be updated. | PATCH /security_groups/{security_group_id}/rules/{id}| |
+|Delete a security group rule. This deletion does not terminate any existing connections that were allowed by that rule. This operation cannot be reversed. | DELETE /security_groups/{security_group_id}/rules/{id}| `ibmcloud is security-group-rule-delete`, `sg-ruled`|
 
 ### Limitations of the current Beta release:
 
- * PATCH of a security group rule cannot modify the rule's protocol.
+ * Security groups currently are not editable using the UI.
+
+ * The PATCH operation on a security group rule cannot modify the rule's protocol.
 
 ## APIs and CLIs experimentally available in this Beta release
 
-The following endpoints are available in this release. However, until the 'GET network interfaces' command is released (See **Coming soon**), it's hard to get feedback on their operation, so they are not supported.
+The following endpoints are available in this release. Until the 'GET network interfaces' command is released, it's hard to get feedback on their operation, so they are not supported.
 
 | Description | API | CLI |
 |-------------|-----|-----|
-|Create a server, with the specified existing security groups attached to the server's network interfaces. |POST /servers (with security group parameters)| <span style="white-space:nowrap">`ibmcloud is server-create`</span> |
+|Create a server, with the specified existing security groups attached to the server's network interfaces. |POST /servers (with security group parameters)| `ibmcloud is server-create` |
 |Retrieve all this account's existing security groups|GET /security_groups| `ibmcloud is security-groups`, `sgs`|
-|Create a new security group from a security group template. The template is structured in the same way as a retrieved security group, and contains the information necessary to create the new security group. The template may include an optional array of security group rules, which will be added to the group. | POST /security_groups| `ibmcloud is security-group-create`, `sgc`|
-|Delete a security group. A security group cannot be deleted if any other security groups contain rules that reference it as a remote. This operation cannot be reversed. | DELETE /security_groups/{id}| `ibmcloud is security-group-delete`, `sgd`|
-|Add an server's existing network interface to an existing security group. This applies the group's rules to that interface, allowing new connections to be made, to and from the interface, that conform to those rules.<br /><br />In addition, this network interface will now be granted the access specified by the rules of any remote groups that reference this group.<br /><br />See Limitations, below.  | PUT /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface-add`, `sg-nica`|
-|Remove a server's network interface from a security group. The group's rules are no longer used to permit new network connections on that interface. <br /><br />In addition, this network interface will no longer be granted the access specified by the rules of any remote groups that reference this group. <br /><br />Existing connections that were permitted by membership of this group are not ended.| DELETE /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface-remove`, `sg-nicd`|
+|Create a new security group from a security group template. The template is structured in the same way as a retrieved security group. It contains the information necessary to create the new security group. The template may include an optional array of security group rules, which will be added to the group. | POST /security_groups| `ibmcloud is security-group-create`, `sgc`|
+|Delete a security group. A security group cannot be deleted if any other security groups contain rules that refer to it as a remote. This operation cannot be reversed. | DELETE /security_groups/{id}| `ibmcloud is security-group-delete`, `sgd`|
+|Add an server's existing network interface to an existing security group. This function applies the group's rules to that interface, allowing new connections to be made, to and from the interface, that conform to those rules.<br /><br />In addition, this network interface is now granted the access specified by the rules of any remote groups that refer to this group.<br /><br />See Limitations, below.  | PUT /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface-add`, `sg-nica`|
+|Remove a server's network interface from a security group. The group's rules are no longer used to permit new network connections on that interface. <br /><br />In addition, this network interface is no longer granted the access specified by the rules of any remote groups that refer to this group. <br /><br />Existing connections that were permitted by membership of this group are not ended.| DELETE /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface-remove`, `sg-nicd`|
 
 ### Limitations of experimental features
 
- * Adding or removing network interfaces from a security group only works for network interfaces on servers ordered after May 19.
+ * Default security groups are available for VPCs created after May 24 only.
 
- * You will not be able to view the attached interfaces until the GET functionality is available (See **coming soon**).
+ * Adding or removing network interfaces from a security group works for network interfaces on servers ordered after May 19 only.
+
+ * Although network interfaces added to a security group should be functional, you are not able to view them through the API, until the "GET network interfaces" functionality is available (**coming soon**).
 
 ## APIs and CLIs coming soon in this Beta release
 
 | Description | API | CLI |
 |-------------|-----|-----|
-|Retrieve all the the network interfaces associated with the security group. These are the network interfaces to which the rules in the group will be applied. | GET /security_groups/{security_group_id}/network_interfaces| `ibmcloud is security-group-network-interfaces`, `sg-nics`|
+|Retrieve all the the network interfaces associated with the security group. These are the network interfaces to which the rules in the group are applied. | GET /security_groups/{security_group_id}/network_interfaces| `ibmcloud is security-group-network-interfaces`, `sg-nics`|
 |Retrieve a single network interface specified by the identifier in the URL path. The network interface must be an existing member of the security group. | GET /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface`, `sg-nic`
 
 ## Security groups demo example
 
-In the example that follows, you'll be creating a VSI with a security group, from the command line interface (CLI). Here's what the scenario looks like.
+In the example that follows, you'll create a VSI with a security group enabled, using the command line interface (CLI). Here's what the scenario looks like.
 
 ![image3](/images/security-groups-demo-schematic.png)
 
@@ -100,7 +119,7 @@ This example code skips a few steps, so here's where you can find more informati
 You can copy and paste commands from this example CLI code to get you started creating a VSI that has a security group attached. System responses are not shown completely in this sample code. You'll need to update your commands with the correct resource IDs for your _VPC_, _subnet_, _image_, and _key_, and the correct _security group ID number_.
 
 **Step 1. Log in**
-   
+
 ```
 ibmcloud login -sso
 ibmcloud sl init
@@ -165,3 +184,4 @@ To add a security group rule, here's an example command for adding a PING ingres
 ibmcloud is sg-rule-add --direction ingress --protocol icmp --icmp-type 8 --icmp-code 0 569403
 ```
 {: codeblock}
+

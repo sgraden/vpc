@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-04"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -16,9 +16,9 @@ lastupdated: "2018-06-04"
 
 # Setting up security in your IBM Cloud VPC
 
-![Security for Beta](/images/VPC-internal-beta.png)
+![Security for Beta](/images/vpc-beta.png)
 
-Figure: A customer can subdivide a Virtual Private Cloud with subnets. 
+**Figure: Security groups and ACLs add security to your subnets and instances.**
 
 * Traffic to and from a subnet can be controlled by Access Control Lists (ACLs)
 * A Security Group (SG) can control the traffic at the VSI level
@@ -39,10 +39,10 @@ In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbou
   * List all ACLs
   * List all rules in certain ACLs (Ingress + egress categories)
   * CRUD (Create, Read, Update, Delete) the ACL
-  * Charges for up to 25 ingress and egress rules are bypassed for the duration of the Beta release phase. (In fact, all rules are free during the Beta release phase. Later, there will be some cost for more than 25 ingress and egress rules.)
+  * Charges up to 25 ingress and egress rules are free (All rules are free during Beta release.)
 
 ### Security Group
-A **security group** acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of rules that specify whether to allow traffic for an associated VSI. 
+A **security group** acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of 5-tuple rules that specify whether to allow traffic for an associated VSI. 
 
 When a customer launches a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules using the IBM Console, the CLI, or the API.
 
