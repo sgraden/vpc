@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-04"
+lastupdated: "2018-06-09"
 
 ---
 
@@ -36,7 +36,7 @@ Test the VPC functionality and provide feedback. Testing should be limited to fu
 
 ### Feedback Required
 
-Your feedback will help us improve the offering! Please give us your feedback at this email address: [virtualprivatecloud@ibm.com](mailto:virtualprivatecloud@ibm.com).
+Your feedback will help us improve the offering! Please give us your feedback at this email address: [vpc@us.ibm.com](mailto:vpc@us.updateibm.com).
 
 ### Experimental Use Only
 
