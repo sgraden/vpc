@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-06-05"
 {:tip: .tip}
 {:download: .download}
 
-# Verifying your VPC Access for the Beta release
+# Verifying your IBM Cloud VPC Access for the Beta release
 
 IBM Virtual Private Cloud (VPC) functionality is available through the [IBM Console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/is){: new_window}, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [Getting Started](getting-started.html) for the steps of how to be added.
 
