@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-06-06"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-06-06"
 {:tip: .tip}
 {:download: .download}
 
-# Using Security Groups in VPC Beta
+# Using Security Groups in IBM Cloud VPC Beta
 
 Security groups give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance (VSI), based on IP address.
 
