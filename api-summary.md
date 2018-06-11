@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-25"
 {:tip: .tip}
 {:download: .download}
 
-# Summary of Supported APIs for VPC Beta
+# Summary of Supported APIs for IBM Cloud VPC Beta
 
 Here is a comprehensive list of REST APIs that are supported in the VPC Beta release.
 
