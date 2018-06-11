@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-24"
 {:tip: .tip}
 {:download: .download}
 
-# Troubleshooting your VPC in the Beta release
+# Troubleshooting your IBM Cloud VPC in the Beta release
 
 This document covers common difficulties you might encounter, and offers some helpful tips.
 
