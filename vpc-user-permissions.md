@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-06-01"
 {:tip: .tip}
 {:download: .download}
 
-# Granting Permissions Needed for VPC Users
+# Granting Permissions Needed for IBM Cloud VPC Users
 
 Certain permissions must be granted so that an IBM Cloud VPC user can provision and manage resources such as servers and keys. The master of the account can add additional users to the IBM Cloud account and grant the required permissions.
 
