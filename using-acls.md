@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-05-31"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -15,9 +15,9 @@ lastupdated: "2018-05-31"
 {:tip: .tip}
 {:download: .download}
 
-# Using Network ACLs in IBM Cloud Virtual Private Cloud Beta
+# Using Network ACLs in IBM Cloud VPC Beta
 
-With the Access Control Lists (ACLs), you can control incoming and outgoing traffic for critical business workloads on the cloud at subnet level. Similar to the security group, an ACL is a built-in virtual firewall with granular control. 
+By using the Access Control Lists (ACLs) functionality available in IBM Cloud Virtual Private Cloud, you can control incoming and outgoing traffic for critical business workloads on the cloud, at the subnet level. Similar to the security group, an ACL is a built-in virtual firewall with granular control. 
 
 The difference between the security groups and ACLs is the following:
 
