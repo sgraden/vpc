@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-06-01"
 {:tip: .tip}
 {:download: .download}
 
-# Using a Virtual Private Cloud with regions and subnets
+# Using an IBM Cloud VPC with regions and subnets
 
 This document describes how regions and subnets will be incorporated into your IBM Cloud VPC in the upcoming GA release, when multiple zones and regions are available. **Note: For the Beta release, there is only one Zone and one Region.**
 
