@@ -26,6 +26,8 @@ Follow these steps to create and configure your VPC:
 
 ## Before you begin
 
+Ensure that you have sufficient permissions to create and manage resources in your VPC. For a list of required permissions, see [Granting permissions needed for VPC users](vpc-user-permissions.html).
+
 Generate an SSH key, which will be used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the command `ssh-keygen -t rsa -C "user_ID"`. That command generates two files. The generated public key is in the `<your key>.pub` file.
 
 ## Opening {{site.data.keyword.cloud_notm}} console
