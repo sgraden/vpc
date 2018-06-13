@@ -26,18 +26,44 @@ Certain permissions must be granted so that an IBM Cloud VPC user can provision 
 6. Click on the Portal Permissions section and the Devices tab.
 
   ![Devices Permissions](images/Devices-Permissions.png)
+  
+  At least the following device permissions must be set:
+  
+  * View Virtual Server Details
+  * Manage Load Balancers
+  * Manage Device Monitoring
+  * Reboot server and view IPMI system information
+  * Upgrade Server
+  * Edit Hostname/Domain
+  * Issue OS Reloads and Initiate Rescue Kernel
+  * Manage Port Control 
 
   Click on the **Edit Portal Permissions** button to save the changes.
 
 7. Still on the **Portal Permissions** section, click on the **Services** tab.
 
   ![Services Permissions](images/Services-Permissions.png)
+  
+  At least the following service permissions must be set:
+  
+  * Manage SSH Keys
+  * Upgrade Services
 
   Click on the **Edit Portal Permissions** button to save the changes.
 
 8. Still on the **Portal Permissions** section, click on the **Account** tab.
 
   ![Account Permissions](images/Account-Permissions.png)
+  
+  At least the following account permissions must be set:
+  
+  * Add/Upgrade Cloud Instances
+  * Upgrade Payment Details
+  * Cancel Server
+  * Cancel Services
+  * Add Server
+  * Add Storage
+  * Add/Upgrade Services
 
   Click on the **Edit Portal Permissions** button to save the changes.
 
