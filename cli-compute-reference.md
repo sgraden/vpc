@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-06-01"
 
 # VPC Beta Compute CLI reference
 
-This document serves as a reference for the CLI commands related to Compute functionality in the IBM Cloud VPC Beta release. Similar commands are available through the [RIAS API](apis.html).
+This document serves as a reference for the CLI commands related to Compute functionality in the IBM Cloud VPC Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
 
 
 ## Server Profile CLI commands
