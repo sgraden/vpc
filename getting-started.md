@@ -16,7 +16,7 @@ lastupdated: "2018-06-09"
 
 # Getting Started with IBM Cloud Virtual Private Cloud (VPC) Beta release
 
-Get early access to the [IBM Cloud VPC experience](about-vpc-beta.html) by participating in our Beta trial. To request access, send email to [virtualprivatecloud@ibm.com](mailto:virtualprivatecloud@ibm.com) with your use case and include your IBM Cloud Account ID. Follow [these instructions](how-to-get-account.html) to get your account information. After you send your request, you can expect to be added to the Beta release whitelist within 2-3 days. 
+Get early access to the [IBM Cloud VPC experience](about-vpc-beta.html) by participating in our Beta trial. To request access, send email to [vpc@ibm.com](mailto:virtualprivatecloud@ibm.com) with your use case and include your IBM Cloud Account ID. Follow [these instructions](how-to-get-account.html) to get your account information. After you send your request, you can expect to be added to the Beta release whitelist within 2-3 days. 
 
 ## Conditions
 
