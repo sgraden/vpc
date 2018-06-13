@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -16,11 +16,11 @@ lastupdated: "2018-06-11"
 
 # Verifying your IBM Cloud VPC Access for the Beta release
 
-IBM Virtual Private Cloud (VPC) functionality is available through the [IBM Console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/is){: new_window}, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [Getting Started](getting-started.html) for the steps of how to be added.
+IBM Virtual Private Cloud (VPC) functionality is available through the IBM Console UI, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [Getting Started](getting-started.html) for the steps of how to be added.
 
 To manage VPC resources and instantiate Virtual Server Instances (VSIs), review each user's [permissions](vpc-user-permissions.html).
 
-To use the IBM Console UI, go to [https://console.bluemix.net/is ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/is){: new_window}. You can follow the steps in our [UI guide](console-tutorial.html) for more information.
+To learn how to use the IBM Console UI to manage VPC resources, follow the steps in our [UI guide](console-tutorial.html).
 
 To use the CLI and API, follow the steps below.
 
@@ -80,7 +80,7 @@ For more details on CLI capability, see:
 
 ## API Access 
 
-Once your account has been granted access, you will receive an email with the API endpoint and credentials. Use this information to run the APIs. The following steps take you through a simple example using cURL, if you are ready to get more advanced, follow more advanced [sample code](example-code.html).
+Once your account has been granted access, you will receive an email with the API endpoint. The following steps take you through a simple example using cURL, if you are ready to get more advanced, follow more advanced [sample code](example-code.html).
 
 ### Step 1: Log in to IBM Cloud.
 
@@ -104,20 +104,19 @@ This command calls the IBM Cloud CLI, parses out the IAM token, and stores it in
 
 ### Step 3: Store Endpoint and Credentials as Variables
 
-For `rias_endpoint` and `credentials`, use the information given to you during onboarding.
+For `rias_endpoint`, use the API endpoint given to you during onboarding.
 
 ```
 rias_endpoint="<RIAS_API_ENDPOINT>"
-credentials="<BASIC_AUTH_CREDENTIALS>"
  ```
 {: codeblock}
 
-Run the previous command to store the values as variables in your session. To verify that these variables were saved, run ``echo $rias_endpoint`` and make sure the response is not empty.
+Run the previous command to store the value as a variable in your session. To verify that this variable was saved, run ``echo $rias_endpoint`` and make sure the response is not empty.
 
 ### Step 4: Run the GET Regions API
 
 ```
-curl $rias_endpoint/v1/regions -u $credentials -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/regions -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
@@ -126,7 +125,7 @@ The previous command returns the regions available for VPC, in JSON format. At l
 ### Step 5: Run the GET Flavors API
 
 ```
-curl $rias_endpoint/v1/flavors -u $credentials -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/flavors -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
@@ -135,7 +134,7 @@ The previous command returns the flavors available for your VSIs, in JSON format
 ### Step 7: Run the GET Images API
 
 ```
-curl $rias_endpoint/v1/images -u $credentials -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/images -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
@@ -144,7 +143,7 @@ The previous command returns the images available for your VSIs, in JSON format.
 ### Step 7: Run the GET VPCs API
 
 ```
-curl $rias_endpoint/v1/vpcs -u $credentials -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/vpcs -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
