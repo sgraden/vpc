@@ -44,7 +44,7 @@ The VPC Beta release does not have a Service Level Agreement. All issues are han
 
 ### IBM Cloud VPC Beta agreement document
 
-You can [view the entire Beta agreement document](images/vpc-beta-agreement.png).
+You can view the entire [Beta agreement](https://public.dhe.ibm.com/cloud/bluemix/network/vpc/beta_agreement_for_use.pdf){: new_window}.
 
 ## Beta Support
 
