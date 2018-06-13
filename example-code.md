@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -20,7 +20,7 @@ The following example will help you create an IBM Cloud VPC, a subnet, a gateway
 
 ## Verify access to the Regional APIs
 
-Get an IAM token, an IMS token, source your variables, and verify that you have access to the Regional APIs (RIAS) by following these [instructions](how-to-verify-access.html) first. 
+Get an IAM token, source your variables, and verify that you have access to the Regional APIs (RIAS) by following these [instructions](how-to-verify-access.html) first. 
 
 If you run into unexpected results, add the `--verbose` (debug) flag after the `curl` command to obtain detailed logging information. You also can check out the commonly encountered errors in our [troubleshooting page](troubleshooting.html).
 
@@ -32,7 +32,6 @@ Call the `List VPC` API to list any IBM Cloud VPCs that you have.
 
 ```bash
 curl $rias_endpoint/v1/vpcs \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
@@ -43,7 +42,6 @@ Create an IBM Cloud VPC called `my-vpc`.
 
 ```bash
 curl $rias_endpoint/v1/vpcs \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token" \
   -d '{
       	"is_default": true,
@@ -66,7 +64,6 @@ Create a subnet in your IBM Cloud VPC. For example, let's put it in the `us-sout
 
 ```bash
 curl -X POST $rias_endpoint/v1/subnets \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token" \
   -d '{
         "name": "my-subnet",
@@ -91,7 +88,6 @@ To allow servers in the subnet to have access to the public internet, add a publ
 
 ```bash
 curl -X POST $rias_endpoint/v1/public_gateways \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token" \
   -d '{
         "name": "my-gateway",
@@ -116,7 +112,6 @@ Create a key with your public SSH key. This key is used during creation of the s
 
 ```bash
 curl -X POST $rias_endpoint/v1/keys \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token" \
   -d '{
         "name": "my-key",
@@ -139,12 +134,12 @@ key="<YOUR_KEY_ID>"
 Run the APIs to list all flavor and images available for your server, and choose a combination.
 
 ```
-curl $rias_endpoint/v1/flavors -u $credentials -H "X-Auth-Token:$iam_token"
+curl $rias_endpoint/v1/flavors -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
 ```
-curl $rias_endpoint/v1/images -u $credentials -H "X-Auth-Token:$iam_token"
+curl $rias_endpoint/v1/images -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
@@ -161,24 +156,11 @@ flavor_name="<CHOSEN_FLAVOR_NAME>"
 
 ## Create a Server
 
-Create a server in the newly created subnet. Pass in your public SSH key so that you can log in after it is created. For this step in the procedure, the formatting of `echo $ims_subject` is critical. 
- * Make sure the values are filled in for _token_, _account_,and  _user_. 
- * Make sure the endpoint is set to `https://api.softlayer.com/mobile/v3.1`. 
- * Also make sure the single and double quotes are ones the terminal can parse. 
-
-Here's an example `ims_subject`:
-
-```
-{"ims":{"token":"9a369f767fbc2287ad97b400fa226dfaf6f78aa77bbf4f8cdd6be1430f18959f79fcee68dbd1776dea8ecbc954a14c2c591429b67ef89aa68bf03121bf9a8abcb20b1c4e309e747bd9c8e1745684764a5add37c152d15766b37cef0f4ea636d3b0843939839a9b567f0cf436056d746f9cb63698e1d386080c93899aa2189f5e2c31b0f822934ad801de4458cfda954d24db5026299db92876d69a369f767fbc","account":1511647,"user":6938775,"endpoint":"https://api.softlayer.com/mobile/v3.1","username":""},"land":{}}
-```
-
-If the `ims_subject` is not formatted correctly, the server will appear to have been created successfully, but it will show a status of `failed` shortly thereafter.
-
+Create a server in the newly created subnet. Pass in your public SSH key so that you can log in after it is created. 
 
 ```bash
 curl -X POST $rias_endpoint/v1/instances \
-  -u $credentials \
-  -H "X-Auth-Token:$iam_token" -H "X-Subject-Token:$ims_subject" \
+  -H "X-Auth-Token:$iam_token" \
   -d '{
         "name": "server-1",
         "type": "virtual",
@@ -228,7 +210,6 @@ Create a floating IP for the server using the server's primary network interface
 
 ```bash
 curl -X POST $rias_endpoint/v1/floating_ips \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token" \
   -d '{
         "name": "my-server-floatingip",
@@ -255,8 +236,7 @@ Check the status of your server by listing your server and seeing the status val
 
 ```bash
 curl -X GET $rias_endpoint/v1/servers/$server \
-  -u $credentials \
-  -H "X-Auth-Token:$iam_token" -H "X-Subject-Token:$ims_subject" 
+  -H "X-Auth-Token:$iam_token" 
 ```
 {: codeblock}
 
@@ -264,8 +244,7 @@ A status of `running` means that the server is available for you to log in. To S
 
 ```bash
 curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
-  -u $credentials \
-  -H "X-Auth-Token:$iam_token" -H "X-Subject-Token:$ims_subject" 
+  -H "X-Auth-Token:$iam_token" 
 ```
 {: codeblock}
 
@@ -278,7 +257,6 @@ Delete the resources if desired. A resource cannot be deleted if it contains oth
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/floating_ips/$floating_ip \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
@@ -287,8 +265,7 @@ curl -X DELETE $rias_endpoint/v1/floating_ips/$floating_ip \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/servers/$server \
-  -u $credentials \
-  -H "X-Auth-Token:$iam_token" -H "X-Subject-Token:$ims_subject" 
+  -H "X-Auth-Token:$iam_token" 
 ```
 {: codeblock}
 
@@ -296,8 +273,7 @@ curl -X DELETE $rias_endpoint/v1/servers/$server \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/keys/$key \
-  -u $credentials \
-  -H "X-Auth-Token: $iam_token" -H "X-Subject-Token:$ims_subject" 
+  -H "X-Auth-Token: $iam_token" 
 ```
 {: codeblock}
 
@@ -306,7 +282,6 @@ curl -X DELETE $rias_endpoint/v1/keys/$key \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/public_gateways/$gateway \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
@@ -315,7 +290,6 @@ curl -X DELETE $rias_endpoint/v1/public_gateways/$gateway \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/subnets/$subnet \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
@@ -324,7 +298,6 @@ curl -X DELETE $rias_endpoint/v1/subnets/$subnet \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/vpcs/$vpc \
-  -u $credentials \
   -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
