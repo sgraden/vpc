@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-09"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -16,31 +16,16 @@ lastupdated: "2018-06-09"
 
 # Getting Started with IBM Cloud Virtual Private Cloud (VPC) Beta release
 
-Get early access to the [IBM Cloud VPC experience](about-vpc-beta.html) by participating in our Beta trial. To request access, send email to [virtualprivatecloud@ibm.com](mailto:virtualprivatecloud@ibm.com) with your use case and include your IBM Cloud Account ID. Follow [these instructions](how-to-get-account.html) to get your account information. After you send your request, you can expect to be added to the Beta release whitelist within 2-3 days. 
+Get early access to the [IBM Cloud VPC experience](about-vpc-beta.html) by participating in our Beta trial. To request access, send email to [virtualprivatecloud@ibm.com](mailto:virtualprivatecloud@ibm.com) with your use case and include your IBM Cloud Account ID and linked Infrastructure Account ID. Follow [these instructions](how-to-get-account.html) to get your account information. 
 
 ## Conditions
 
 By participating in this Beta release, you agree to these conditions:
 
-* Functionality testing only
-* Feedback required
-* Experimental use only, work cannot be migrated
-* Abide by the quotas
-* No Service Level Agreement
-
-The conditions are explained further in the sections that follow.
-
-### Functionality Testing Only
-
-Test the VPC functionality and provide feedback. Testing should be limited to functionality (no scale, performance, load, or pressure testing). 
-
-### Feedback Required
-
-Your feedback will help us improve the offering! Please give us your feedback at this email address: [vpc@us.ibm.com](mailto:vpc@us.ibm.com).
-
-### Experimental Use Only
-
-Please note that this Beta release is provided for experimental purposes only. As features are deployed during the Beta timeframe, any or all of your work could be lost with short notice. At the end of the Beta trial period, the resources you've created will not be available and cannot be migrated.
+* Limit use to functionality testing: no scale, performance, load, or pressure testing.
+* Provide feedback so we can improve the offering. Send feedback to [virtualprivatecloud@ibm.com](mailto:virtualprivatecloud@ibm.com). 
+* Abide by the quotas below. 
+* Agree to the current limitations. There is no Service Level Agreement during the Beta trial and any resources created are not guaranteed to be available when the offering becomes generally available.
 
 ### Quotas
 
@@ -49,7 +34,7 @@ Resources are limited in the Beta environment, therefore the following quotas ha
 |   Resource     | Maximum Number |
 | ------- | :------: |
 | Virtual Private Clouds | 5 per account|
-| Subnets | 3 per Virtual Private Cloud |
+| Subnets | 5 per Virtual Private Cloud |
 | Servers (VSIs) | 25 per account |
 | Floating IP addresses | 1 per server |
 
@@ -57,18 +42,18 @@ Resources are limited in the Beta environment, therefore the following quotas ha
 
 The VPC Beta release does not have a Service Level Agreement. All issues are handled as **minor severity** with next business day response. 
 
-### View the IBM Cloud VPC Beta agreement document
+### IBM Cloud VPC Beta agreement document
 
-You can [view the entire Beta agreement document](/images/vpc-beta-agreement.png).
+You can [view the entire Beta agreement document](images/vpc-beta-agreement.png).
 
-## Support
+## Beta Support
 
-Support is provided through the [IBM Cloud support](getting-help.html) team. 
+Support is provided through the [IBM Cloud support](https://console.bluemix.net/docs/support/index.html#contacting-support)  team. 
 
 ## Ready?
 
 Once you've been notified that your participation is approved, follow these instructions to verify your permissions and access:
 
 * [Instructions](vpc-user-permissions.html) to verify or obtain the correct permissions, which must be granted by the master or primary user of your account.
-* [Instructions](how-to-verify-access.html) to verify access and get started by downloading and installing the correct plugins, and generating a key if you need one.
+* [Instructions](how-to-verify-access.html) to verify access to the user interface, command line interface and APIs for the IBM Cloud Virtual Private Cloud Beta.
 
