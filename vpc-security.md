@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-06-14"
 
 ---
 
@@ -26,7 +26,7 @@ lastupdated: "2018-06-12"
 
 ## Terminology
 
-This [glossary](vpc-glossary.html) provides definitions and descriptions of ACLs and SGs, and the actions you can perform with them. The sectio nthat follows descibes
+This [glossary](vpc-glossary.html) provides definitions and descriptions of ACLs and SGs, and the actions you can perform with them. The section that follows descibes basic functionality of ACLs and security groups, and how VPC supports end-to-end encryption.
 
 ### Access Control List
 An **Access Control List (ACL)** can manage (that is, it can allow or deny) ingress and egress traffic for a subnet. An ACL is stateless, which means that ingress and egress rules must be specified separately and explicitly. Each ACL consists of rules, based upon a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*. 
