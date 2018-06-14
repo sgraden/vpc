@@ -23,7 +23,7 @@ Get early access to the [IBM Cloud VPC experience](about-vpc-beta.html) by parti
 By participating in this Beta release, you agree to these conditions:
 
 * Limit use to functionality testing: no scale, performance, load, or pressure testing.
-* Provide feedback so we can improve the offering. Send feedback to [vpc@ibm.com](mailto:vpc@ibm.com). 
+* Provide feedback so we can improve the offering. Send feedback to [vpc@us.ibm.com](mailto:vpc@us.ibm.com). 
 * Abide by the quotas below. 
 * Agree to the current limitations. There is no Service Level Agreement during the Beta trial and any resources created are not guaranteed to be available when the offering becomes generally available.
 
