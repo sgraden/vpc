@@ -60,7 +60,7 @@ vpc="<YOUR_VPC_ID>"
 
 ## Create a Subnet
 
-Create a subnet in your IBM Cloud VPC. For example, let's put it in the `us-south-1` zone.
+Create a subnet in your IBM Cloud VPC. For example, let's put it in the `us-south-2` zone.
 
 ```bash
 curl -X POST $rias_endpoint/v1/subnets \
@@ -68,7 +68,7 @@ curl -X POST $rias_endpoint/v1/subnets \
   -d '{
         "name": "my-subnet",
         "ipv4_cidr_block": "10.0.1.0/24",
-        "zone": { "name": "us-south-1" },
+        "zone": { "name": "us-south-2" },
         "vpc": { "id": "'$vpc'" }
       }'
 ```
@@ -91,7 +91,7 @@ curl -X POST $rias_endpoint/v1/public_gateways \
   -H "X-Auth-Token:$iam_token" \
   -d '{
         "name": "my-gateway",
-        "zone": { "name": "us-south-1" },
+        "zone": { "name": "us-south-2" },
         "vpc": { "id": "'$vpc'" }
       }'
 ```
@@ -165,7 +165,7 @@ curl -X POST $rias_endpoint/v1/instances \
         "name": "server-1",
         "type": "virtual",
         "zone": {
-          "name": "us-south-1"
+          "name": "us-south-2"
         },
         "vpc": {
           "id": "'$vpc'"
