@@ -42,12 +42,14 @@ The VPC CLI actions use the extension `is`.
 ```
 ibmcloud plugin install infrastructure-service
 ```
+{: codeblock}
 
 Or to update:
 
 ```
 ibmcloud plugin update
 ```
+{: codeblock}
 
 ### Step 2: Log in to IBM Cloud.
     
@@ -85,7 +87,7 @@ Once your account has been granted access, you will receive an email with the AP
 ### Step 1: Log in to IBM Cloud.
 
 ```
-ibmcloud login --sso -a https://api.ng.bluemix.net
+ibmcloud login --sso
  ```
 {: codeblock}
 
