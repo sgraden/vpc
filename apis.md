@@ -261,7 +261,7 @@ This request creates a new public gateway from a public gateway template. A publ
     "id": "4727d842-f94f-4a2d-824a-9bc9b02c523b"
   },
   "zone": {
-    "name": "us-south-1"
+    "name": "us-south-2"
   }
 }
 ```
@@ -520,7 +520,7 @@ This request creates a new subnet from a subnet template. The subnet template ob
     "id": "4727d842-f94f-4a2d-824a-9bc9b02c523b"
   },
   "zone": {
-    "name": "us-south-1"
+    "name": "us-south-2"
   }
 }
 ```
@@ -706,7 +706,7 @@ This request creates a new prefix from a prefix template. The prefix template ob
   "name": "my-address-pool-prefix-2",
   "cidr": "10.0.0.0/24",
   "zone": {
-    "name": "us-south-1"
+    "name": "us-south-2"
   }
 }
 ```
