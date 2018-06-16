@@ -69,6 +69,8 @@ ibmcloud is help server-create
 ### Step 4: Start running VPC CLIs!
     
 ```
+ibmcloud is regions
+ibmcloud is zones
 ibmcloud is vpcs
 ibmcloud is subnets
 ibmcloud is servers
@@ -104,7 +106,7 @@ This command calls the IBM Cloud CLI, parses out the IAM token, and stores it in
 
 **Note that you must repeat the preceding step to refresh your IAM token every hour, because the token expires.**
 
-### Step 3: Store Endpoint and Credentials as Variables
+### Step 3: Store the Endpoint as a Variable
 
 For `rias_endpoint`, use the API endpoint given to you during onboarding.
 
@@ -124,7 +126,18 @@ curl $rias_endpoint/v1/regions -H "X-Auth-Token: $iam_token"
 
 The previous command returns the regions available for VPC, in JSON format. At least one object should return. 
 
-### Step 5: Run the GET Flavors API
+### Step 5: Run the GET Zones API
+
+Note that currently, there is only one region `us-south` available.
+
+```
+curl $rias_endpoint/v1/regions/us-south/zones -H "X-Auth-Token: $iam_token"
+```
+{: codeblock}
+
+The previous command returns the zones available for VPC in region `us-south`, in JSON format. At least one object should return. 
+
+### Step 6: Run the GET Flavors API
 
 ```
 curl $rias_endpoint/v1/flavors -H "X-Auth-Token: $iam_token"
@@ -142,7 +155,7 @@ curl $rias_endpoint/v1/images -H "X-Auth-Token: $iam_token"
 
 The previous command returns the images available for your VSIs, in JSON format. At least one object should return.
 
-### Step 7: Run the GET VPCs API
+### Step 8: Run the GET VPCs API
 
 ```
 curl $rias_endpoint/v1/vpcs -H "X-Auth-Token: $iam_token"
