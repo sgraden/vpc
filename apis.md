@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-06-18"
 
 ---
 
@@ -261,7 +261,7 @@ This request creates a new public gateway from a public gateway template. A publ
     "id": "4727d842-f94f-4a2d-824a-9bc9b02c523b"
   },
   "zone": {
-    "name": "us-south-2"
+    "name": "us-south-1"
   }
 }
 ```
@@ -312,7 +312,7 @@ Retrieves a paginated list of all security groups belonging to this account.
 * **Return**: `200: The security groups were retrieved successfully.`
 
 ### POST/security_groups
-Creates a new security group.
+Creates a new security group. Security group rules created as part of this operation use IPv4 by default.
 
 * **Required Parameters**: None.
 * **Request Body**: The properties of the security group to be created:
@@ -326,7 +326,6 @@ Creates a new security group.
   "rules": [
     {
       "direction": "ingress",
-      "ip_version": "ipv4",
       "port_max": 22,
       "port_min": 22,
       "protocol": "tcp",
@@ -429,7 +428,7 @@ Retrieves all the rules of a particular security group.
 	* `404: A security group with the specified identifier could not be found.`
 
 ### POST/security_groups/{security_group_id}/rules
-Retrieves all the rules of a particular security group.
+Retrieves all the rules of a particular security group. The IP address defaults to IPv4.
 
 * **Required Parameters**: `security_group_id`: The security group identifier.
 * **Request Body**: The properties of the security group rule to be created:
@@ -437,7 +436,6 @@ Retrieves all the rules of a particular security group.
 ```
 {
   "direction": "ingress",
-  "ip_version": "ipv4",
   "port_max": 22,
   "port_min": 22,
   "protocol": "tcp",
@@ -472,7 +470,7 @@ Retrieves a single security group rule specified by identifier.
 	* `404: A rule with the specified identifier could not be found.`
 
 ### PATCH/security_groups/{security_group_id}/rules/{id}
-Updates the properties of an existing rule on a security group.
+Updates the properties of an existing rule on a security group. The IP address defaults to IPv4.
 
 * **Required Parameters**: 
 	* `security_group_id`: The security group identifier.
@@ -482,7 +480,6 @@ Updates the properties of an existing rule on a security group.
 ```
 {
   "direction": "ingress",
-  "ip_version": "ipv4",
   "port_max": 22,
   "port_min": 22,
   "protocol": "tcp",
@@ -520,7 +517,7 @@ This request creates a new subnet from a subnet template. The subnet template ob
     "id": "4727d842-f94f-4a2d-824a-9bc9b02c523b"
   },
   "zone": {
-    "name": "us-south-2"
+    "name": "us-south-1"
   }
 }
 ```
@@ -706,7 +703,7 @@ This request creates a new prefix from a prefix template. The prefix template ob
   "name": "my-address-pool-prefix-2",
   "cidr": "10.0.0.0/24",
   "zone": {
-    "name": "us-south-2"
+    "name": "us-south-1"
   }
 }
 ```

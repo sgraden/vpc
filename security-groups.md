@@ -38,7 +38,7 @@ Each VPC has a default group, with rules to allow:
 
 If you edit the rules of the default security group, those edited rules will then apply to all current and future servers in the group.
 
-**Note:** Because Security Groups are not currently editable in the IBM Console UI, rule modifications to the default security group must be made using the REST API, or the experimental `ibmcloud cli`, for example:
+**Notes:** Because Security Groups are not currently editable in the IBM Console UI, inbound rules to allow ping and SSH have been added to the default security group as a convenience. These 2 rules will no longer be added to the default security group for new VPCs later in the Beta release timeframe, once the Security Group UI has been released. However, they will remain on any default security groups created before this change. Rule modifications to the default security group must be made using the REST API, or the experimental `ibmcloud cli`, for example:
 
 ```
 # Add rules allowing SSH and PING

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-18"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-06-01"
 
 # VPC Beta Network CLI reference
 
-This document provides a reference of the CLI commands available for the Network functionality of the IBM Cloud Virtual Private Cloud Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
+This document provides a reference of the CLI commands available for the Netowrk functionality of the IBM Cloud Virtual Private Cloud Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
 
 ## Floating IPs
 
@@ -649,20 +649,19 @@ Retrieve the details of a security group rule
 
 ### `ibmcloud is security-group-rule-add`
 
-Add a rule to a security group
+Add a rule to a security group. The IP version defaults to IPv4.
 
 #### Syntax
 
-`ibmcloud is security-group-rule-add GROUP_ID DIRECTION IP_VERSION PROTOCOL (REMOTE_ADDRESS | REMOTE_CIDR_BLOCK | PEER_SECURITY_GROUP_ID) [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--json]`
+`ibmcloud is security-group-rule-add GROUP_ID DIRECTION PROTOCOL (REMOTE_ADDRESS | REMOTE_CIDR_BLOCK | PEER_SECURITY_GROUP_ID) [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--json]`
 
 ##### Options
 
 - `GROUP_ID `: ID of the security group
 - `DIRECTION`: Direction of traffic to enforce. Valid values are `ingress` or `egress`
-- `IP_VERSION `: Version of the IP address. Valid values are `ipv4` and `ipv6` 
 - `PROCOTOL`: Protocol to enforce. Valid values are `all`, `icmp`, `tcp` and `udp`
 - `REMOTE_ADDRESS`: IP address from/to which this rule should allow traffic. This is exclusive with `REMOTE_CIDR_BLOCK` and `PEER_SECURITY_GROUP_ID`
-- `REMOTE_CIDR_BLOCK`: Range of IPv4 or IPv6 addresses in CIDR format from/to which this rule should allow traffic.  This is exclusive with `REMOTE_ADDRESS` and `PEER_SECURITY_GROUP_ID`
+- `REMOTE_CIDR_BLOCK`: Range of IPv4 addresses in CIDR format from/to which this rule should allow traffic.  This is exclusive with `REMOTE_ADDRESS` and `PEER_SECURITY_GROUP_ID`
 - `PEER_SECURITY_GROUP`: ID of the security group with remote addresses. This is exclusive with `REMOTE_ADDRESS` and `REMOTE_CIDR_BLOCK`
 - `--icmp-code`: ICMP traffic code to allow. Valid values from 0 to 255. This is specified only when protocol is set to `icmp`
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
@@ -674,21 +673,20 @@ Add a rule to a security group
 
 ### `ibmcloud is security-group-rule-update`
 
-Update a rule of a security group
+Update a rule of a security group. The IP version defaults to IPv4.
 
 #### Syntax
 
-`ibmcloud is security-group-rule-update GROUP_ID RULE_ID [--direction DIRECTION] [--ip-version IP_VERSION] [--protocol PROTOCOL] [--remote-address REMOTE_ADDRESS  | --remote-cidr-block CIDR_BLOCK ] [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--json]`
+`ibmcloud is security-group-rule-update GROUP_ID RULE_ID [--direction DIRECTION] [--protocol PROTOCOL] [--remote-address REMOTE_ADDRESS  | --remote-cidr-block CIDR_BLOCK ] [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--json]`
 
 ##### Options
 
 - `GROUP_ID `: ID of the security group
 - `RULE_ID`: ID of the rule
 - `--direction`: Direction of traffic to enforce. Valid values are `ingress` or `egress`
-- `--ip-version IP_VERSION`: Version of the IP address. Valid values are `ipv4` and `ipv6` 
 - `--protocol`: Protocol to enforce. Valid values are `all`, `icmp`, `tcp` and `udp`
 - `--remote-address`: IP address from/to which this rule should allow traffic. This is exclusive with `--remote-cidr-block`
-- `--remote-cidr-block`: Range of IPv4 or IPv6 addresses in CIDR format from/to which this rule should allow traffic.  This is exclusive with `--remote-address`
+- `--remote-cidr-block`: Range of IPv4 addresses in CIDR format from/to which this rule should allow traffic.  This is exclusive with `--remote-address`
 - `--icmp-code`: ICMP traffic code to allow. Valid values from 0 to 255. This is specified only when protocol is set to `icmp`
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
 - `--port-max`: Maximum port number. Valid values are from 1 to 65535.This is specified only when protocol is set to `tcp` or `udp`

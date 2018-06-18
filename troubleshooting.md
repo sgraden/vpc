@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-06-18"
 
 ---
 
@@ -46,12 +46,20 @@ strict-transport-security: max-age=15724800; includeSubDomains;
 {"id":"0ba0c6f1-705a-4e37-9e26-0f2d7e505329","crn":"","name":"VPC-a-late-making-modified","href":"https://rias.wrig.me:5000/v1/vpcs/0ba0c6f1-705a-4e37-9e26-0f2d7e505329","status":"available","is_default":false,"created_at":"2018-04-25T03:30:28Z"}
 ```
 
-
 ### If Trace ID is blank
 
 Usually, when the Trace ID is blank, it is because the JSON returned does not match what is expected from the Swagger. Try `RIAAS_DEBUG=yes ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
 
-## Other Issues
+## Turning on `TRACE` mode
+
+You can use the IBM Cloud `TRACE` options to turn on `TRACE` mode, by entering any of the following commands:
+
+
+ * `IBMCLOUD_TRACE=true`
+ * `IS_TRACE=true`
+ * `BLUEMIX_TRACE=true`
+ 
+ ## Other Issues
 
 Here are a few difficulties you might encounter:
 
