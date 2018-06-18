@@ -16,6 +16,7 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="howto"}
     how-to-verify-access.md
+    use-cli.html
     sl-2-factor-auth.md
     vpc-user-permissions.md
     vpc-regions-and-subnets.md
