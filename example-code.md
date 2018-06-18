@@ -84,7 +84,7 @@ subnet="<YOUR_SUBNET_ID"
 
 ## Check the Status of your Subnet
 
-To provision resources in your subnet, the subnet must be in `available` status. Query the subnet resource and make sure the status is `available` before continuing. If the status is `failed`, contact [support](getting-help.html) with the details. You can attempt to continue by trying to provision another subnet. 
+To provision resources in your subnet, the subnet must be in `available` status. Query the subnet resource and make sure the status is `available` before you continue. If the status is `failed`, contact [support](getting-help.html) with the details. You can attempt to continue by trying to provision another subnet. 
 
 ```bash
 curl $rias_endpoint/v1/subnets/$subnet -H "X-Auth-Token: $iam_token"
