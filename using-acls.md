@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-06-11"
+lastupdated: "2018-06-18"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-06-11"
 {:tip: .tip}
 {:download: .download}
 
-# Using Network ACLs in IBM Cloud VPC Beta
+# Using Network ACLs in the IBM Cloud VPC Beta release
 
 By using the Access Control Lists (ACLs) functionality available in IBM Cloud Virtual Private Cloud, you can control incoming and outgoing traffic for critical business workloads on the cloud, at the subnet level. Similar to the security group, an ACL is a built-in virtual firewall with granular control. 
 
@@ -33,10 +33,10 @@ By following the example given in this document, you'll be able to create networ
 
 ## APIs and CLIs currently available
 
-The following table is a summary of ACL related APIs and CLIs available at this moment. 
+The following table is a summary of ACL-related APIs and CLIs available in the Beta release. 
 
 * For the parameters, request body, and response details for each API, see the [APIs](apis.md) topic. 
-* For installing the CLI plugin and the prerequsite steps of using CLI, see the [Using CLI](use-cli.md) topic. 
+* For command details, installing the CLI plugin, and the prerequsite steps of using CLI, see the [Using CLI](how-to-verify-access.html#cli-access) topic. 
 
 | Description | API | CLI |
 |-------------|-----|-----|
@@ -66,7 +66,7 @@ With a network ACL you can create multiple ingress and egress rules.
 * Ingress rules are separated from egress rules. 
 * The protocols currently supported are TCP, UDP, and ICMP. You also can use the **all** option to designate _all_ or _other_ (if a rule with a higher priority is specified) protocols. 
 
-For the current limitations, see the [Known limitations for Beta test](#known-limitation-for-beta-test) section.
+For the current limitations, see the [Known limitations for the Beta release](#known-limitation-for-the-beta-release) section.
 
 ### Attaching an ACL to a subnet
 
@@ -334,6 +334,6 @@ ibmcloud is network-acl-rule-add --action allow --direction ingress --protocol i
 ```
 {: codeblock}
 
-## Known Limitation for Beta test
+## Known Limitation for the Beta release
 
-See the [known limitations](known-limitations.md) about Beta.
+See the [known limitations](known-limitations.md) about the Beta release.
