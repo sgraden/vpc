@@ -16,7 +16,7 @@ lastupdated: "2018-06-12"
 
 # Example Code Tutorial
 
-The following example will help you create an IBM Cloud VPC, a subnet, a gateway, a server, and associate a floating IP address, using the IBM Cloud VPC (Beta) REST APIs.
+The following example will help you create an IBM Cloud VPC, a subnet, a gateway, a virtual server instance, and associate a floating IP address, using the IBM Cloud VPC (Beta) REST APIs.
 
 ## Verify access to the Regional APIs
 
@@ -82,9 +82,19 @@ subnet="<YOUR_SUBNET_ID"
 ```
 {: codeblock}
 
+## Check the Status of your Subnet
+
+In order to provision resources in your subnet, the subnet must be in `available` status. Query the subnet resource and make sure the status is `available` before continuing. If the status is `failed`, contact [support](getting-help.html) with the details. You can attempt to continue by trying to provision another subnet. 
+
+```bash
+curl $rias_endpoint/v1/subnets/$subnet -H "X-Auth-Token: $iam_token"
+```
+{: codeblock}
+
+
 ## Create a Public Gateway
 
-To allow servers in the subnet to have access to the public internet, add a public gateway (PGW) to the IBM Cloud VPC in each zone.  
+To allow virtual server instances in the subnet to have access to the public internet, add a public gateway (PGW) to the subnet.  
 
 ```bash
 curl -X POST $rias_endpoint/v1/public_gateways \
@@ -108,7 +118,7 @@ gateway="<YOUR_GATEWAY_ID"
 
 ## Create an SSH Key
 
-Create a key with your public SSH key. This key is used during creation of the server, also for logging into the server.
+Create a key with your public SSH key. This key is used during creation of the virtual server instance and is needed to log into the virtual server instance.
 
 ```bash
 curl -X POST $rias_endpoint/v1/keys \
@@ -129,9 +139,9 @@ key="<YOUR_KEY_ID>"
 ```
 {: codeblock}
 
-## Choose a Flavor and Image for your Server
+## Choose a Flavor and Image for your Virtual Server Instance
 
-Run the APIs to list all flavor and images available for your server, and choose a combination.
+Run the APIs to list all flavor and images available for your virtual server instance, and choose a combination.
 
 ```
 curl $rias_endpoint/v1/flavors -H "X-Auth-Token:$iam_token"
@@ -143,20 +153,20 @@ curl $rias_endpoint/v1/images -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
-Save the ID of the Image and Name of the Flavor in variables to be used later to create a server.
+Save the Name of the Flavor and the ID of the Image in variables to be used later to provision a virtual server instance.
 
 ```bash
-# Something like this: `image_id="660198a6-52c6-21cd-7b57-e37917cef586"`
-image_id="<CHOSEN_IMAGE_ID>"
 # Something like this: `flavor_name="B1_2X4X100"`
 flavor_name="<CHOSEN_FLAVOR_NAME>"
+# Something like this: `image_id="660198a6-52c6-21cd-7b57-e37917cef586"`
+image_id="<CHOSEN_IMAGE_ID>"
 ```
 {: codeblock}
 
 
-## Create a Server
+## Provision a Virtual Server Instance
 
-Create a server in the newly created subnet. Pass in your public SSH key so that you can log in after it is created. 
+Provision a virtual server instance in the newly created subnet. Pass in your public SSH key so that you can log in after it is provisioned. 
 
 ```bash
 curl -X POST $rias_endpoint/v1/instances \
@@ -188,7 +198,7 @@ curl -X POST $rias_endpoint/v1/instances \
 ```
 {: codeblock}
 
-As you did with the other resources, save the ID of the server in a variable.
+As you did with the other resources, save the ID of the virtual server instance in a variable.
 
 ```bash
 # Something like this: `server="35fb0489-7105-41b9-99de-033fae723006"`
@@ -196,7 +206,7 @@ server="<YOUR_SERVER_ID"
 ```
 {: codeblock}
 
-Also save the ID of the primary network interface of the server.
+Also save the ID of the primary network interface of the virtual server instance.
 
 ```bash
 # Something like this: `network_interface="7710e766-dd6e-41ef-9d36-06f7adbef33d"`
@@ -204,9 +214,18 @@ network_interface="<YOUR_NETWORK_INTERFACE_ID"
 ```
 {: codeblock}
 
+## Check the Status of your Virtual Server Instance
+
+Provisioning a Virtual Server Instance may take seconds to minutes. Before continuing, query the status of the server and make sure it is `running`.
+
+```bash
+curl $rias_endpoint/v1/instances/$server -H "X-Auth-Token: $iam_token"
+```
+{: codeblock}
+
 ## Create a Floating IP
 
-Create a floating IP for the server using the server's primary network interface as the target for the new floating IP.
+Create a floating IP for the virtual server instance using the instances's primary network interface as the target for the new floating IP.
 
 ```bash
 curl -X POST $rias_endpoint/v1/floating_ips \
@@ -230,17 +249,9 @@ floating_ip="<YOUR_FLOATING_IP_ID>"
 ```
 {: codeblock}
 
-## Check whether your Server is available
+## SSH into your Virtual Server Instance
 
-Check the status of your server by listing your server and seeing the status value. 
-
-```bash
-curl -X GET $rias_endpoint/v1/servers/$server \
-  -H "X-Auth-Token:$iam_token" 
-```
-{: codeblock}
-
-A status of `running` means that the server is available for you to log in. To SSH to the server, use the `address` of the Floating IP you created. To get the Floating IP, run the following command:
+To SSH to the server, use the `address` of the Floating IP you created. To get the address of the Floating IP, run the following command:
 
 ```bash
 curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
@@ -248,10 +259,14 @@ curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
 ```
 {: codeblock}
 
+Use the address of the Floating IP to SSH to the virtual server instance:
+
+```ssh root@<floating ip address>``
+
 
 ## Delete the Resources
 
-Delete the resources if desired. A resource cannot be deleted if it contains other resources, for example, a Virtual Private Cloud cannot be deleted if it contains subnets and a subnet cannot be deleted if it contains Servers.
+Delete the resources if desired. A resource cannot be deleted if it contains other resources, for example, a Virtual Private Cloud cannot be deleted if it contains subnets and a subnet cannot be deleted if it contains server instances.
 
 ### Delete the floating IP.
 
@@ -261,10 +276,10 @@ curl -X DELETE $rias_endpoint/v1/floating_ips/$floating_ip \
 ```
 {: codeblock}
 
-### Delete the server.
+### Delete the Virtual Server Instance.
 
 ```bash
-curl -X DELETE $rias_endpoint/v1/servers/$server \
+curl -X DELETE $rias_endpoint/v1/instances/$server \
   -H "X-Auth-Token:$iam_token" 
 ```
 {: codeblock}
