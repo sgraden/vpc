@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-18"
+lastupdated: "2018-06-19"
 
 ---
 
@@ -19,7 +19,11 @@ The VPC APIs are a portion of the Regional Infrastructure API Service (RIAS) API
 
 For the Beta release, the VPC APIs include Network, Compute, and Geography. These are REST APIs, which include the standard functionalities: CREATE, READ, UPDATE, DELETE.
 
-The detailed parameters are specified in the sections that follow.
+To see a tested sequence of API calls that you can use, please refer to our [Example Code Tutorial](example-code-tutorial.html).
+
+The detailed parameters are specified in the sections that follow. 
+
+**Note:** Although some API calls do not have required parameters, many calls do have **required** "Request Body" information that must be specified in JSON format. We have provided code examples of the minimum required data in JSON format.
 
 ## API for Network
 ### GET/floating_ips
@@ -31,11 +35,11 @@ This request retrieves all floating IPs in the region. Floating IPs allow ingres
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
 * **Return**: `200: The floating IPs were retrieved successfully.`
 
-### POST/floating_ips/{id}
+### POST/floating_ips
 This request reserves a new floating IP.
 
 * **Required Parameters**: None
-* **Request Body**:
+* **Request Body**: _required_
 	The floating IP template: 
 
 ```
@@ -71,7 +75,9 @@ This request retrieves a single floating IP specified by the identifier in the U
 This request updates a floating IP's name and/or target.
 
 * **Required Parameters**: `id`: The floating IP identifier.
-* **Request Body**: The floating IP patch:
+* **Request Body**: _required_
+
+    The floating IP patch:
 
 	```
 	{
@@ -100,7 +106,9 @@ This request retrieves all network ACLs in the region. A network ACL defines a s
 This request creates a new network ACL from a network ACL template. The network ACL template object is structured in the same way as a retrieved network ACL, and contains the information necessary to create the new network ACL.
 
 * **Required Parameters**: None.
-* **Request Body:** The network ACL template:
+* **Request Body:** _required_
+
+    The network ACL template:
 
 ```
 {
@@ -133,7 +141,9 @@ This request retrieves a single network ACL specified by the identifier in the U
 This request updates a network ACL's name.
 
 * **Required Parameters**: `id`: The network ACL identifier.
-* **Request Body**: The network ACL patch:
+* **Request Body**: _required_
+
+    The network ACL patch:
 
 ```
 {
@@ -161,7 +171,9 @@ This request creates a new rule from a rule template. The rule template object i
 
 * **Required Parameters**: 
 	* `network_acl_id`: The network ACL identifier.
-* **Request Body**: The rule template:
+* **Request Body**: _required_
+
+The rule template:
 
 ```
 {
@@ -210,7 +222,9 @@ This request updates a rule with the information in a provided rule patch. The r
 * **Required Parameters**: 
 	* `network_acl_id`: The network ACL identifier.
 	* `id`: The rule identifier.
-* **Request Body:** The rule patch:
+* **Request Body:** _required_
+
+    The rule patch:
 
 ```
 {
@@ -246,7 +260,9 @@ This request retrieves all public gateways. A public gateway is a virtual networ
 This request creates a new public gateway from a public gateway template. A public gateway can be created with an existing unbound floating address. If a floating address is not supplied, one will be created and bound to the public gateway. Once a public gateway is created, its external address cannot be unbound. The only way to rebind a floating address bound to a public gateway is to delete the gateway.
 
 * **Required Parameters**: None.
-* **Request Body**: The public gateway template:
+* **Request Body**: _required_
+
+    The public gateway template:
 
 ```
 {
@@ -290,7 +306,9 @@ This request retrieves a single public gateway specified by the identifier in th
 This request updates a public gateway's name.
 
 * **Required Parameters**: `id`: The public gateway identifier.
-* **Request Body**: The public gateway patch:
+* **Request Body**: _required_
+
+    The public gateway patch:
 
 ```
 {
@@ -315,7 +333,9 @@ Retrieves a paginated list of all security groups belonging to this account.
 Creates a new security group. Security group rules created as part of this operation use IPv4 by default.
 
 * **Required Parameters**: None.
-* **Request Body**: The properties of the security group to be created:
+* **Request Body**: _required_
+
+    The properties of the security group to be created:
 
 ```
 {
@@ -368,7 +388,9 @@ Retrieves a single security group specified by the identifier in the URL path.
 Updates the properties of an existing security group.
 
 * **Required Parameters**: `id`: The security group identifier.
-* **Request Body**: The security group patch:
+* **Request Body**:   _required_
+
+  The security group patch:
 
 ```
 {
@@ -431,7 +453,9 @@ Retrieves all the rules of a particular security group.
 Retrieves all the rules of a particular security group. The IP address defaults to IPv4.
 
 * **Required Parameters**: `security_group_id`: The security group identifier.
-* **Request Body**: The properties of the security group rule to be created:
+* **Request Body**: _required_
+
+    The properties of the security group rule to be created:
 
 ```
 {
@@ -453,7 +477,7 @@ Retrieves all the rules of a particular security group. The IP address defaults 
 Deletes a rule from a security group. This operation cannot be reversed.
 
 * **Required Parameters**: 
-	* 	* `security_group_id`: The security group identifier.
+	*  `security_group_id`: The security group identifier.
 	* `id`: The network interface identifier. 
 * **Return**: 
 	* `204: The rule was deleted successfully.`
@@ -475,7 +499,9 @@ Updates the properties of an existing rule on a security group. The IP address d
 * **Required Parameters**: 
 	* `security_group_id`: The security group identifier.
 	* `id`: The network interface identifier. 
-* **Request Body**: The security group rule patch.
+* **Request Body**: _required_
+
+    The security group rule patch.
 
 ```
 {
@@ -508,7 +534,9 @@ This request retrieves all subnets in the region. Subnets are contiguous ranges 
 This request creates a new subnet from a subnet template. The subnet template object is structured in the same way as a retrieved subnet, and contains the information necessary to create the new subnet.
 
 * **Required Parameters**: None
-* **Request Body**: The subnet template:
+* **Request Body**: _required_
+
+    The subnet template:
 
 ```
 {
@@ -546,7 +574,9 @@ This request retrieves a single subnet specified by the identifier in the URL.
 This request updates a subnet with the information in a provided subnet patch. The subnet patch object is structured in the same way as a retrieved subnet and contains only the information to be updated.
 
 * **Required Parameters**:`id`: The subnet identifier. 
-* **Request Body**: The subnet patch:
+* **Request Body**: _required_
+
+    The subnet patch:
 
 ```
 {
@@ -602,7 +632,9 @@ This request retrieves the public gateway attached to the subnet specified by th
 This request attaches the public gateway specified in the request body to the subnet specified by the subnet identifier in the URL. If a public gateway is already attached to the subnet, it is detached before the new public gateway is attached.
 
 * **Required Parameters**:`id`: The subnet identifier. 
-* **Request Body**: The network ACL identity:
+* **Request Body**: _required_
+
+    The network ACL identity:
 
 ```
 {
@@ -631,7 +663,9 @@ This request retrieves all VPCs. A VPC is a virtual network that belongs to an a
 This request creates a new VPC from a VPC template. The VPC template object is structured in the same way as a retrieved VPC, and contains the information necessary to create the new VPC.
 
 * **Required Parameters**: None
-* **Request Body**: The VPC template:
+* **Request Body**: _required_
+
+    The VPC template:
 
 ```
 {
@@ -671,7 +705,9 @@ This request retrieves a single VPC specified by the identifier in the URL.
 This request updates a VPC's name.
 
 * **Required Parameters**: `id`: The VPC identifier.
-* **Request Body**: The VPC patch:
+* **Request Body**: _required_
+
+    The VPC patch:
 
 ```
 {
@@ -696,7 +732,9 @@ This request retrieves all address pool prefixes for a VPC.
 This request creates a new prefix from a prefix template. The prefix template object is structured in the same way as a retrieved prefix, and contains the information necessary to create the new prefix.
 
 * **Required Parameters**: `vpc_id`: The VPC identifier.
-* **Request Body**: The prefix template:
+* **Request Body**: _required_
+
+    The prefix template:
 
 ```
 {
@@ -739,7 +777,9 @@ This request updates a prefix with the information in a provided prefix patch. T
 * **Required Parameters**: 
 	* `vpc_id`: The VPC identifier.
 	* `id`: The prefix identifier.
-* **Request Body**: The prefix patch:
+* **Request Body**: _required_
+
+    The prefix patch:
 
 ```
 {
@@ -804,7 +844,9 @@ This request retrieves all instances in the region.
 This request provisions a new instance from an instance template. The instance template object is structured in the same way as a retrieved instance, and contains the information necessary to provision the new instance.
 
 * **Required Parameters**: None
-* **Request Body**: The instance template:
+* **Request Body**: _required_
+
+    The instance template:
 
 ```
 {
@@ -849,7 +891,9 @@ This request retrieves a single instance specified by the identifier in the URL.
 This request updates an instance with the information in a provided instance patch. The instance patch object is structured in the same way as a retrieved instance and contains only the information to be updated.
 
 * **Required Parameters**: `id`: The instance identifier.
-* **Request Body**: The instance patch:
+* **Request Body**: _required_
+
+    The instance patch:
 
 ```
 {
@@ -881,7 +925,9 @@ This request creates a new action which will be queued up to run as soon as any 
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
-* **Request Body**: The instance action template:
+* **Request Body**: _required_
+
+    The instance action template:
 
 ```
 {
@@ -895,7 +941,7 @@ This request creates a new action which will be queued up to run as soon as any 
 	* `404: An instance with the specified identifier could not be found.`
 
 ### GET/instances/{instance_id}/actions
-This request retrieves all pending, running, and recent actions on an instance.
+This request retrieves all pending, running, and recent actions on a virtual server instance.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
@@ -952,7 +998,9 @@ This request updates a network interface with the information in a provided netw
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
 	* `id`: The network interface identifier.
-* **Request Body**: The netowork interface patch:
+* **Request Body**: _required_
+
+    The network interface patch:
 
 ```
 {
@@ -977,7 +1025,7 @@ This request retrieves all floating IPs associated with a network interface.
 	* `404: A network interface with the specified identifier could not be found.`
 
 ### DELETE/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}
-This request retrieves all floating IPs associated with a network interface.
+This request disassociates all floating IPs associated with a network interface.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
@@ -1024,7 +1072,9 @@ This request retrieves all keys. A key contains a public 2048-bit RSA SSH key wh
 This request imports a new key from a key template containing a public 2048-bit RSA SSH key.
 
 * **Required Parameters**: None.
-* **Request Body**: The key template:
+* **Request Body**: _required_
+
+   The key template:
 
 ```
 {
@@ -1041,7 +1091,7 @@ This request imports a new key from a key template containing a public 2048-bit 
 	* `201: The key was created successfully.`
 	* `400: An invalid key template was provided.`
 
-### DELETE/keys
+### DELETE/keys/{id}
 This request deletes a key. This operation cannot be reversed.
 
 * **Required Parameters**: `id`: The key identifier.
@@ -1062,7 +1112,9 @@ This request retrieves a single key specified by the identifier in the URL.
 This request updates a key's name.
 
 * **Required Parameters**: `id`: The key identifier.
-* **Request Body**: The key patch:
+* **Request Body**: _required_
+
+    The key patch:
 
 ```
 {
