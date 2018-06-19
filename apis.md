@@ -99,8 +99,8 @@ This request retrieves all network ACLs in the region. A network ACL defines a s
 
 * **Required Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
-	* 'limit': The number of resources to return on a page.
-	* 'resource_group.id': Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
+	* `limit`: The number of resources to return on a page.
+	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
 * **Return**: `200: Network ACLs retrieved successfully.`
 
 ### POST/network_acls
@@ -242,7 +242,7 @@ This request updates a rule with the information in a provided rule patch. The r
 
 * **Return**: 
 	* `200: The rule was retrieved successfully.`
-	* `400': An invalid rule patch was provided.`
+	* `400: An invalid rule patch was provided.`
 	* `404: A rule with the specified identifier could not be found.`
 
 ### GET/public_gateways
@@ -254,7 +254,7 @@ This request retrieves all public gateways. A public gateway is a virtual networ
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
 * **Return**: 
 	* `200: The public gateways were retrieved successfully.`
-	* `400': An invalid rule patch was provided.`
+	* `400: An invalid rule patch was provided.`
 	* `404: A rule with the specified identifier could not be found.`
 
 ### POST/public_gateways
@@ -285,7 +285,7 @@ This request creates a new public gateway from a public gateway template. A publ
 
 * **Return**: 
 	* `201: The public gateway was created successfully.`
-	* `400': An invalid public gateway was provided.`
+	* `400: An invalid public gateway was provided.`
 
 ### DELETE/public_gateways/{id}
 This request deletes a public gateway. This operation cannot be reversed.
@@ -326,7 +326,7 @@ Retrieves a paginated list of all security groups belonging to this account.
 
 * **Required Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
-	* `limit`': The number of resources to return on a page.
+	* `limit`: The number of resources to return on a page.
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers
 * **Return**: `200: The security groups were retrieved successfully.`
 
@@ -488,7 +488,7 @@ Deletes a rule from a security group. This operation cannot be reversed.
 Retrieves a single security group rule specified by identifier.
 
 * **Required Parameters**: 
-	* 	* `security_group_id`: The security group identifier.
+	* `security_group_id`: The security group identifier.
 	* `id`: The network interface identifier. 
 * **Return**: 
 	* `200: The rule was retrieved successfully.`
@@ -526,13 +526,13 @@ This request retrieves all subnets in the region. Subnets are contiguous ranges 
 
 * **Required Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
-	* `limit`': The number of resources to return on a page.
+	* `limit`: The number of resources to return on a page.
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers 
 * **Return**: 
 	* `200: The subnets were retrieved successfully.`
 
 ### POST/subnets
-This request creates a new subnet from a subnet template. The subnet template object is structured in the same way as a retrieved subnet, and contains the information necessary to create the new subnet.
+This request creates a new subnet from a subnet template. The subnet template object is structured in the same way as a retrieved subnet, and it contains the information necessary to create the new subnet.
 
 * **Required Parameters**: None
 * **Request Body**: _required_
@@ -661,7 +661,7 @@ This request retrieves all VPCs. A VPC is a virtual network that belongs to an a
 	* `404: The specified subnet could not be found.`
 
 ### POST/vpcs
-This request creates a new VPC from a VPC template. The VPC template object is structured in the same way as a retrieved VPC, and contains the information necessary to create the new VPC.
+This request creates a new VPC from a VPC template. The VPC template object is structured in the same way as a retrieved VPC, and it contains the information necessary to create the new VPC.
 
 * **Required Parameters**: None
 * **Request Body**: _required_
@@ -742,7 +742,7 @@ This request creates a new prefix from a prefix template. The prefix template ob
   "name": "my-address-pool-prefix-2",
   "cidr": "10.0.0.0/24",
   "zone": {
-    "name": "us-south-1"
+    "name": "us-south-2"
   }
 }
 ```
@@ -773,7 +773,7 @@ This request retrieves a single prefix specified by the identifier in the URL.
 	* `404: A prefix with the specified identifier could not be found.`
 
 ### PATCH/vpcs/{vpc_id}/address_prefixes/{id}
-This request updates a prefix with the information in a provided prefix patch. The prefix patch object is structured in the same way as a retrieved prefix and contains only the information to be updated. The update will fail if it would result in existing subnets falling outside of the address pool. The update will fail if the new prefix overlaps any other prefix in the VPC's address pools.
+This request updates a prefix with the information in a provided prefix patch. The prefix patch object is structured in the same way as a retrieved prefix, and it contains only the information to be updated. The update fails if that update would result in existing subnets falling outside of the address pool. The update fails if the new prefix overlaps any other prefix in the VPC's address pools.
 
 * **Required Parameters**: 
 	* `vpc_id`: The VPC identifier.
@@ -796,7 +796,7 @@ This request updates a prefix with the information in a provided prefix patch. T
   
 ## API for Compute
 ### GET/images
-This request retrieves all images available in the region. Images represent a specific software configuration for an instance. Some images are system-provided. Images can also be created from instances or imported from another source.
+This request retrieves all images available in the region. Images represent a specific software configuration for an instance. Some images are system-provided. Images also can be created from virtual server instances or imported from another source.
 
 * **Required Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
@@ -816,7 +816,7 @@ This request retrieves a single image specified by the identifier in the URL.
 This request retrieves all instance profiles available in the region. An instance profile specifies the performance characteristics and pricing model for an instance.
 
 * **Required Parameters**: 
-	* `start`: A server-supplied token determining what resource to start the page on.
+	* `start`: A server-supplied token that determines which resource to start the page on.
 	* `limit`: The number of resources to return on a page.  
 * **Return**: `200: Instance profiles retrieved successfully.`
 
@@ -842,7 +842,7 @@ This request retrieves all instances in the region.
 	* `200: The instances were retrieved successfully.`
 
 ### POST/instances
-This request provisions a new instance from an instance template. The instance template object is structured in the same way as a retrieved instance, and contains the information necessary to provision the new instance.
+This request provisions a new virtual server instance from an instance template. The instance template object is structured in the same way as a retrieved instance, and it contains the information necessary to provision the new instance.
 
 * **Required Parameters**: None
 * **Request Body**: _required_
@@ -873,7 +873,7 @@ This request provisions a new instance from an instance template. The instance t
 	* `400: Invalid instance template provided.`
 
 ### DELETE/instances/{id}
-This request deletes an instance. This operation cannot be reversed.
+This request deletes a virtual server instance. This operation cannot be reversed.
 
 * **Required Parameters**: `id`: The instance identifier.
 * **Return**: 
@@ -881,7 +881,7 @@ This request deletes an instance. This operation cannot be reversed.
 	* `404: An instance with the specified identifier could not be found.`
 
 ### GET/instances/{id}
-This request retrieves a single instance specified by the identifier in the URL.
+This request retrieves a single virtual server instance specified by the identifier in the URL.
 
 * **Required Parameters**: `id`: The instance identifier.
 * **Return**: 
@@ -889,7 +889,7 @@ This request retrieves a single instance specified by the identifier in the URL.
 	* `404: An instance with the specified identifier could not be found.`
 
 ### PATCH/instances/{id}
-This request updates an instance with the information in a provided instance patch. The instance patch object is structured in the same way as a retrieved instance and contains only the information to be updated.
+This request updates a virtual server instance with the information in a provided instance patch. The instance patch object is structured in the same way as a retrieved instance, and it contains only the information to be updated.
 
 * **Required Parameters**: `id`: The instance identifier.
 * **Request Body**: _required_
@@ -911,18 +911,18 @@ This request updates an instance with the information in a provided instance pat
 	* `404: An instance with the specified identifier could not be found.`
 
 ### GET/instances/{instance_id}/actions
-This request retrieves all pending, running, and recent actions on an instance.
+This request retrieves all pending, running, and recent actions on a virtual server instance.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
-	* `start`: A server-supplied token determining what resource to start the page on.
+	* `start`: A server-supplied token that determines which resource to start the page on.
 	* `limit`: The number of resources to return on a page.   
 * **Return**: 
 	* `200: The instance actions were retrieved successfully.`
 	* `404: An instance with the specified identifier could not be found.`
 
 ### POST/instances/{instance_id}/actions
-This request creates a new action which will be queued up to run as soon as any currently pending or running actions have completed.
+This request creates a new action that will be queued up to run as soon as any currently pending or running actions have completed.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
@@ -974,7 +974,7 @@ This request retrieves a single instance action specified by the identifier in t
 	* `404: An action with the specified identifier could not be found for the specified instance.`
 
 ### GET/instances/{instance_id}/network_interfaces
-This request retrieves all network interfaces on an instance. A network interface is an abstract representation of a network interface card and connects an instance to a subnet. Instances may have more than one network interface, but each network interface can be attached to only one subnet.
+This request retrieves all network interfaces on a virtual server instance. A network interface is an abstract representation of a network interface card, and it connects an instance to a subnet. Instances may have more than one network interface, but each network interface can be attached to only one subnet.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
@@ -994,7 +994,7 @@ This request retrieves a single network interface specified by the identifier in
 	* `404: A network interface with the specified identifier could not be found.`
 
 ### PATCH/instances/{instance_id}/network_interfaces/{id}
-This request updates a network interface with the information in a provided network interface patch. The network interface patch object is structured in the same way as a retrieved network interface and can contain an updated name and/or port speed.
+This request updates a network interface with the information in a provided network interface patch. The network interface patch object is structured in the same way as a retrieved network interface, and it can contain an updated name and port speed.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
@@ -1038,7 +1038,7 @@ This request disassociates all floating IPs associated with a network interface.
 	* `404: The specified floating IP address is not associated with the network interface with the specified identifier.`
 
 ### GET/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}
-This request a retrieves a specified floating IP address if it is associated with the network interface and instance specified in the URL.
+This request a retrieves a specified floating IP address if it is associated with the network interface and virtual server instance specified in the URL.
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
@@ -1061,10 +1061,10 @@ This request associates the specified floating IP with the specified network int
 	* `404: An instance with the specified identifier could not be found.`
 	
 ### GET/keys
-This request retrieves all keys. A key contains a public 2048-bit RSA SSH key which may be installed on instances when they are created. Private keys are not stored by the system.
+This request retrieves all keys. A key contains a public 2048-bit RSA SSH key, which may be installed on virtual server instances as the instances are created. Private keys are not stored by the system.
 
 * **Required Parameters**: 
-	* `start`: A server-supplied token determining what resource to start the page on.
+	* `start`: A server-supplied token that determines which resource to start the page on.
 	* `limit`: The number of resources to return on a page. 
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
 * **Return**: `200: The keys were retrieved successfully.`
@@ -1130,7 +1130,7 @@ This request updates a key's name.
   
 ## API for Geography
 ### GET/regions
-This request retrieves all regions. Each region is a separate geographic area containing multiple isolated zones. Resources can be provisioned into a one or more zones in a region. Each zone is isolated, but connected to other zones in the same region with low-latency and high-bandwidth links. Regions represent the top-level of fault isolation available. Resources deployed within a single region also benefit from the low latency afforded by geographic proximity.
+This request retrieves all regions. Each region is a separate geographic area containing multiple isolated zones. Resources can be provisioned into a one or more zones in a region. Each zone is isolated, but it is connected to other zones in the same region by low-latency and high-bandwidth links. Regions represent the highest level of fault isolation available. Resources deployed within a single region also benefit from the low latency afforded by geographic proximity.
 
 * **Required Parameters**: None
 * **Return**: `200: The regions were retrieved successfully.`
@@ -1144,7 +1144,7 @@ This request retrieves a single region specified by the name in the URL.
 	* `404: A region with the specified name could not be found.`
 
 ### GET/regions/{region_name}/zones
-This request retrieves all zones in a region. Zones represent logically-isolated data centers with high-bandwidth, low-latency interconnects to other zones in the same region. Faults in a zone do not impact other zones.
+This request retrieves all zones in a region. Zones represent logically-isolated data centers with high-bandwidth, low-latency interconnections to other zones in the same region. Faults within a zone do not affect other zones.
 
 * **Required Parameters**: `region_name`: The region name.
 * **Return**: 
