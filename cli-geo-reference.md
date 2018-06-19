@@ -14,7 +14,7 @@ lastupdated: "2018-06-19"
 {:tip: .tip}
 {:download: .download}
 
-# VPC Beta Regions and Rones CLI Reference
+# VPC Beta Regions and Zones CLI Reference
 
 This document gives details about the CLI commands available for working with regions and zones.
 
