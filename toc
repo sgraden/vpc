@@ -30,6 +30,7 @@ Virtual Private Cloud (VPC)
     apis.md
     cli-network-reference.md
     cli-compute-reference.md
+    cli-geo-reference.md
     example-code.md
     [Linking IaaS and PaaS Accounts](https://www.ibm.com/blogs/bluemix/2018/03/follow-steps-link-iaas-paas-accounts/)
     related-links.md
