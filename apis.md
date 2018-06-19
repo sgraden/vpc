@@ -23,7 +23,7 @@ To see a tested sequence of API calls that you can use, please refer to our [Exa
 
 The detailed parameters are specified in the sections that follow. 
 
-**Note:** Although some POST and PATCH APIs API calls do not have required parameters, they do have **required** "Request Body" information that must be specified in JSON format. We have provided code examples of the minimum required data in JSON format.
+**Note:** Although some POST and PATCH APIs do not have required parameters, they do have **required** "Request Body" information that must be specified in JSON format. We have provided code examples of the minimum required data in JSON format.
 
 ## API for Network
 ### GET/floating_ips
