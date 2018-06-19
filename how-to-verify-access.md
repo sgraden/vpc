@@ -54,7 +54,7 @@ ibmcloud plugin update
 To view installed plugins and versions:
 
 ```
-bx plugin list
+ibmcloud plugin list
 ```
 {: codeblock}
 
