@@ -39,7 +39,6 @@ NAME:
    `regions` - List all regions
 
 USAGE:
-
    `ibmcloud is regions`
 
 OPTIONS:
