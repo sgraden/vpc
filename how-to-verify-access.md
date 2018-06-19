@@ -51,6 +51,13 @@ ibmcloud plugin update
 ```
 {: codeblock}
 
+To view installed plugins and versions:
+
+```
+ibmcloud plugin list
+```
+{: codeblock}
+
 ### Step 2: Log in to IBM Cloud.
     
 ```
