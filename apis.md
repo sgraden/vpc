@@ -174,7 +174,7 @@ This request creates a new rule from a rule template. The rule template object i
 	* `network_acl_id`: The network ACL identifier.
 * **Request Body**: _required_
 
-The rule template:
+   The rule template:
 
 ```
 {
