@@ -40,7 +40,8 @@ This request reserves a new floating IP.
 
 * **Required Parameters**: None
 * **Request Body**: _required_
-	The floating IP template: 
+
+   The floating IP template: 
 
 ```
 	{
