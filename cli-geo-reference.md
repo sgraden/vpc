@@ -20,53 +20,53 @@ This document gives details about the CLI commands available for working with re
 
 ## Region
 
-`bx is region --help`
+`ibmcloud is region --help`
 
 NAME:
-   region - View details about a region
+   `region` - View details about a region
 
 USAGE:
-   bx is region <region name>
+   `ibmcloud is region` _`<region name>`_
 
 OPTIONS:
-   --json  Format output in JSON
+   `--json`  Format output in JSON
 
 ## Regions
 
-`bx is regions --help`
+`ibmcloud is regions --help`
 
 NAME:
-   regions - List all regions
+   `regions` - List all regions
 
 USAGE:
 
-   bx is regions
+   `ibmcloud is regions`
 
 OPTIONS:
-   --json  Format output in JSON
+   `--json`  Format output in JSON
 
 ## Zones
 
-`bx is zones --help`
+`ibmcloud is zones --help`
 
 NAME:
-   zones - List all zones in a region
+   `zones` - List all zones in a region
 
 USAGE:
-   bx is zones <region name>
+   `ibmcloud is zones` _`<region name>`_
 
 OPTIONS:
-   --json  Format output in JSON
+   `--json`  Format output in JSON
 
 ## Zone
 
-`bx is zone --help`
+`ibmcloud is zone --help`
 
 NAME:
-   zone - View details about a zone
+   `zone` - View details about a zone
 
 USAGE:
-   bx is zone <region name> <zone name>
+   `ibmcloud is zone` _`<region name>`_ _`<zone name>`_
 
 OPTIONS:
-   --json  Format output in JSON
+  ` --json`  Format output in JSON
