@@ -44,19 +44,6 @@ USAGE:
 OPTIONS:
    `--json`  Format output in JSON
 
-## Zones
-
-`ibmcloud is zones --help`
-
-NAME:
-   `zones` - List all zones in a region
-
-USAGE:
-   `ibmcloud is zones` _`<region name>`_
-
-OPTIONS:
-   `--json`  Format output in JSON
-
 ## Zone
 
 `ibmcloud is zone --help`
@@ -69,3 +56,16 @@ USAGE:
 
 OPTIONS:
   ` --json`  Format output in JSON
+
+## Zones
+
+`ibmcloud is zones --help`
+
+NAME:
+   `zones` - List all zones in a region
+
+USAGE:
+   `ibmcloud is zones` _`<region name>`_
+
+OPTIONS:
+   `--json`  Format output in JSON
