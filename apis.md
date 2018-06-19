@@ -19,7 +19,7 @@ The VPC APIs are a portion of the Regional Infrastructure API Service (RIAS) API
 
 For the Beta release, the VPC APIs include Network, Compute, and Geography. These are REST APIs, which include the standard functionalities: CREATE, READ, UPDATE, DELETE.
 
-To see a tested sequence of API calls that you can use, please refer to our [Example Code Tutorial](example-code-tutorial.html).
+To see a tested sequence of API calls that you can use, please refer to our [Example Code Tutorial](example-code.html).
 
 The detailed parameters are specified in the sections that follow. 
 
