@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-06-18"
 
 ---
 
@@ -74,3 +74,10 @@ Caveats for VLANS and VRF:
 * IPSec VPN service is limited.
 
 **Note:** VRF does not prevent SSL or PPTP VPN access, but its behavior changes. Without VRF, one VPN connection is enough to see all servers on your account. With VRF, you can only access resources in the market associated with your VPN. So if you connect to the DAL VPN, you can only connect to DAL servers.
+
+
+## What is the correct way to use the `instance-network-interface-floating-ip-add` subcommand? Does one create/allocate a floating IP address beforehand?
+
+ You have to allocate a floating IP and then provide the address on the interface floating IP add
+ 
+ For example: `bx is floating-ip-reserve FLOATING_IP_NAME (--zone ZONE | --nic NIC_ID)` . Provide zone.
