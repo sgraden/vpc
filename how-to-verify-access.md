@@ -144,10 +144,10 @@ curl $rias_endpoint/v1/regions/us-south/zones -H "X-Auth-Token: $iam_token"
 
 The previous command returns the zones available for VPC in region `us-south`, in JSON format. At least one object should return. 
 
-### Step 6: Run the GET Flavors API
+### Step 6: Run the GET Profiles API
 
 ```
-curl $rias_endpoint/v1/flavors -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
