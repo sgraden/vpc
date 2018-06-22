@@ -30,7 +30,7 @@ Here is a comprehensive list of REST APIs that are supported in the VPC Beta rel
 | Security Group Rules | Create, Get, Get All, Set, Remove | |
 | ACLs |   |   |
 | **Compute:** |   |   |
-| Flavors  | Get, Get All|   |
+| Profiles  | Get, Get All|   |
 | Images | Get, Get All | Initially only Ubuntu 16.04 and CentOS 7.x are supported |
 | Keys | Create, Get, Get All, Update, Delete |   |
 | Servers | Create, Get, Get All, Update, Delete |   |
