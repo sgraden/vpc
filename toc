@@ -8,6 +8,7 @@ Virtual Private Cloud (VPC)
     getting-started.md
     about-vpc-beta.md
     about.md
+    whats-new.md
     planned-experience.md
     console-tutorial.md
     vpc-connectivity.md
@@ -32,6 +33,7 @@ Virtual Private Cloud (VPC)
     cli-compute-reference.md
     cli-geo-reference.md
     example-code.md
+    error-handling.md
     [Linking IaaS and PaaS Accounts](https://www.ibm.com/blogs/bluemix/2018/03/follow-steps-link-iaas-paas-accounts/)
     related-links.md
     {: .navgroup-end}
