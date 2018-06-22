@@ -261,7 +261,7 @@ curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
 
 Use the `address` of the Floating IP to connect to the virtual server instance with SSH:
 
-```ssh root@<floating ip address>``
+```ssh -i <private_key_file> root@<floating ip address>``
 
 
 ## Delete the Resources
