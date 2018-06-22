@@ -86,6 +86,7 @@ ibmcloud is servers --json
 
 For more details on CLI capability, see:
 
+- [Geography APIs](cli-geo-reference.html)
 - [Network APIs](cli-network-reference.html)
 - [Compute APIs](cli-compute-reference.html)
 
@@ -152,6 +153,13 @@ curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token: $iam_token"
 {: codeblock}
 
 The previous command returns the flavors available for your VSIs, in JSON format. At least one object should return.
+
+If the API output is limited by pagination, set the limit higher than the `total_count`, for example:
+
+```
+curl $rias_endpoint/v1/instance/profiles?limit=50 -H "X-Auth-Token: $iam_token"
+```
+{: codeblock}
 
 ### Step 7: Run the GET Images API
 
