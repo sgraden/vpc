@@ -141,10 +141,10 @@ key="<YOUR_KEY_ID>"
 
 ## Choose a Flavor and Image for your Virtual Server Instance
 
-Run the APIs to list all flavors and images available for your virtual server instance, and choose a combination.
+Run the APIs to list all profiles and images available for your virtual server instance, and choose a combination.
 
 ```
-curl $rias_endpoint/v1/flavors -H "X-Auth-Token:$iam_token"
+curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
@@ -261,7 +261,7 @@ curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
 
 Use the `address` of the Floating IP to connect to the virtual server instance with SSH:
 
-```ssh root@<floating ip address>``
+```ssh -i <private_key_file> root@<floating ip address>``
 
 
 ## Delete the Resources
