@@ -796,12 +796,8 @@ This request updates a prefix with the information in a provided prefix patch. T
   
 ## API for Compute
 ### GET/images
-This request retrieves all images available in the region. Images represent a specific software configuration for an instance. Some images are system-provided. Images also can be created from virtual server instances or imported from another source.
+This request retrieves all images available in the region. Images represent a specific software configuration for an instance.
 
-* **Required Parameters**: 
-	* `start`: A server-supplied token determining what resource to start the page on.
-	* `limit`: The number of resources to return on a page. 
-	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
 * **Return**: `200: Images retrieved successfully.`
 
 ### GET/images/{id}
@@ -810,12 +806,12 @@ This request retrieves a single image specified by the identifier in the URL.
 * **Required Parameters**: `id`: The image identifier.
 * **Return**: 
 	* `200: Images retrieved successfully.`
-	* `400: An image with the specified identifier could not be found.`
+	* `404: An image with the specified identifier could not be found.`
 
 ### GET/instance/profiles
 This request retrieves all instance profiles available in the region. An instance profile specifies the performance characteristics and pricing model for an instance.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token that determines which resource to start the page on.
 	* `limit`: The number of resources to return on a page.  
 * **Return**: `200: Instance profiles retrieved successfully.`
@@ -831,13 +827,10 @@ This request retrieves a single instance profile specified by the name in the UR
 ### GET/instances
 This request retrieves all instances in the region.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page. 
-	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
-	* `network_interfaces.subnet.id`: Filters the collection to instances on the subnet of the specified identifier. 
-	* `network_interfaces.subnet.cm`: Filters the collection to instances on the subnet of the specified CRN.
-	* `network_interfaces.subnet.name`: Filters the collection to instances on the subnet of the specified name.
+
 * **Return**: 
 	* `200: The instances were retrieved successfully.`
 
@@ -851,20 +844,33 @@ This request provisions a new virtual server instance from an instance template.
 
 ```
 {
+  "name": "myserver001",
+  "type": "virtual",
+    "zone": {
+    "name": "us-south-1"
+  },
+  "profile": {
+    "name": "b-2x4"
+  },
   "image": {
-    "name": "my-image"
+    "id": "7eb4e35b-4257-56f8-d7da-326d35452591"
+  },
+  "vpc": {
+    "id": "fabc1711-9330-4a25-b44f-901c1710b5bb"
+  },
+  "primary_network_interface": {
+    "port_speed": 1000,
+    "security_groups": [],
+    "subnet": {
+      "id": "3d9a8ba9-ac74-4093-985c-be9879b4f645"
+    }
   },
   "keys": [
     {
-      "fingerprint": "yxavE4CIOL2NlsqcurRO3xGjkP6m/0mp8ugojH5yxlY"
+      "id": "8cf60ce4-9115-4dbe-a493-0f8269eb2a97"
     }
   ],
-  "profile": {
-    "name": "gc.balanced.4x16"
-  },
-  "vpc": {
-    "name": "my-vpc"
-  }
+  "user_data": ""
 }
 ```
 
@@ -898,10 +904,7 @@ This request updates a virtual server instance with the information in a provide
 
 ```
 {
-  "name": "my-instance",
-  "profile": {
-    "name": "gc.balanced.4x16"
-  }
+  "name": "my-instance-update"
 }
 ```
 
@@ -915,6 +918,7 @@ This request retrieves all pending, running, and recent actions on a virtual ser
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
+* **Optional Parameters**: 
 	* `start`: A server-supplied token that determines which resource to start the page on.
 	* `limit`: The number of resources to return on a page.   
 * **Return**: 
@@ -938,18 +942,7 @@ This request creates a new action that will be queued up to run as soon as any c
 
 * **Return**: 
 	* `201: The action was created successfully and will run in the order it was received.`
-	* `400: The specified action could not be created.`
-	* `404: An instance with the specified identifier could not be found.`
-
-### GET/instances/{instance_id}/actions
-This request retrieves all pending, running, and recent actions on a virtual server instance.
-
-* **Required Parameters**: 
-	* `instance_id`: The instance identifier.
-	* `start`: A server-supplied token determining what resource to start the page on.
-	* `limit`: The number of resources to return on a page.   
-* **Return**: 
-	* `200: The instance actions were retrieved successfully.`
+	* `409: The specified action could not be created.`
 	* `404: An instance with the specified identifier could not be found.`
 
 ### DELETE/instances/{instance_id}/actions/{id}
@@ -978,7 +971,6 @@ This request retrieves all network interfaces on a virtual server instance. A ne
 
 * **Required Parameters**: 
 	* `instance_id`: The instance identifier.
-	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers
 * **Return**: 
 	* `200: The network interfaces were retrieved successfully.`
 	* `404: An instance with the specified identifier could not be found.`
@@ -993,28 +985,6 @@ This request retrieves a single network interface specified by the identifier in
 	* `200: The network interface was retrieved successfully.`
 	* `404: A network interface with the specified identifier could not be found.`
 
-### PATCH/instances/{instance_id}/network_interfaces/{id}
-This request updates a network interface with the information in a provided network interface patch. The network interface patch object is structured in the same way as a retrieved network interface, and it can contain an updated name and port speed.
-
-* **Required Parameters**: 
-	* `instance_id`: The instance identifier.
-	* `id`: The network interface identifier.
-* **Request Body**: _required_
-
-    The network interface patch:
-
-```
-{
-  "name": "my-network-interface",
-  "port_speed": 10000
-}
-```
- 
-* **Return**: 
-	* `200: The network interface was updated successfully.`
-	* `400: An invalid network interface patch was provided.`
-	* `404: A network interface with the specified identifier could not be found.`
-
 ### GET/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips
 This request retrieves all floating IPs associated with a network interface.
 
@@ -1024,18 +994,6 @@ This request retrieves all floating IPs associated with a network interface.
 * **Return**: 
 	* `200: The associated floating IPs were retrieved successfully.`
 	* `404: A network interface with the specified identifier could not be found.`
-
-### DELETE/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}
-This request disassociates all floating IPs associated with a network interface.
-
-* **Required Parameters**: 
-	* `instance_id`: The instance identifier.
-	* `network_interface_id`: The network interface identifier.
-	* `id`: The floating IP identifier.
-* **Return**: 
-	* `200: The floating IP was disassociated successfully.`
-	* `400: The specified floating IP could not be disassociated.`
-	* `404: The specified floating IP address is not associated with the network interface with the specified identifier.`
 
 ### GET/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}
 This request a retrieves a specified floating IP address if it is associated with the network interface and virtual server instance specified in the URL.
@@ -1047,26 +1005,10 @@ This request a retrieves a specified floating IP address if it is associated wit
 * **Return**: 
 	* `200: The associated floating IP was retrieved successfully.`
 	* `404: The floating IP address is not associated with a network interface with the specified identifier.`
-
-### PUT/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}
-This request associates the specified floating IP with the specified network interface.
-
-* **Required Parameters**: 
-	* `instance_id`: The instance identifier.
-	* `network_interface_id`: The network interface identifier.
-	* `id`: The floating IP identifier.
-* **Return**: 
-	* `201: The floating IP was successfully associated with the network interface.`
-	* `400: The specified IP could not be associated with the specified network interface.`
-	* `404: An instance with the specified identifier could not be found.`
 	
 ### GET/keys
 This request retrieves all keys. A key contains a public 2048-bit RSA SSH key, which may be installed on virtual server instances as the instances are created. Private keys are not stored by the system.
 
-* **Required Parameters**: 
-	* `start`: A server-supplied token that determines which resource to start the page on.
-	* `limit`: The number of resources to return on a page. 
-	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
 * **Return**: `200: The keys were retrieved successfully.`
 
 ### POST/keys
@@ -1081,9 +1023,6 @@ This request imports a new key from a key template containing a public 2048-bit 
 {
   "name": "my-key",
   "public_key": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDDGe50Bxa5T5NDddrrtbx2Y4/VGbiCgXqnBsYToIUKoFSHTQl5IX3PasGnneKanhcLwWz5M5MoCRvhxTp66NKzIfAz7r+FX9rxgR+ZgcM253YAqOVeIpOU408simDZKriTlN8kYsXL7P34tsWuAJf4MgZtJAQxous/2byetpdCv8ddnT4X3ltOg9w+LqSCPYfNivqH00Eh7S1Ldz7I8aw5WOp5a+sQFP/RbwfpwHp+ny7DfeIOokcuI42tJkoBn7UsLTVpCSmXr2EDRlSWe/1M/iHNRBzaT3CK0+SwZWd2AEjePxSnWKNGIEUJDlUYp7hKhiQcgT5ZAnWU121oc5En",
-  "resource_group": {
-    "id": "56969d60-43e9-465c-883c-b9f7363e78e8"
-  },
   "type": "rsa"
 }
 ```
