@@ -139,12 +139,12 @@ key="<YOUR_KEY_ID>"
 ```
 {: codeblock}
 
-## Choose a Flavor and Image for your Virtual Server Instance
+## Choose a Profile and Image for your Virtual Server Instance
 
-Run the APIs to list all flavors and images available for your virtual server instance, and choose a combination.
+Run the APIs to list all profiles and images available for your virtual server instance, and choose a combination.
 
 ```
-curl $rias_endpoint/v1/flavors -H "X-Auth-Token:$iam_token"
+curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
@@ -153,11 +153,11 @@ curl $rias_endpoint/v1/images -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
-Save the Name of the flavor and the ID of the image in variables, which will be used later to provision a virtual server instance.
+Save the Name of the profile and the ID of the image in variables, which will be used later to provision a virtual server instance.
 
 ```bash
-# Something like this: `flavor_name="B1_2X4X100"`
-flavor_name="<CHOSEN_FLAVOR_NAME>"
+# Something like this: `profile_name="b1-2x4"`
+profile_name="<CHOSEN_PROFILE_NAME>"
 # Something like this: `image_id="660198a6-52c6-21cd-7b57-e37917cef586"`
 image_id="<CHOSEN_IMAGE_ID>"
 ```
@@ -187,8 +187,8 @@ curl -X POST $rias_endpoint/v1/instances \
           }
         },
         "keys":[{"id": "'$key'"}],
-        "flavor": {
-          "name": "'$flavor_name'"
+        "profile": {
+          "name": "'$profile_name'"
          },
         "image": {
           "id": "'$image_id'"
