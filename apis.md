@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-19"
+lastupdated: "2018-06-23"
 
 ---
 
@@ -793,7 +793,17 @@ This request updates a prefix with the information in a provided prefix patch. T
 	* `200: The prefix was updated successfully.`
 	* `400: An invalid prefix patch was provided.`
 	* `404: A prefix with the specified identifier could not be found.`
-  
+
+### GET/vpcs/{vpc_id}/default_security_group
+This request retrieves the default security group for the VPC specified by the identifier in the URL.
+
+* **Required Parameters**:
+* `vpc_id`: The VPC identifier.
+
+* **Return**:
+  * `200: The default security group was retrieved successfully.`
+  * `404: The specified VPC could not be found.`
+
 ## API for Compute
 ### GET/images
 This request retrieves all images available in the region. Images represent a specific software configuration for an instance.
