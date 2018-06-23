@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-06-23"
 
 ---
 
@@ -53,7 +53,6 @@ Here are some model code examples for error handling in the IBM Cloud VPC Beta A
       "href": "https://iaas.bluemix.net/v1/floating_ips/39300233-9995-4806-89a5-3c1b6eb88689",
       "address": "203.0.113.1",
       "name": "my-floating-ip",
-      ```
       "created_at": "2018-06-20T20:45:34.611Z",
       "resource_group": {
         "id": "56969d60-43e9-465c-883c-b9f7363e78e8",
