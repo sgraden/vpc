@@ -151,7 +151,7 @@ curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
-The previous command returns the flavors available for your VSIs, in JSON format. At least one object should return.
+The previous command returns the profiles available for your VSIs, in JSON format. At least one object should return.
 
 ### Step 7: Run the GET Images API
 
