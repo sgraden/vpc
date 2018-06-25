@@ -148,6 +148,13 @@ curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
+To get additional details about the profiles, query the global catalog via the IBM Cloud CLI `ibmcloud catalog entry <profile-name> --json`. For example, 
+
+```
+ibmcloud catalog entry b-2x8 --json
+```
+{: codeblock}
+
 ```
 curl $rias_endpoint/v1/images -H "X-Auth-Token:$iam_token"
 ```
