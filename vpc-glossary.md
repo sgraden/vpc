@@ -25,7 +25,7 @@ In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbou
 Floating IP addresses are public IP addresses that are provided by the system. You cannot bring your own public IP. Floating IP addresses are reachable from the internet, and they can be associated to an instance (for example, a VSI, a loadbalancer, and a VPN gateway). You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud.
 
 ## Profile
-A popular combination of vCPU and RAM that can be instantiated quickly to start up a virtual server instance (VSI). Three families of profiles are supported: Balanced, Compute, and Memory.
+A Profile is a popular combination of vCPU and RAM that can be instantiated quickly to start up a virtual server instance (VSI). Three families of profiles are supported: Balanced, Compute, and Memory.
 
 
 ## Public Gateway
