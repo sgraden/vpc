@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-05-08"
+lastupdated: "2018-06-26"
 
 ---
 
@@ -22,7 +22,7 @@ An Access Control List (ACL) can manage (that is, it can allow or deny) ingres
 In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbound and outbound traffic, but customers can create custom ACLs. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets.
 
 ## Floating IP addresses
-Floating IP addresses are public IP addresses that are provided by the system. You cannot bring your own public IP. Floating IP addresses are reachable from the internet, and they can be associated to an instance (for example, a VSI, a loadbalancer, and a VPN gateway). You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud.
+Floating IP addresses are public IP addresses that are provided by the system. You cannot bring your own public IP. Floating IP addresses are reachable from the internet, and they can be associated to an instance (for example, a VSI, a load balancer, and a VPN gateway). You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud.
 
 ## Profile
 A Profile is a popular combination of vCPU and RAM that can be instantiated quickly to start up a virtual server instance (VSI). Three families of profiles are supported: Balanced, Compute, and Memory.
@@ -37,8 +37,7 @@ PGW uses many-to-1 NAT, which means that thousands of VSIs with private addresse
 An IBM Cloud VPC spans multiple regions. Each region contains multiple Zones, which represent independent fault domains.
 
 ## Security Group
-A security group acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of 5-tuple rules that specify whether to allow traffic for an associated VSI.
-When a customer launches a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules.
+A security group acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of 5-tuple rules that specify whether to allow traffic for an associated VSI. When a customer launches a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules.
 
 ## Subnet
 A subnet is an IP address range, bound to a single Zone, which cannot span multiple Zones or Regions. A subnet can span the entirety of the Zone in the IBM Cloud VPC.
