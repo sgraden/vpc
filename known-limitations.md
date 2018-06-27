@@ -51,10 +51,6 @@ The following APIs are not supported in this release.
 | **Elastic Load Balancer** |   |  Coming later in Beta |
 | **VPN** |   |  Coming later in Beta |
 
-### Subnet range constraint in IBM Console UI for Beta
-
-Our current IBM Console UI enforces that customers must pick a subnet prefix from the fixed range. This requirement applies only until address prefixes are available in the release, then customer will have the flexibility to add new address prefix pools.
-
 ## Here are the Details
 
 This section gives a detailed list of unsupported features and use cases for this Beta release. You might find this list useful in case of troubleshooting or some specific questions that might arise.
