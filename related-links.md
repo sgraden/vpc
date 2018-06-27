@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -16,4 +16,6 @@ lastupdated: "2018-05-31"
 
 # Related Links
 
-* For more information about the [Compute instances](https://console.bluemix.net/docs/vsi-is/vsi_is_create_instance.html#creating-virtual-servers).
+* For more informations about planning your deployment of instances, please refer to this [**Planning for Instances** document](https://console.bluemix.net/docs/vsi-is/vsi_best_practices.html#planning-for-instances).
+
+* See this document for step by step instructions of [**How to Create your Compute Instances**](https://console.bluemix.net/docs/vsi-is/vsi_is_create_instance.html#creating-virtual-servers).
