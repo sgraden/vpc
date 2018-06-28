@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-06-23"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -26,6 +26,8 @@ Rules are _stateful_, which means that reverse traffic in response to allowed tr
 Security groups are scoped to a single VPC. This scoping implies that security group can be attached _only_ to network interfaces of VSIs within the same VPC.
 
 When a VSI is created without any security groups specified, the VSI's primary network interface is put into the _default_ security group of that VSI's VPC. IBM Cloud VPC Beta release has a defined default security group that does allow certain traffic.
+
+For more information, including examples of how to provision a VSI with security groups, please see our [Security Groups Usage Examples document](secur.ity-groups-features-examples.html)
 
 ### Default Security Groups
 

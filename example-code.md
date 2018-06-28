@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -221,6 +221,8 @@ network_interface="<YOUR_NETWORK_INTERFACE_ID"
 ```
 {: codeblock}
 
+You can find more information, including examples about how to provision a VSI with security groups, in our [Security Group Usage Examples document](security-groups-usage-examples.html).
+
 ## Check the Status of your Virtual Server Instance
 
 Provisioning a Virtual Server Instance may take several seconds to a few minutes. Before continuing, query the status of the server and make sure it is `running`.
@@ -268,7 +270,7 @@ curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
 
 Use the `address` of the Floating IP to connect to the virtual server instance with SSH:
 
-```ssh -i <private_key_file> root@<floating ip address>``
+```ssh -i <private_key_file> root@<floating ip address>```
 
 
 ## Delete the Resources
