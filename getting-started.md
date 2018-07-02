@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-07-02"
 
 ---
 
@@ -57,3 +57,6 @@ Once you've been notified that your participation is approved, follow these inst
 * [Instructions](vpc-user-permissions.html) to verify or obtain the correct permissions, which must be granted by the master or primary user of your account.
 * [Instructions](how-to-verify-access.html) to verify access to the user interface, command line interface and APIs for the IBM Cloud Virtual Private Cloud Beta.
 
+## General Overview of Steps
+
+For a "big picture" overview of how you'll set up your VPC and get it going, please refer to our [Quick Overview Document](quick-overview.html).

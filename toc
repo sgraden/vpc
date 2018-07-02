@@ -8,6 +8,7 @@ Virtual Private Cloud (VPC)
     getting-started.md
     about-vpc-beta.md
     about.md
+    quick-overview.md
     whats-new.md
     planned-experience.md
     console-tutorial.md

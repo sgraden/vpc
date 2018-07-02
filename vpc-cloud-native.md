@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-07-02"
 
 ---
 
@@ -31,13 +31,7 @@ The features described are part of the Planned IBM Cloud VPC experience, and man
  * Scalable & reliable LBaaS with certificate management
  * Scalable & reliable monitoring
  * Illusion of infinite capacity 
- * Current POD boundaries force network rework for our customers
 
-**Out of Scope:**
-
- * VSI Fast Provisioning is being handled in a separate workstream.  
- * Virtual Private Cloud does not provide E2E encryption, but supports it.
-_________
 
 ## Example: A Cloud Native Workload's IaaS Requirements
 
@@ -52,3 +46,8 @@ _________
  * Scale (10,000+ servers at times)
  * Flexible image management
  * Support for GPUs
+
+**Note:**
+
+ * VSI Fast Provisioning is being handled separately, not as part of VPC.  
+ * Virtual Private Cloud does not provide E2E encryption, but supports it.
