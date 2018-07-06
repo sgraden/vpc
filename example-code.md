@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-06"
 
 ---
 
@@ -41,7 +41,7 @@ curl $rias_endpoint/v1/vpcs \
 Create an IBM Cloud VPC called `my-vpc`.
 
 ```bash
-curl $rias_endpoint/v1/vpcs \
+curl -X POST $rias_endpoint/v1/vpcs \
   -H "X-Auth-Token:$iam_token" \
   -d '{
       	"is_default": true,
@@ -213,15 +213,8 @@ server="<YOUR_SERVER_ID"
 ```
 {: codeblock}
 
-Also save the ID of the primary network interface of the virtual server instance.
 
-```bash
-# Something like this: `network_interface="7710e766-dd6e-41ef-9d36-06f7adbef33d"`
-network_interface="<YOUR_NETWORK_INTERFACE_ID"
-```
-{: codeblock}
-
-You can find more information, including examples about how to provision a VSI with security groups, in our [Security Group Usage Examples document](security-groups-usage-examples.html).
+You can find more information, including examples about how to provision a virtual server instance with security groups, in our [Security Group Usage Examples document](security-group-usage-examples.html).
 
 ## Check the Status of your Virtual Server Instance
 
@@ -231,6 +224,16 @@ Provisioning a Virtual Server Instance may take several seconds to a few minutes
 curl $rias_endpoint/v1/instances/$server -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
+
+Also save the ID of the primary network interface of the virtual server instance returned in the above API call  
+
+```bash
+# Something like this: `network_interface="7710e766-dd6e-41ef-9d36-06f7adbef33d"`
+network_interface="<YOUR_NETWORK_INTERFACE_ID"
+```
+{: codeblock}
+
+**Note: You can't get the primary network interface until you query the specific VSI.**
 
 ## Create a Floating IP
 
@@ -272,10 +275,12 @@ Use the `address` of the Floating IP to connect to the virtual server instance w
 
 ```ssh -i <private_key_file> root@<floating ip address>```
 
+**Note: SSH access into the virtual server may prevented by security groups. If SSH access is required, you must use an appropriate security group.**
+
 
 ## Delete the Resources
 
-Delete the resources if desired. A resource cannot be deleted if it contains other resources. For example, a Virtual Private Cloud cannot be deleted if it contains subnets, and a subnet cannot be deleted if it contains virtual server instances.
+Delete the resources if desired. A resource cannot be deleted if it contains other resources. For example, a Virtual Private Cloud cannot be deleted if it contains subnets, and a subnet cannot be deleted if it contains virtual server instances. On a delete, the API may return quickly but the resource deletion might still be in progress. It is recommended to query the resource to make sure it is deleted prior to deleting other resources.
 
 ### Delete the floating IP.
 

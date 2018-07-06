@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -21,7 +21,7 @@ IBM Virtual Private Cloud (IBM Cloud VPC) is a fully-virtualized, software-defin
 
 ## Networking Capabilities
 
-IBM Cloud VPC offers a comprehensive set of networking capabilities, including IP address range selection, virtual firewalls, site-to-site Virtual Private Networks (VPN), and LBaaS with elasticity.
+IBM Cloud VPC offers a comprehensive set of networking capabilities, including IP address range selection, virtual firewalls, site-to-site Virtual Private Networks (VPN), and Load Balancing (LBaaS) with elasticity.
 
 You can configure your virtual topology automatically, using our suggested prefix ranges and pre-configured network policies. Later, you can customize your IBM Cloud VPC and adapt it to your changing requirements, seamlessly. In addition, you have the ability both to bring your own private IP and to assign a floating IP.
 
@@ -40,3 +40,7 @@ Within your IBM Cloud VPC, use Load Balancing to distribute your network traffic
 ## Internet Access
 
 Using a Public Gateway (PGW) you can enable your virtual server instances (VSIs) to communicate with the public internet, if you choose. There is no charge for using a PGW, except for the bandwith used.
+
+**Figure: The Planned VPC Experience**
+
+![Planned Experience](images/planned-vpc-experience.png)

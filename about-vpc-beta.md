@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-04"
+lastupdated: "2018-07-06"
 
 ---
 
@@ -30,13 +30,12 @@ These features are available using the IBM Cloud Console UI, the API, and the CL
  
 ## Features available later in the Beta release timeframe
  
- * Deployment in multiple zones and multiple regions
+ * Deployment in multiple zones
  * Internet access by VPN
- * Elastic Load Balancing (ELB) that's native to VPC
- * Peering between VPC and IBM Cloud Classic Infrastructure 
- * Peering between VPC and IBM Cloud Direct Link connectivity solutions
- * Bare metal access by means of peering
- * Private VPC service endpints for other IBM Cloud services
+ * Load Balancing (LB) that's native to VPC
+ * Peering between VPC and IBM Cloud Classic Infrastructure
+ * Direct Link connectivity by means of peering between VPC and IBM Cloud Classic Infrastructure
+ * Bare metal access by means of peering between VPC and IBM Cloud Classic Infrastructure
  * Multi-homed, multi-vNIC Virtual Server Instances (VSIs)
 
 For a list of upcoming features that will be released by General Availability (GA), please refer to [this Planned Experience document](planned-experience.html)

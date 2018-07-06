@@ -29,14 +29,14 @@ By participating in this Beta release, you agree to these conditions:
 
 ### Quotas
 
-Resources are limited in the Beta environment, therefore the following quotas have been imposed per account.
+Limited resources are available in the Beta environment. Therefore, accounts have the following quotas: 
 
 |   Resource     | Maximum Number |
 | ------- | :------: |
 | Virtual Private Clouds | 5 per account|
 | Subnets | 5 per Virtual Private Cloud |
 | Virtual Server Instances (VSIs) | 25 per account |
-| Floating IP addresses | 1 per server |
+| Floating IP addresses | 1 per VSI |
 
 ### Service Level Agreement (SLA)
 
@@ -54,8 +54,9 @@ Support is provided through the [IBM Cloud support](https://console.bluemix.net/
 
 Once you've been notified that your participation is approved, follow these instructions to verify your permissions and access:
 
-* [Instructions](vpc-user-permissions.html) to verify or obtain the correct permissions, which must be granted by the master or primary user of your account.
 * [Instructions](how-to-verify-access.html) to verify access to the user interface, command line interface and APIs for the IBM Cloud Virtual Private Cloud Beta.
+* [Instructions](vpc-user-permissions.html) to verify or obtain the correct permissions, which must be granted by the master or primary user of your account.
+
 
 ## General Overview of Steps
 

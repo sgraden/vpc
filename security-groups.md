@@ -27,7 +27,7 @@ Security groups are scoped to a single VPC. This scoping implies that security g
 
 When a VSI is created without any security groups specified, the VSI's primary network interface is put into the _default_ security group of that VSI's VPC. IBM Cloud VPC Beta release has a defined default security group that does allow certain traffic.
 
-For more information, including examples of how to provision a VSI with security groups, please see our [Security Groups Usage Examples document](secur.ity-groups-features-examples.html)
+For more information, including examples of how to provision a VSI with security groups, please see our [Security Groups Usage Examples document](security-groups-features-examples.html)
 
 ### Default Security Groups
 
@@ -75,7 +75,7 @@ The following endpoints are available in this release. Until the 'GET network in
 
 | Description | API | CLI |
 |-------------|-----|-----|
-|Create a server, with the specified existing security groups attached to the server's network interfaces. |POST /servers (with security group parameters)| `ibmcloud is server-create` |
+|Create a server instance, with the specified existing security groups attached to the server's network interfaces. |POST /instances (with security group parameters)| `ibmcloud is instance-create` |
 |Retrieve all this account's existing security groups|GET /security_groups| `ibmcloud is security-groups`, `sgs`|
 |Create a new security group from a security group template. The template is structured in the same way as a retrieved security group. It contains the information necessary to create the new security group. The template may include an optional array of security group rules, which will be added to the group. | POST /security_groups| `ibmcloud is security-group-create`, `sgc`|
 |Delete a security group. A security group cannot be deleted if it is the default security group for a VPC or if any other security groups contain rules that refer to it as a remote. This operation cannot be reversed. | DELETE /security_groups/{id}| `ibmcloud is security-group-delete`, `sgd`|
@@ -161,7 +161,7 @@ ibmcloud is sg-rule-add --direction egress --protocol tcp
 **Step 5. Create VSI with newly created SG**
 
 ```
-ibmcloud is server-create --name sg8 --gen gc --type virtual --subnet 42e0789f-ee21-42b5-a448-37e4f6302ef6 --zone us-south-1 --vpc e636a5de-391d-456d-badb-9a9570259a51 --flavor B1_1X2X25 --image cc8debe0-1b30-6e37-2e13-744bfb2a0c11 --key 51ddf6e5-d717-4202-a242-82612b2864fd --port 100 --sec-group 581969
+ibmcloud is instance-create --name sg8 --gen gc --type virtual --subnet 42e0789f-ee21-42b5-a448-37e4f6302ef6 --zone us-south-1 --vpc e636a5de-391d-456d-badb-9a9570259a51 --flavor B1_1X2X25 --image cc8debe0-1b30-6e37-2e13-744bfb2a0c11 --key 51ddf6e5-d717-4202-a242-82612b2864fd --port 100 --sec-group 581969
 ```
 {: codeblock}
 

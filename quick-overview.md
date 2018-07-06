@@ -24,7 +24,7 @@ Here's the general flow for how to get going:
 4. Create network Access Control Lists (ACLs) to manage traffic to your subnets.
 5. Create security groups to manage traffic to your virtual servers.
 6. Reserve a Floating IP address, and associate it with a server.
-7. Create resources (servers, volumes, and so forth) in one or more zones of a Virtual Private Cloud.
+7. Create servers in one or more zones of a Virtual Private Cloud.
 8. Deploy your service or applications across those servers
 
 ## Overview of managing your IBM Cloud VPC

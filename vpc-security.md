@@ -44,7 +44,7 @@ In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbou
 ### Security Group
 A **security group** acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of 5-tuple rules that specify whether to allow traffic for an associated VSI. 
 
-When a customer launches a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules using the IBM Console, the CLI, or the API.
+When a customer creates a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules using the IBM Console, the CLI, or the API.
 
 **Available User Actions**
 

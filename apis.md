@@ -29,10 +29,11 @@ The detailed parameters are specified in the sections that follow.
 ### GET/floating_ips
 This request retrieves all floating IPs in the region. Floating IPs allow ingress and egress traffic from the Internet to an instance.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page.
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
+	* `zone.name`: Filters the collection to resources within the specified zone.
 * **Return**: `200: The floating IPs were retrieved successfully.`
 
 ### POST/floating_ips
@@ -97,7 +98,7 @@ This request updates a floating IP's name and/or target.
 ### GET/network_acls
 This request retrieves all network ACLs in the region. A network ACL defines a set of packet filtering (5-tuple) rules for all traffic in and out of a subnet. Both allow and deny rules can be defined, and rules are stateless such that reverse traffic in response to allowed traffic is not automatically permitted.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page.
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
@@ -120,7 +121,6 @@ This request creates a new network ACL from a network ACL template. The network 
 * **Return**: 
 	* `201: Network ACL created successfully.`
 	* `400: Invalid network ACL template provided.`
-	* `404: The specified floating IP could not be found.`
 
 ### DELETE/network_acls/{id}
 This request deletes a network ACL. This operation cannot be reversed.
@@ -161,8 +161,10 @@ This request retrieves all rules for a network ACL. These rules can allow or den
 
 * **Required Parameters**: 
 	* `network_acl_id`: The network ACL identifier.
+* **Optional Parameters**: 	
 	* `limit`: The number of resources to return on a page.
 	* `direction`: Filters the collection to rules with the specified direction.
+	* `start`: A server-supplied token determining what resources to start the page on.
 * **Return**: 
 	* `200: The rules were retrieved successfully.`
 	* `404: The network ACL with the specified identifier could not be found.`
@@ -248,14 +250,16 @@ This request updates a rule with the information in a provided rule patch. The r
 ### GET/public_gateways
 This request retrieves all public gateways. A public gateway is a virtual network device associated with a VPC which allows access to the Internet. A public gateway resides in a zone and can only be connected to subnets in the same zone.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page.
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
+	* `zone.name`: Filters the collection to resources within the specified zone.
+	* `vpc.id`: Filters the collection to resources within the VPC of the specified identifier.
+	* `vpc.crn`: Filters the collection to resources within the VPC of the specified CRN.
+	* `vpc.name`: Filters the collection to resources within the VPC of the specified name.
 * **Return**: 
 	* `200: The public gateways were retrieved successfully.`
-	* `400: An invalid rule patch was provided.`
-	* `404: A rule with the specified identifier could not be found.`
 
 ### POST/public_gateways
 This request creates a new public gateway from a public gateway template. A public gateway can be created with an existing unbound floating address. If a floating address is not supplied, one will be created and bound to the public gateway. Once a public gateway is created, its external address cannot be unbound. The only way to rebind a floating address bound to a public gateway is to delete the gateway.
@@ -324,7 +328,7 @@ This request updates a public gateway's name.
 ### GET/security_groups
 Retrieves a paginated list of all security groups belonging to this account.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page.
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers
@@ -524,10 +528,17 @@ Updates the properties of an existing rule on a security group. The IP address d
 ### GET/subnets
 This request retrieves all subnets in the region. Subnets are contiguous ranges of IP addresses specified in CIDR block notation. Each subnet is within a particular zone and cannot span multiple zones or regions.
 
-* **Required Parameters**: 
+* **Optional Parameters**: 
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page.
-	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers 
+	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
+	* `zone.name`: Filters the collection to resources within the specified zone.
+	* `vpc.id`: Filters the collection to resources within the VPC of the specified identifier.
+	* `vpc.crn`: Filters the collection to resources within the VPC of the specified CRN.
+	* `vpc.name`: Filters the collection to resources within the VPC of the specified name.
+	* `network_acl.id`: Filters the collection to subnets with the network ACL of the specified identifier.
+	* `network_acl.crn`: Filters the collection to subnets with the network ACL of the specified CRN.
+  * `network_acl.name`: Filters the collection to subnets with the network ACL of the specified name.
 * **Return**: 
 	* `200: The subnets were retrieved successfully.`
 
@@ -560,7 +571,7 @@ This request deletes a subnet. This operation cannot be reversed.
 
 * **Required Parameters**:`id`: The subnet identifier. 
 * **Return**: 
-	* `200: The subnet was deleted successfully.`
+	* `204: The subnet was deleted successfully.`
 	* `404: A subnet with the specified identifier could not be found.`
 
 ### GET/subnets/{id}
@@ -626,7 +637,7 @@ This request retrieves the public gateway attached to the subnet specified by th
 
 * **Required Parameters**:`id`: The subnet identifier. 
 * **Return**: 
-	* `204: The attached public gateway was retrieved successfully.`
+	* `200: The attached public gateway was retrieved successfully.`
 	* `404: The specified subnet could not be found.`
 
 ### PUT/subnets/{id}/public_gateway
@@ -651,14 +662,12 @@ This request attaches the public gateway specified in the request body to the su
 ### GET/vpcs
 This request retrieves all VPCs. A VPC is a virtual network that belongs to an account and provides logical isolation from other networks. A VPC is made up of resources in one or more zones. VPCs are global and each can contain resources in zones from any region.
 
-* **Required Parameters**:
+* **Optional Parameters**:
 	* `start`: A server-supplied token determining what resource to start the page on.
 	* `limit`: The number of resources to return on a page. 
 	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers. 
 * **Return**: 
-	* `201: The VPCs were retrieved successfully.`
-	* `400: The specified public gateway could not be attached to the specified subnet.`
-	* `404: The specified subnet could not be found.`
+	* `200: The VPCs were retrieved successfully.`
 
 ### POST/vpcs
 This request creates a new VPC from a VPC template. The VPC template object is structured in the same way as a retrieved VPC, and it contains the information necessary to create the new VPC.
@@ -685,7 +694,7 @@ This request creates a new VPC from a VPC template. The VPC template object is s
 	* `201: The VPC was created successfully.`
 	* `400: An invalid VPC template was provided.`
 
-### DELETE/vpcs
+### DELETE/vpcs/{id}
 This request deletes a VPC. This operation cannot be reversed. For this request to succeed, the VPC must not contain any instances, subnets, security groups, or public gateways.
 
 * **Required Parameters**: `id`: The VPC identifier.
@@ -720,6 +729,33 @@ This request updates a VPC's name.
 	* `200: The VPC was updated successfully.`
 	* `400: The supplied VPC patch was invalid.`
 	* `404: A VPC with the specified identifier could not be found.`
+
+### GET/vpcs/{id}/default_network_acl
+This request retrieves the default network ACL for the VPC specified by the identifier in the URL. The default network ACL is applied to any new subnets in the VPC which do not specify a network ACL.
+
+* **Required Parameters**: `id`: The VPC identifier.
+* **Return**:
+	* `200: The default network ACL was retrieved successfully.`
+	* `404: The specified VPC could not be found.`
+
+### PUT/vpcs/{id}/default_network_acl
+This request sets the network ACL specified int he request body as the default network ACL for the VPC specified by the VPC identifier in the URL. The default network ACL is applied to any new subnets in the VPC which do not specify a network ACL.
+
+* **Required Parameters**: `id`: The VPC identifier.
+* **Request Body**: _required_
+
+    The network ACL to use as the default for the VPC:
+```
+{
+   "id": "a4e28308-8ee7-46ab-8108-9f881f22bdbf"
+}
+```
+
+* **Return**:
+	* `201: The network ACL was set as the default for the VPC successfully.`
+	* `400: The specified network ACL could not be set as the default for the specified VPC.`
+	* `404: The specified VPC could not be found.`
+
 
 ### GET/vpcs/{vpc_id}/address_prefixes
 This request retrieves all address pool prefixes for a VPC.

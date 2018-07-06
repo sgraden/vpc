@@ -19,7 +19,7 @@ lastupdated: "2018-06-12"
 This document serves as a reference for the CLI commands related to Compute functionality in the IBM Cloud VPC Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
 
 
-## Server Profile CLI commands
+## Instance Profile CLI commands
 
 ### `ibmcloud is instance-profiles`
 
@@ -174,7 +174,7 @@ List all server instances
 
 - `--zone ZONE`: Zone name to which the server instance belongs.
 - `--subnet-id SUBNET_ID`: ID of the subnet to which the server instance belongs. 
-- `--vpc-id VPC_ID`: ID of the VPC to which the server belongs.
+- `--vpc-id VPC_ID`: ID of the VPC to which the server instance belongs.
 - `--json`: Format output in JSON
 
 
@@ -206,16 +206,16 @@ Create a server instance
 
 ##### Options
 
-- `INSTANCE_NAME `: Name of the server
+- `INSTANCE_NAME `: Name of the server instance
 - `VPC_ID`: ID of the VPC.
 - `ZONE`: Name of the zone
 - `PROFILE`: Name of the profile. 
 - `--image-id IMAGE_ID`: ID of the image. This is exclusive with `--boot-volume`
 - `--boot-volume VOLUME_ID`: ID of the boot volume. This is exclusive with `--image`
-- `--volumes VOLUME_ID1,VOLUME_ID2...`: IDs of the volumes to attached to the server
+- `--volumes VOLUME_ID1,VOLUME_ID2...`: IDs of the volumes to attached to the server instance
 - `--keys KEY_ID1,KEY_ID2...`: IDs of the keys
 - `--generation GENERATION`: Generation of the server instance. valid values are `gc`, `gt`. Default to `gt`. (`gc` only for beta)
-- `--user-data DATA`: User data to transfer to the server
+- `--user-data DATA`: User data to transfer to the server instance
 
 
 ---
@@ -242,7 +242,7 @@ Delete a server intance
 
 #### Syntax
 
-`ibmcloud is server-delete INSTANCE_ID [-f, --force]`
+`ibmcloud is instance-delete INSTANCE_ID [-f, --force]`
 
 ##### Options
 
@@ -395,7 +395,7 @@ Create a network interface for a server instance
 
 #### Syntax
 
-`ibmcloud is instance-network-interface-create NIC_NAME INSTANCE_ID SUBNET_ID PORT_SPEED [--ipv4 IPV4_ADDRESS] [--ipv6 IPV6_ADDRESS] [--secondary-addresses ADDR1,ADDR2...]   [--security-groups SECURITY_GROUP_ID1,SECURITY_GROUP_ID2...]`
+`ibmcloud is instance-network-interface-create NIC_NAME INSTANCE_ID SUBNET_ID PORT_SPEED [--ipv4 IPV4_ADDRESS] [--ipv6 IPV6_ADDRESS] [--secondary-addresses ADDR1,ADDR2...] [--security-groups SECURITY_GROUP_ID1,SECURITY_GROUP_ID2...]`
 
 ##### Options
 

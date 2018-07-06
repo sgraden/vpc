@@ -333,7 +333,7 @@ Update a rule of network ACL
 - `--icmp-code`: ICMP traffic code to allow. Valid values from 0 to 255. This is specified only when protocol is set to `icmp`
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
 - `--port-max`: Maximum port number. Valid values are from 1 to 65535.This is specified only when protocol is set to `tcp` or `udp`
-- `--port-min`: Minimum port nubmer. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
+- `--port-min`: Minimum port number. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
 - `--before-rule`: ID of the rule id that this rule is inserted before. 
 
 ---
@@ -406,7 +406,7 @@ Create a subnet in current resource group
 - `--ipv4_cidr_block`: the IPv4 range of the subnet, this is exclusive with  `--ipv4_address_count`
 - `--ipv4_address_count`: the total number of IPv4 addresses required. This is exclusive with `--ipv4_cidr_block`
 - `--generation`:  generation of the subnet. Valid values are `gt` and `gc`. Defauts to `gt`
-- `--ip-version`: versio of the IP address. Valid values are `ipv4`, `ipv6` and 'both'. Default to `ipv4`
+- `--ip-version`: version of the IP address. Valid values are `ipv4`, `ipv6` and 'both'. Default to `ipv4`
 - `--network-acl`: the ID of the network ACL for the subnet
 - `--public-gateway`: the ID of the public-gateway for the subnet
 - `--json`: Format output in JSON

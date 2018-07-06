@@ -37,7 +37,7 @@ PGW uses many-to-1 NAT, which means that thousands of VSIs with private addresse
 An IBM Cloud VPC spans multiple regions. Each region contains multiple Zones, which represent independent fault domains.
 
 ## Security Group
-A security group acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of 5-tuple rules that specify whether to allow traffic for an associated VSI. When a customer launches a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules.
+A security group acts as a virtual firewall that controls the traffic for one or more servers (VSIs). A security group is a collection of 5-tuple (source IP and port, destination IP and port, and protocol) rules that specify whether to allow traffic for an associated VSI. When a customer launches a VSI, he or she can associate one or more security groups with that VSI. Given the correct permissions, customers can modify security group rules.
 
 ## Subnet
 A subnet is an IP address range, bound to a single Zone, which cannot span multiple Zones or Regions. A subnet can span the entirety of the Zone in the IBM Cloud VPC.

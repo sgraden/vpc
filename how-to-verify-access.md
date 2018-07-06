@@ -59,10 +59,15 @@ ibmcloud plugin list
 {: codeblock}
 
 ### Step 2: Log in to IBM Cloud.
-    
+
+If you have a federated account:
 ```
 ibmcloud login -sso
-ibmcloud sl init
+```
+
+otherwise
+```
+ibmcloud login
 ```
 
 ### Step 3: To learn how to use the commands, you can run:
@@ -70,7 +75,7 @@ ibmcloud sl init
 ```
 ibmcloud is help
 ibmcloud is help vpc-create
-ibmcloud is help server-create
+ibmcloud is help instance-create
 ```
 
 ### Step 4: Start running VPC CLIs!
@@ -80,8 +85,8 @@ ibmcloud is regions
 ibmcloud is zones
 ibmcloud is vpcs
 ibmcloud is subnets
-ibmcloud is servers
-ibmcloud is servers --json
+ibmcloud is instances
+ibmcloud is instances --json
 ```
 
 For more details on CLI capability, see:
