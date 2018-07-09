@@ -25,8 +25,6 @@ Follow these steps to create and configure your VPC:
 1. Create a virtual server instance.
 1. Configure a security group to define the inbound and outbound traffic that is allowed for the instance.
 1. Reserve and associate a floating IP address to enable your instance to communicate with the Internet.
-<!-- 1. Create a load balancer to distribute requests over multiple instances.
-1. Create a VPN (virtual private network) so your VPC can communicate with your on-prem resources. -->
 
 ## Before you begin
 
@@ -67,9 +65,9 @@ To configure the ACL:
 1. In the **Subnet details** area, click the name of the ACL.
 1. Click **Add rule** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet.  For each rule, specify the following information:  
    * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority 2 allows HTTP traffic and a rule with priority 5 denies all traffic, HTTP traffic is still allowed.  
-    * Select whether to allow or deny the specified traffic.  
+   * Select whether to allow or deny the specified traffic.  
    * Specify a CIDR block  to indicate  the IP range that the rule applies to.  
-    * Select which protocols and ports the rule applies to.
+   * Select which protocols and ports the rule applies to.
 1. When you finish creating rules, click the **All access control lists** breadcrumb at the top of the page.
 
 ### Example ACL
@@ -118,9 +116,9 @@ To configure the security group:
    * Select which protocols and ports the rule applies to.   
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances of the selected security group.    
 
-    **Tips:**  
-    * All rules are evaluated, regardless of the order in which they are added. 
-    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, a rule that allows inbound TCP traffic on port 80 also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for an additional rule.
+   **Tips:**  
+  * All rules are evaluated, regardless of the order in which they are added. 
+  * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, a rule that allows inbound TCP traffic on port 80 also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for an additional rule.
 1. _Optional:_ If you want to attach this security group to other instances, click **Attached interfaces** in the navigation panel  and select additional interfaces.
 1. When you finish creating rules, click the **All security groups** breadcrumb at the top of the page.
 
