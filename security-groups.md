@@ -63,9 +63,7 @@ These endpoints can be used to manage a VPC's default security group.
 |Update a security group rule with the information provided in a rule patch object. The patch object is structured in the same way as a retrieved security group rule. It should contain only the information to be updated. | PATCH /security_groups/{security_group_id}/rules/{id}| |
 |Delete a security group rule. This deletion does not terminate any existing connections that were allowed by that rule. This operation cannot be reversed. | DELETE /security_groups/{security_group_id}/rules/{id}| `ibmcloud is security-group-rule-delete`, `sg-ruled`|
 
-### Limitations of the current Beta release:
-
- * Security groups currently are not editable using the UI.
+### Limitation of the current Beta release:
 
  * The PATCH operation on a security group rule cannot modify the rule's protocol.
 
