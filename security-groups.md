@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-09"
 
 ---
 
@@ -79,21 +79,23 @@ The following endpoints are available in this release. Until the 'GET network in
 |Delete a security group. A security group cannot be deleted if it is the default security group for a VPC or if any other security groups contain rules that refer to it as a remote. This operation cannot be reversed. | DELETE /security_groups/{id}| `ibmcloud is security-group-delete`, `sgd`|
 |Add an server's existing network interface to an existing security group. This function applies the group's rules to that interface, allowing new connections to be made, to and from the interface, that conform to those rules.<br /><br />In addition, this network interface is now granted the access specified by the rules of any remote groups that refer to this group.<br /><br />See Limitations, below.  | PUT /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface-add`, `sg-nica`|
 |Remove a server's network interface from a security group. The group's rules are no longer used to permit new network connections on that interface. <br /><br />In addition, this network interface is no longer granted the access specified by the rules of any remote groups that refer to this group. <br /><br />Existing connections that were permitted by membership of this group are not ended.| DELETE /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface-remove`, `sg-nicd`|
+|Retrieve all the the network interfaces associated with the security group. These are the network interfaces to which the rules in the group are applied. | GET /security_groups/{security_group_id}/network_interfaces| `ibmcloud is security-group-network-interfaces`, `sg-nics`|
+
+
+### Coming soon in IBM Cloud VPC Beta
+
+| Description | API | CLI |
+|-------------|-----|-----|
+|Retrieve a single network interface specified by the identifier in the URL path. The network interface must be an existing member of the security group. | GET /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface`, `sg-nic`|
 
 ### Limitations of experimental features
 
  * Default security groups are available for VPCs created after May 24 only.
 
  * Adding or removing network interfaces from a security group works for network interfaces on servers ordered after May 19 only.
+ 
+ * Network interfaces added to a security group are functional, however they are not viewble through the API for VSIs created before June 22. This is a permanent limitation for VSIs ordered before June 22, 2018. 
 
- * Although network interfaces added to a security group should be functional, you are not able to view them through the API, until the "GET network interfaces" functionality is available (**coming soon**).
-
-## APIs and CLIs coming soon in this Beta release
-
-| Description | API | CLI |
-|-------------|-----|-----|
-|Retrieve all the the network interfaces associated with the security group. These are the network interfaces to which the rules in the group are applied. | GET /security_groups/{security_group_id}/network_interfaces| `ibmcloud is security-group-network-interfaces`, `sg-nics`|
-|Retrieve a single network interface specified by the identifier in the URL path. The network interface must be an existing member of the security group. | GET /security_groups/{security_group_id}/network_interfaces/{id}| `ibmcloud is security-group-network-interface`, `sg-nic`
 
 ## Security groups demo example
 
