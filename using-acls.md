@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-06-18"
+lastupdated: "2018-07-09"
 
 ---
 
@@ -336,4 +336,4 @@ ibmcloud is network-acl-rule-add --action allow --direction ingress --protocol i
 
 ## Known Limitation for the Beta release
 
-See the [known limitations](known-limitations.md) about the Beta release.
+See the [known limitations](known-limitations.html) about the Beta release.
