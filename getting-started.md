@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-02"
+lastupdated: "2018-07-11"
 
 ---
 
@@ -45,6 +45,8 @@ The VPC Beta release does not have a Service Level Agreement. All issues are han
 ### IBM Cloud VPC Beta agreement document
 
 You can view the entire [Beta agreement](https://public.dhe.ibm.com/cloud/bluemix/network/vpc/beta_agreement_for_use.pdf){: new_window}.
+
+**We will inform you _one week before_ the IBM Cloud VPC Beta program closes. When the Beta program is over, your configuration and data within the VPC Beta environment will be deleted.**
 
 ## Beta Support
 

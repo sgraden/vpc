@@ -129,7 +129,7 @@ For example, you can configure inbound rules that do the following:
  * Allow all SSH traffic (TCP port 22)
  * Allow all ping traffic (ICMP type 8)
  
- Then, configure outbound rules that allow all TCP traffic.
+Then, configure outbound rules that allow all TCP traffic.
 
 ![Shows the sample inbound and outbound rules](images/sg-example-ui.png)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-18"
+lastupdated: "2018-07-09"
 
 ---
 
@@ -24,11 +24,11 @@ This document provides a reference of the CLI commands available for the Netowrk
 
 List all floating IPs
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is floating-ips [--zone ZONE] [--json]`
 
-##### Options
+**Options**
 
 - `--zone`: List floating IPs which belongs to given zone
 - `--json`: Format output in JSON
@@ -39,11 +39,11 @@ List all floating IPs
 
 View details of a floating IP
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is floating-ip FLOATING_IP_ID [--json]`
 
-##### Options
+**Options**
 
 - `FLOATING_IP_ID `: ID of the floating IP
 - `--json`: Format output in JSON
@@ -54,11 +54,11 @@ View details of a floating IP
 
 Reserve a floating IP in current resource group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is floating-ip-reserve FLOATING_IP_NAME (--zone ZONE | --nic-id NIC_ID) [--json]`
 
-##### Options
+**Options**
 
 - `FLOATING_IP_NAME`: Name of the floating IP
 - `--zone `: Name of the target zone. This is exclusive with `--nic`
@@ -71,11 +71,11 @@ Reserve a floating IP in current resource group
 
 Release a floating IP
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is floating-ip-release FLOATING_IP_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `FLOATING_IP_ID `: ID of the floating IP
 - `	-f, --force`: Release without confirmation
@@ -86,11 +86,11 @@ Release a floating IP
 
 Update a floating IP
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is floating-ip-update  FLOATING_IP_ID [--name NEW_NAME] [--nic-id NIC_ID]`
 
-##### Options
+**Options**
 
 - `FLOATING_IP_ID `: ID of the floating IP
  - `--name`: New name of the floating IP
@@ -105,11 +105,11 @@ Update a floating IP
 
 List all public gateways 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is public-gateways [--vpc VPC_ID] [--zone ZONE]  [--json]`
 
-##### Options
+**Options**
 
 - `--vpc`: List public gateways which contain the specified VPC.  
 - `--zone`: List public gateways which belong to given zone
@@ -121,11 +121,11 @@ List all public gateways
 
 View details of a public gateway
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is public-gateway GATEWAY_ID [--json | --id]`
 
-##### Options
+**Options**
 
 - `GATEWAY_ID `: ID of the public gateway
 - `--json`: Format output in JSON
@@ -136,11 +136,11 @@ View details of a public gateway
 
 Create a new public gateway in current resource group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is public-gateway-create GATEWAY_NAME VPC_ID ZONE [--floating-ip IP_ID]`
 
-##### Options
+**Options**
 
 - `GATEWAY_NAME `: Name of the public-gateway
 - `VPC_ID`: ID of the VPC
@@ -154,11 +154,11 @@ Create a new public gateway in current resource group
 
 Update a public gateway
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is public-gateway-update GATEWAY_ID --name NEW_NAME`
 
-##### Options
+**Options**
 
 - `GATEWAY_ID `: ID of the public gateway
 - `--name`: New name of the public gateway
@@ -169,11 +169,11 @@ Update a public gateway
 
 Delete a public gateway
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is image-delete GATEWAY_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `GATEWAY_ID `: ID of the public gateway
 - `-f, --force`: Delete without confirmation
@@ -184,11 +184,11 @@ Delete a public gateway
 
 List all network ACLs 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acls [--json]`
 
-##### Options
+**Options**
 
 - `--json`: Format output in JSON
 
@@ -198,11 +198,11 @@ List all network ACLs
 
 View details of a network ACL
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl ACL_ID [--json]`
 
-##### Options
+**Options**
 
 - `ACL_ID`: ID of the network ACL
 - `--json`: Format output in JSON
@@ -213,11 +213,11 @@ View details of a network ACL
 
 Create a network ACL in current resource group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-create ACL_NAME [--source-acl SOURCE_ACL_ID]`
 
-##### Options
+**Options**
 
 - `ACL_NAME`: Name of the network acl
 - `--source-acl`: the ID the source network ACL to copy from
@@ -228,11 +228,11 @@ Create a network ACL in current resource group
 
 Update a network ACL
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-update ACL_ID --name NEW_NAME`
 
-##### Options
+**Options**
 
 - `ACL_ID`: ID of the network ACL
 - `--name`: New name of the network ACL
@@ -243,11 +243,11 @@ Update a network ACL
 
 Delete a network ACL
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-delete ACL_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `ACL_ID`: ID of the network ACL
 - `-f, --force`: Delete without confirmation
@@ -257,11 +257,11 @@ Delete a network ACL
 
 List all the rules of a network ACL
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-rules ACL_ID [--direction DIRECTION] [--json]`
 
-##### Options
+**Options**
 
 - `ACL_ID `: ID of the security group
 - `--direction`: Filter with direction.`ingress` and `egress`
@@ -274,11 +274,11 @@ List all the rules of a network ACL
 
 Retrieve the details of a network ACL rule
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-rule ACL_ID RULE_ID [--json]`
 
-##### Options
+**Options**
 
 - `ACL_ID `: ID of the security group
 - `RULE_ID `: ID of the rule
@@ -290,11 +290,11 @@ Retrieve the details of a network ACL rule
 
 Add a rule to a network ACL
 
-#### Syntax
+**Syntax**
 
-`ibmcloud is security-group-rule-add RULE_NAME ACL_ID ACTION DIRECTION SOURCE DEST PROTOCOL [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--before-rule RULE_ID]`
+`ibmcloud is network-acl-rule-add RULE_NAME ACL_ID ACTION DIRECTION SOURCE DEST PROTOCOL [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--before-rule RULE_ID]`
 
-##### Options
+**Options**
 
 - `RULE_NAME`: Name of the rule
 - `ACL_ID`: ID of the security group
@@ -316,12 +316,12 @@ Add a rule to a network ACL
 
 Update a rule of network ACL
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-rule-update  ACL_ID RULE_ID [--action ACTION] [--direction DIRECTION] [--source SOURCE] [--dest DEST] [--protocol PROTOCOL] [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--before-rule RULE_ID]`
 
 
-##### Options
+**Options**
 
 - `ACL_ID`: ID of the security group
 - `RULE_ID`: ID of the rule
@@ -342,11 +342,11 @@ Update a rule of network ACL
 
 Delete a rule from network ACL
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is network-acl-rule ACL_ID RULE_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `ACL_ID `: ID of the security group
 - `RULE_ID `: ID of the rule
@@ -361,11 +361,11 @@ Delete a rule from network ACL
 
 List all subnets 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnets [--zone ZONE] [--vpc VPC_ID] [--network-acl NETWORK_ACL_ID]  [--json]`
 
-##### Options
+**Options**
 
 - - `--zone`: List public gateways which belongs to given zone
 - `--vpc: List public gateways which contains the specified VPC. 
@@ -379,11 +379,11 @@ List all subnets
 
 View details of a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet SUBNET_ID [--json | --id]`
 
-##### Options
+**Options**
 
 - `SUBNET_ID `: ID of the subnet
 - `--json`: Format output in JSON
@@ -394,11 +394,11 @@ View details of a subnet
 
 Create a subnet in current resource group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-create SUBNET_NAME VPC_ID ZONE (--ipv4_cidr_block CIDR_BLOCK | --ipv4_address_count ADDR_COUNT) [--generation GEN] [--ip-version IP_VERSION] [--network-acl NETWORK_ACL_ID] [--public-gateway PUBLIC_GATEWAY_ID] [--json]`
 
-##### Options
+**Options**
 
 - `SUBNET_NAME `: Name of the subnet
 - `VPC_ID`: ID of the VPC
@@ -417,11 +417,11 @@ Create a subnet in current resource group
 
 Update a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-update SUBNET_ID --name NEW_NAME `
 
-##### Options
+**Options**
 
 - `SUBNET_ID `: ID of the subnet 
 - `--name`: New name of the network ACL
@@ -433,11 +433,11 @@ Update a subnet
 
 Delete a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-delete SUBNET_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `SUBNET_ID `: ID of the subnet 
 - `-f, --force`: Delete without confirmation
@@ -448,11 +448,11 @@ Delete a subnet
 
 Attach a pubic gateway to a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-pubic-gateway-attach SUBNET_ID GATEWAY_ID [--json]`
 
-##### Options
+**Options**
 
 - `SUBNET_ID `: ID of the subnet
 - `GATEWAY_ID`: ID of the publie public gateway
@@ -464,11 +464,11 @@ Attach a pubic gateway to a subnet
 
 Detach the public gateway from a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-pubic-gateway-detach SUBNET_ID [--json]`
 
-##### Options
+**Options**
 
 - `SUBNET_ID `: ID of the subnet
 - `--json`: Format output in JSON
@@ -478,11 +478,11 @@ Detach the public gateway from a subnet
 
 Attach the network acl to a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-network-acl-attach SUBNET_ID ACL_ID [--json]`
 
-##### Options
+**Options**
 
 - `SUBNET_ID `: ID of the subnet
 - `ACL_ID`: ID fo the network ACL
@@ -494,11 +494,11 @@ Attach the network acl to a subnet
 
 Detach the network acl from a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-network-acl-detach (SUBNET_NAME | SUBNET_ID) [--json]`
 
-##### Options
+**Options**
 
 - `SUBNET_NAME`: Name of the subnet
 - `SUBNET_ID `: ID of the subnet
@@ -511,11 +511,11 @@ Detach the network acl from a subnet
 
 List all security groups 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-groups [--vpc VPC_ID] [--json]`
 
-##### Options
+**Options**
 
 - `--vpc`: Filter with specified VPC_ID.  
 - `--json`: Format output in JSON
@@ -526,11 +526,11 @@ List all security groups
 
 View details of a security group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group GROUP_ID [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `--json`: Format output in JSON
@@ -541,11 +541,11 @@ View details of a security group
 
 Create a security group in current resource group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-create GROUP_NAME VPC_ID [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_NAME `: Name of the subnet
 - `VPC_ID`: ID of the VPC
@@ -557,11 +557,11 @@ Create a security group in current resource group
 
 Update a subnet
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-update GROUP_ID --name NEW_NAME [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `--name`: New name of the network ACL
@@ -572,11 +572,11 @@ Update a subnet
 
 Delete a security group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-delete GROUP_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `-f, --force`: Delete without confirmation
@@ -587,11 +587,11 @@ Delete a security group
 
 Add a network interface to a security group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-network-interface-add GROUP_ID NIC_ID [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `NIC_ID `: ID of the network interface
@@ -602,11 +602,11 @@ Add a network interface to a security group
 
 Remove a network interface from a security group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-network-interface-remove GROUP_ID NIC_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `NIC_ID `: ID of the network interface
@@ -619,11 +619,11 @@ Remove a network interface from a security group
 
 List all the rules of a security group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-rules GROUP_ID [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `--json`: show output in JSON format
@@ -635,11 +635,11 @@ List all the rules of a security group
 
 Retrieve the details of a security group rule
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-rule GROUP_ID RULE_ID [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `RULE_ID `: ID of the rule
@@ -651,11 +651,11 @@ Retrieve the details of a security group rule
 
 Add a rule to a security group. The IP version defaults to IPv4.
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-rule-add GROUP_ID DIRECTION PROTOCOL (REMOTE_ADDRESS | REMOTE_CIDR_BLOCK | PEER_SECURITY_GROUP_ID) [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `DIRECTION`: Direction of traffic to enforce. Valid values are `ingress` or `egress`
@@ -675,11 +675,11 @@ Add a rule to a security group. The IP version defaults to IPv4.
 
 Update a rule of a security group. The IP version defaults to IPv4.
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-rule-update GROUP_ID RULE_ID [--direction DIRECTION] [--protocol PROTOCOL] [--remote-address REMOTE_ADDRESS  | --remote-cidr-block CIDR_BLOCK ] [--icmp-code ICMP_CODE] [--icmp-type ICMP_TYPE] [--port-max PORT_MAX] [--port-min PORT_MIN] [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `RULE_ID`: ID of the rule
@@ -698,11 +698,11 @@ Update a rule of a security group. The IP version defaults to IPv4.
 
 Delete a rule fom a security group
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is security-group-rule-delete GROUP_ID RULE_ID [--json]`
 
-##### Options
+**Options**
 
 - `GROUP_ID `: ID of the security group
 - `RULE_ID `: ID of the rule
@@ -716,11 +716,11 @@ Delete a rule fom a security group
 
 List all vpcs
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is vpcs [--json]`
 
-##### Options
+**Options**
 
 - `--json`: Format output in JSON
 
@@ -730,11 +730,11 @@ List all vpcs
 
 View details of a VPC
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is vpc VPC_ID [--json]`
 
-##### Options
+**Options**
 
 - `VPC_ID `: ID of the VPC 
 - `--json`: Format output in JSON
@@ -745,11 +745,11 @@ View details of a VPC
 
 Create a VPC in current resource group
 
-#### Syntax
+**Syntax**
 
 ibmcloud is vpc-create VPC_NAME [--default] [--default-network-acl ACL_ID] [--json]`
 
-##### Options
+**Options**
 
 - `VPC_NAME `: Name of the VPC
 - `--default`: set the VPC default of the account
@@ -762,11 +762,11 @@ ibmcloud is vpc-create VPC_NAME [--default] [--default-network-acl ACL_ID] [--js
 
 Update a vpc
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is vpc-update VPC_ID --name NEW_NAME [--json]`
 
-##### Options
+**Options**
 
 - `VPC_ID `: ID of the vpc
 - `--name`: New name of the vpc
@@ -777,11 +777,11 @@ Update a vpc
 
 Delete a vpc
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is subnet-delete VPC_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `VPC_ID `: ID of the vpc
 - `-f, --force`: Delete without confirmation
@@ -792,11 +792,11 @@ Delete a vpc
 
 Set the default network ACL for a VPC 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is vpc-default-network-acl-set VPC_ID NETWORK_ACL_ID [--json]`
 
-##### Options
+**Options**
 
 - `VPC_ID `: ID of the vpc
 - `NETWORK_ACL_ID`: ID of the network ACL

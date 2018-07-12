@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-07-09"
 
 ---
 
@@ -25,11 +25,11 @@ This document serves as a reference for the CLI commands related to Compute func
 
 List all instance profiles available in the region. 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-profiles [--json]`
 
-##### Options
+**Options**
 
 - `--json`: Format output in JSON
 
@@ -39,11 +39,11 @@ List all instance profiles available in the region.
 
 View details of an instance profile
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-profile PROFILE_NAME [--json]`
 
-##### Options
+**Options**
 
 - `PROFILE_NAME `: Name of the profile
 - `--json`: Format output in JSON
@@ -57,11 +57,11 @@ View details of an instance profile
 
 List all images available in the region
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is images [--json]`
 
-##### Options
+**Options**
 
 ---
 
@@ -69,11 +69,11 @@ List all images available in the region
 
 Show details of an image
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is image IMAGE_ID [--json]`
 
-##### Options
+**Options**
 
 - `IMAGE_ID `: ID of the image
 - `--json`: Format output in JSON
@@ -86,11 +86,11 @@ Show details of an image
 
 List all keys
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is keys [--json]`
 
-##### Options
+**Options**
 
 - `--json`: Format output in JSON
 
@@ -100,11 +100,11 @@ List all keys
 
 Show details of a key
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is key KEY_ID [--json ]`
 
-##### Options
+**Options**
 
 - `KEY_NAME`: Name of the key
 - `KEY_ID`: ID of the key
@@ -117,11 +117,11 @@ Show details of a key
 
 Imports an RSA public key
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is key-create KEY_NAME  (KEY | @KEY_FILE) `
 
-##### Options
+**Options**
 
 - `KEY_NAME`: Name of the key
 - `KEY`: The public ssh key. If starts with "@", the rest should be a file name.
@@ -132,11 +132,11 @@ Imports an RSA public key
 
 Update the name of a key
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is key-update KEY_ID --name NEW_NAME`
 
-##### Options
+**Options**
 
 - `KEY_ID`: ID of the key
 - `--name NEW_NAME`: New name for the key
@@ -148,11 +148,11 @@ Update the name of a key
 
 Delete a key
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is key-delete  KEY_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `KEY_ID`: ID of the key
 - `-f, --force`: Delete without confirmation
@@ -166,11 +166,11 @@ Delete a key
 
 List all server instances
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instances [--zone ZONE] [--subnet-id SUBNET_ID ] [--vpc-id VPC_ID ] [--json]`
 
-##### Options
+**Options**
 
 - `--zone ZONE`: Zone name to which the server instance belongs.
 - `--subnet-id SUBNET_ID`: ID of the subnet to which the server instance belongs. 
@@ -184,11 +184,11 @@ List all server instances
 
 Show details of a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance INSTANCE_ID [--json]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID`: ID of the server intance
 - `--json`: Format output in JSON
@@ -199,12 +199,12 @@ Show details of a server instance
 
 Create a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-create INSTANCE_NAME VPC_ID ZONE PROFILE (--image IMAGE_ID | --boot-volume BOOT_VOLUME_ID) [--generation GENERATION] [--volumes IDS] [--keys IDS] [--user-data DATA]`
 
 
-##### Options
+**Options**
 
 - `INSTANCE_NAME `: Name of the server instance
 - `VPC_ID`: ID of the VPC.
@@ -224,11 +224,11 @@ Create a server instance
 
 Update a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-update INSTANCE_ID [--name NEW_NAME] [--profile PROFILE]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `--name NEW_NAME`: New name of the server instance
@@ -240,11 +240,11 @@ Update a server instance
 
 Delete a server intance 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-delete INSTANCE_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `-f, --force`: Delete without confirmation
@@ -255,11 +255,11 @@ Delete a server intance
 
 Start a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-start INSTANCE_ID `
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 
@@ -269,11 +269,11 @@ Start a server instance
 
 Stop a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-stop INSTANCE_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `-f, --force`: Stop without confirmation
@@ -284,11 +284,11 @@ Stop a server instance
 
 Reboot a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-reboot INSTANCE_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `-f, --force`: Reboot without confirmation
@@ -299,11 +299,11 @@ Reboot a server instance
 
 Reset a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-reset INSTANCE_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `-f, --force`: Reset without confirmation
@@ -314,11 +314,11 @@ Reset a server instance
 
 Retrieves all pending, running, and recent actions on a server instance.
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-actions INSTANCE_ID [--json]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `--json`: Format output in JSON
@@ -329,11 +329,11 @@ Retrieves all pending, running, and recent actions on a server instance.
 
 Show details of an action on a server instance 
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-action INSTANCE_ID  ACTION_ID [--json]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `ACTION_ID`: ID of the action
@@ -345,11 +345,11 @@ Show details of an action on a server instance
 
 Cancel a pending server instance action
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-action-cancel INSTANCE_ID ACTION_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `ACTION_ID`: Action ID
@@ -362,11 +362,11 @@ Cancel a pending server instance action
 
 List all network interfaces of a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interfaces INSTANCE_ID [--json]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `--json`: Format output in JSON
@@ -377,11 +377,11 @@ List all network interfaces of a server instance
 
 Show details of a network interface of a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interface INSTANCE_ID  NIC_ID [--json]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the network interface
@@ -393,11 +393,11 @@ Show details of a network interface of a server instance
 
 Create a network interface for a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interface-create NIC_NAME INSTANCE_ID SUBNET_ID PORT_SPEED [--ipv4 IPV4_ADDRESS] [--ipv6 IPV6_ADDRESS] [--secondary-addresses ADDR1,ADDR2...] [--security-groups SECURITY_GROUP_ID1,SECURITY_GROUP_ID2...]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID`: ID of the server instance
 - `PORT_SPEED`: Speed of the network interface in Mbps
@@ -413,10 +413,11 @@ Create a network interface for a server instance
 
 Update a network interface of a server instance
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interface-update INSTANCE_ID NIC_ID [--name NEW_NAME] [--port-speed SPEED]`
-##### Options
+
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the NIC
@@ -429,11 +430,11 @@ Update a network interface of a server instance
 
 Delete a network interface from a server
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interface-delete INSTANCE_ID NIC_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the NIC
@@ -445,11 +446,11 @@ Delete a network interface from a server
 
 List all floating IPs associated with a network interface
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interface-floating-ips INSTANCE_ID NIC_ID --json`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the NIC
@@ -461,12 +462,12 @@ List all floating IPs associated with a network interface
 
 Show details of a floating IP associated with a network interface
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-network-interface-floating-ip INSTANCE_ID NIC_ID FLOATING_IP_ID [--json]`
 
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the NIC
@@ -479,10 +480,10 @@ Show details of a floating IP associated with a network interface
 
 Associate a floating IP to a network interface
 
-#### Syntax
+**Syntax**
 `ibmcloud is instance-nic-floating-ip-add INSTANCE_ID NIC_ID FLOATING_IP_ID [--json]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the NIC
@@ -494,11 +495,11 @@ Associate a floating IP to a network interface
 
 Disassociate a floating IP from a server
 
-#### Syntax
+**Syntax**
 
 `ibmcloud is instance-nic-floating-ip-remove INSTANCE_ID NIC_ID FLOATING_IP_ID [-f, --force]`
 
-##### Options
+**Options**
 
 - `INSTANCE_ID `: ID of the server instance
 - `NIC_ID `: ID of the NIC
