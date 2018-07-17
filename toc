@@ -24,6 +24,7 @@ Virtual Private Cloud (VPC)
     vpc-regions-and-subnets.md
     security-groups.md
     using-acls.md
+    using-vpn.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

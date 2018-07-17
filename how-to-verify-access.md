@@ -64,11 +64,13 @@ If you have a federated account:
 ```
 ibmcloud login -sso
 ```
+{: codeblock}
 
 otherwise
 ```
 ibmcloud login
 ```
+{: codeblock}
 
 ### Step 3: To learn how to use the commands, you can run:
     

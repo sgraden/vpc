@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-18"
+lastupdated: "2018-07-13"
 
 ---
 
@@ -81,4 +81,21 @@ Most likely you do not have adequate permissions to view the server status. Make
 
 **Answer:** This error will happen after about an hour if your IAM token has expired. Refresh your IAM token by re-running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`. 
 
+### Different instance ID is returned
 
+**Problem:** I post a request to create an instance, and the returned instance ID is `bce0c60d-20ef-42d1-b282-4eabd0c7bdd6`. Then I get the instance, but the instance ID is changed to `2409a6ac-518c-47ff-ac51-ee8783e98f9a`.
+
+**Answer:** Now RIAS compute supports two kinds of ID: `RIAS UUID` and `GUID(softlayer globalIdentifier)`. When you create a server, it returns the `RIAS UUID`. After the instance receives the GUID from Softlayer, RIAS compute updates the instance ID to `GUID`. You can use either  `RIAS UUID`  or `GUID` to manage the instance.
+
+### Error: 409 Conflict when creating an instance action
+
+You can't create certain instance actions if the status of your instance is in conflict with another action. For example, if your instance status is `stopped`, and you try to create a `reboot` action, the system returns a 409 error.
+
+| status      | action     | conflict |
+| ----------- | ---------- | -------- |
+| Running     | start      | yes      |
+| Stopped     | not start  | yes      |
+| Not running | pause      | yes      |
+| Not running | reboot     | yes      |
+| Not paused  | resume     | yes      |
+| Paused      | not resume | yes      |

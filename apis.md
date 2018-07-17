@@ -840,6 +840,457 @@ This request retrieves the default security group for the VPC specified by the i
   * `200: The default security group was retrieved successfully.`
   * `404: The specified VPC could not be found.`
 
+## API for VPNaaS
+### GET/ike_policies
+Retrieves a paginated list of all IKE policies belonging to this account.
+
+* **Optional Parameters**:
+	* `start`: A server-supplied token determining what resource to start the page on.
+	* `limit`: The number of resources to return on a page.
+	* `tag`: Filters the collection to resources containing the specified tag.
+* **Return**:
+	* `200: The IKE policies were retrieved successfully.`
+
+### POST/ike_policies
+Creates a new IKE policy.
+
+* **Required Parameters**: None
+* **Request Body**: _required_
+
+    The IKE policy template:
+
+```
+{
+  "authentication_algorithm": "md5",
+  "dh_group": 2,
+  "encryption_algorithm": "3des",
+  "ike_version": 1,
+  "key_lifetime": 28800,
+  "name": "my-ike-policy",
+  "resource_group": {
+    "id": "56969d60-43e9-465c-883c-b9f7363e78e8"
+  },
+  "tags": [
+    "production",
+    "backend"
+  ]
+}
+```
+
+* **Return**:
+	* `201: The IKE policy was created successfully.`
+	* `400: An invalid IKE policy template was provided.`
+
+### DELETE/ike_policies/{id}
+Deletes an IKE policy. This operation cannot be reversed.
+
+* **Required Parameters**:
+	* `id`: The IKE policy identifier.
+* **Return**:
+	* `204: The IKE policy was deleted successfully.`
+	* `404: An IKE policy with the specified identifier could not be found.`
+	* `409: The IKE policy is in use and cannot be removed.`
+
+### GET/ike_policies/{id}
+This request retrieves a single IKE policy specified by the identifier in the URL.
+
+* **Required Parameters**:
+	* `id`: The IKE policy identifier.
+* **Return**:
+	* `200: The IKE policy was retrieved successfully.`
+	* `404: An IKE policy with the specified identifier could not be found.`
+
+### PATCH/ike_policies/{id}
+Updates the properties of an existing IKE policy.
+
+* **Required Parameters**:
+	* `id`: The IKE policy identifier.
+* **Request Body**: _required_
+
+    The IKE policy patch:
+
+```
+{
+  "authentication_algorithm": "md5",
+  "dh_group": 2,
+  "encryption_algorithm": "3des",
+  "ike_version": 1,
+  "key_lifetime": 28800,
+  "name": "my-ike-policy"
+}
+```
+
+* **Return**:
+	* `200: The IKE policy was updated successfully.`
+	* `400: An invalid IKE policy patch was provided.`
+
+### GET/ike_policies/{id}/connections
+Retrieves all the connections that use the specified IKE policy.
+
+* **Required Parameters**:
+	* `id`: The IKE policy identifier.
+* **Return**:
+	* `200: The VPN connections were retrieved successfully.`
+	* `404: A policy with the specified identifier could not be found.`
+
+### GET/ipsec_policies/{id}
+Retrieves a paginated list of all IPsec policies belonging to this account.
+
+* **Optional Parameters**:
+	* `start`: A server-supplied token determining what resource to start the page on.
+	* `limit`: The number of resources to return on a page.
+	* `tag`: Filters the collection to resources containing the specified tag.
+* **Return**:
+	* `200: The IPsec policies were retrieved successfully.`
+
+### POST/ipsec_policies/{id}
+Creates a new IPsec policy.
+
+* **Required Parameters**: None
+* **Request Body**: _required_
+
+    The IPsec policy template:
+
+```
+{
+  "authentication_algorithm": "md5",
+  "encryption_algorithm": "3des",
+  "key_lifetime": 3600,
+  "name": "my-ipsec-policy",
+  "pfs": "disabled",
+  "resource_group": {
+    "id": "56969d60-43e9-465c-883c-b9f7363e78e8"
+  },
+  "tags": [
+    "production",
+    "backend"
+  ]
+}
+```
+
+* **Return**:
+	* `201: The IPsec policy was created successfully.`
+	* `400: An invalid IPsec policy template was provided.`
+
+### DELETE/ipsec_policies/{id}
+Deletes an IPsec policy. This operation cannot be reversed.
+
+* **Required Parameters**:
+	* `id`: The IPsec policy identifier.
+* **Return**:
+	* `204: The IPsec policy was deleted successfully.`
+	* `404: An IPsec policy with the specified identifier could not be found.`
+	* `409: The IPsec policy is in use and cannot be removed.`
+
+### GET/ipsec_policies/{id}
+This request retrieves a single IPsec policy specified by the identifier in the URL.
+
+* **Required Parameters**:
+	* `id`: The IPsec policy identifier.
+* **Return**:
+	* `200: The IPsec policy was retrieved successfully.`
+	* `404: An IPsec policy with the specified identifier could not be found.`
+
+### PATCH/ipsec_policies/{id}
+Updates the properties of an existing IPsec policy.
+
+* **Required Parameters**:
+	* `id`: The IPsec policy identifier.
+* **Request Body**: _required_
+
+    The IPsec policy patch:
+
+```
+{
+  "authentication_algorithm": "md5",
+  "encryption_algorithm": "3des",
+  "key_lifetime": 3600,
+  "name": "my-ipsec-policy",
+  "pfs": "disabled"
+}
+```
+
+* **Return**:
+	* `200: The IPsec policy was updated successfully.`
+	* `400: An invalid IPsec policy patch was provided.`
+
+### GET/ipsec_policies/{id}/connections
+Retrieves all the connections that use the specified IPsec policy.
+
+* **Required Parameters**:
+	* `id`: The IPsec policy identifier.
+* **Return**:
+	* `200: The VPN connections were retrieved successfully.`
+	* `404: A policy with the specified identifier could not be found.`
+
+### GET/vpn_gateways
+Retrieves a paginated list of all VPN gateways belonging to this account.
+
+* **Optional Parameters**:
+	* `start`: A server-supplied token determining what resource to start the page on.
+	* `limit`: The number of resources to return on a page.
+	* `resource_group.id`: Filters the collection to resources within one of the resource groups identified in a comma-separated list of resource group identifiers.
+
+* **Return**:
+	* `200: The VPN gateways were retrieved successfully.`
+
+### POST/vpn_gateways
+Creates a new VPN gateway.
+
+* **Required Parameters**: None
+* **Request Body**: _required_
+
+    The VPN gateway template:
+
+```
+{
+  "name": "my-vpn-gateway",
+  "subnet": {
+    "id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
+  }
+}
+```
+
+* **Return**:
+	* `201: The VPN gateway was created successfully.`
+	* `400: An invalid VPN gateway template was provided.`
+
+### DELETE/vpn_gateways/{id}
+Deletes a VPN gateway. This operation deletes all the VPN connections associated to this VPN gateway. This operation cannot be reversed.
+
+* **Required Parameters**: `id`: The VPN gateway identifier.
+* **Return**:
+	* `204: The VPN gateway was deleted successfully.`
+	* `404: A VPN gateway with the specified identifier could not be found.`
+
+### GET/vpn_gateways/{id}
+This request retrieves a single VPN gateway specified by the identifier in the URL.
+
+* **Required Parameters**: `id`: The VPN gateway identifier.
+* **Return**:
+	* `200: The VPN gateway was retrieved successfully.`
+	* `404: A VPN gateway with the specified identifier could not be found.`
+
+### PATCH/vpn_gateways/{id}
+Updates the properties of an existing VPN gateway.
+
+* **Required Parameters**: `id`: The VPN gateway identifier.
+* **Request Body**: _required_
+
+    The VPN gateway patch:
+
+```
+{
+  "name": "my-vpn-gateway"
+}
+```
+
+* **Return**:
+	* `200: The VPN gateway was updated successfully.`
+	* `400: An invalid VPN gateway patch was provided.`
+
+### GET/vpn_gateways/{vpn_gateway_id}/connections
+Retrieves all the connections of a particular VPN gateway.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+* **Optional Parameters**:
+	* `status`: Filters the collection to VPN connections with the specified status.
+* **Return**:
+	* `200: The VPN connections were retrieved successfully.`
+	* `404: A VPN gateway with the specified identifier could not be found.`
+
+### POST/vpn_gateways/{vpn_gateway_id}/connections
+Creates a new VPN connection.
+
+* **Required Parameters**: `vpn_gateway_id`: The VPN gateway identifier.
+* **Request Body**: _required_
+
+    The VPN connection template:
+
+```
+{
+  "admin_state_up": true,
+  "dead_peer_detection": {
+    "action": "restart",
+    "interval": 30,
+    "timeout": 120
+  },
+  "ike_policy": {
+    "id": "ddf51bec-3424-11e8-b467-0ed5f89f718b"
+  },
+  "ipsec_policy": {
+    "id": "ddf51bec-3424-11e8-b467-0ed5f89f718b"
+  },
+  "name": "my-vpn-connection",
+  "peer_address": "169.21.50.5",
+  "psk": "lkj14b1oi0alcniejkso",
+  "local_cidrs": [
+    "192.168.1.0/24"
+  ],
+  "peer_cidrs": [
+    "10.45.1.0/24"
+  ],
+  "tags": [
+    "production",
+    "backend"
+  ]
+}
+
+
+```
+
+* **Return**:
+	* `201: The VPN connection was created successfully.`
+	* `400: An invalid VPN connection template was provided.`
+
+### DELETE/vpn_gateways/{vpn_gateway_id}/connections/{id}
+Deletes a VPN connection. This operation cannot be reversed.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+	* `id`: The VPN connection identifier.
+* **Return**:
+	* `204: The VPN connection was deleted successfully.`
+	* `404: A VPN connection with the specified identifier could not be found.`
+
+### GET/vpn_gateways/{vpn_gateway_id}/connections/{id}
+This request retrieves a single VPN connection specified by the identifier in the URL.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+	* `id`: The VPN connection idenitifier.
+* **Return**:
+	* `200: The VPN connection was retrieved successfully.`
+	* `404: A VPN connection with the specified identifier could not be found.`
+
+### PATCH//vpn_gateways/{vpn_gateway_id}/connections/{id}
+Updates the properties of an existing VPN connection.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+	* `id`: The VPN connection identifier.
+* **Request Body**: _required_
+
+    The VPN connection patch:
+
+```
+{
+  "admin_state_up": true,
+  "dead_peer_detection": {
+    "action": "restart",
+    "interval": 30,
+    "timeout": 120
+  },
+  "ike_policy": {
+    "id": "ddf51bec-3424-11e8-b467-0ed5f89f718b"
+  },
+  "ipsec_policy": {
+    "id": "ddf51bec-3424-11e8-b467-0ed5f89f718b"
+  },
+  "name": "my-vpn-connection",
+  "peer_address": "169.21.50.5",
+  "psk": "lkj14b1oi0alcniejkso"
+}
+```
+
+* **Return**:
+	* `200: The VPN connection was updated successfully.`
+	* `400: An invalid VPN connection patch was provided.`
+
+### GET/vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs
+This request retrieves all local CIDRs for a VPN connection.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+	* `id`: The VPN connection identifier.
+* **Return**:
+	* `200: The CIDRs were retrieved successfully.`
+	* `404: A resource with the specified identifier could not be found.`
+
+### DELETE/vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs/{prefix_address}/{prefix_length}
+This request removes a local CIDR from a VPN connection.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+	* `id`: The VPN connection identifier.
+	* `prefix_address`: The prefix address part of the CIDR.
+	* `prefix_length`: The prefix length part of the CIDR.
+* **Return**:
+	* `204: The CIDR was successfully removed from the resource.`
+	* `404: The the specified CIDR does not exist on the specified resource or the specified resource could not be found.`
+
+### GET/vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs/{prefix_address}/{prefix_length}
+This request checks if a specific local CIDR exists on a VPN connection.
+
+* **Required Parameters**:
+        * `vpn_gateway_id`: The VPN gateway identifier.
+        * `id`: The VPN connection identifier.
+        * `prefix_address`: The prefix address part of the CIDR.
+        * `prefix_length`: The prefix length part of the CIDR.
+* **Return**:
+	* `204: The specified CIDR exists on the specified resource.`
+	* `404: The specified CIDR does not exist on the specified resource or the specified resource could not be found.`
+
+### PUT/vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs/{prefix_address}/{prefix_length}
+This request sets a local CIDR on a VPN connection.
+
+* **Required Parameters**:
+        * `vpn_gateway_id`: The VPN gateway identifier.
+        * `id`: The VPN connection identifier.
+        * `prefix_address`: The prefix address part of the CIDR.
+        * `prefix_length`: The prefix length part of the CIDR.
+* **Return**:
+	* `204: The CIDR was successfully set on the resource.`
+	* `400: The supplied CIDR was invalid.`
+	* `404: The specified resource could not be found.`
+
+### GET/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs
+This request retrieves all peer CIDRs for a VPN connection.
+
+* **Required Parameters**:
+	* `vpn_gateway_id`: The VPN gateway identifier.
+	* `id`: The VPN connection identifier.
+* **Return**:
+	* `200: The CIDRs were retrieved successfully.`
+	* `404: A resource with the specified identifier could not be found.`
+
+### DELETE/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{prefix_address}/{prefix_length}
+This request removes a peer CIDR from a VPN connection.
+
+* **Required Parameters**:
+        * `vpn_gateway_id`: The VPN gateway identifier.
+        * `id`: The VPN connection identifier.
+        * `prefix_address`: The prefix address part of the CIDR.
+        * `prefix_length`: The prefix length part of the CIDR.
+* **Return**:
+	* `204: The CIDR was successfully removed from the resource.`
+	* `404: The the specified CIDR does not exist on the specified resource or the specified resource could not be found.`
+
+### GET/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{prefix_address}/{prefix_length}
+This request checks if a specific peer CIDR exists on a VPN connection.
+
+* **Required Parameters**:
+        * `vpn_gateway_id`: The VPN gateway identifier.
+        * `id`: The VPN connection identifier.
+        * `prefix_address`: The prefix address part of the CIDR.
+        * `prefix_length`: The prefix length part of the CIDR.
+* **Return**:
+	* `204: The specified CIDR exists on the specified resource.`
+	* `404: The specified CIDR does not exist on the specified resource or the specified resource could not be found.`
+
+### PUT/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{prefix_address}/{prefix_length}
+Thie request sets a peer CIDR on a VPN connection.
+
+* **Required Parameters**:
+        * `vpn_gateway_id`: The VPN gateway identifier.
+        * `id`: The VPN connection identifier.
+        * `prefix_address`: The prefix address part of the CIDR.
+        * `prefix_length`: The prefix length part of the CIDR.
+* **Return**:
+	* `204: The CIDR was successfully set on the resource.`
+	* `400: The supplied CIDR was invalid.`
+
 ## API for Compute
 ### GET/images
 This request retrieves all images available in the region. Images represent a specific software configuration for an instance.

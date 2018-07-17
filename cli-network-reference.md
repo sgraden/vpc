@@ -93,7 +93,7 @@ Update a floating IP
 **Options**
 
 - `FLOATING_IP_ID `: ID of the floating IP
- - `--name`: New name of the floating IP
+- `--name`: New name of the floating IP
 - `--nic`: ID of the new network interface to associate with
 
 ---
@@ -367,7 +367,7 @@ List all subnets
 
 **Options**
 
-- - `--zone`: List public gateways which belongs to given zone
+- `--zone`: List public gateways which belongs to given zone
 - `--vpc: List public gateways which contains the specified VPC. 
 - `--network-acl`: Filter with the network ACL with specified ID, this is exclusive with `--network-acl-name`
 - `--json`: Format output in JSON

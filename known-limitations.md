@@ -42,6 +42,7 @@ The following APIs are not supported in this release.
 | Images | Create/Delete not supported | Only Ubuntu 16.04, CentOS 7.X |
 | Network_Interfaces | Get (no create, delete, update) | Only one interface supported |
 | Volume_Interfaces | Not supported |   |
+| Port_Speed | | Only 100,1000 |
 | **Storage:** |   |   |
 | Volumes | Not supported |   |
 | Snapshots | Not supported |  |
@@ -57,7 +58,7 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 ### Features Not Supported for Beta
 
-1. A Virtual Private Cloud cannot be peered with other Virtual Private Clouds.
+1. A Virtual Private Cloud cannot be peered with other Virtual Private Clouds.
 
 2. A Virtual Private Cloud cannot be peered with the IBM Cloud Classic environment. This feature will be available by GA. Peering will enable the VPC resources to communicate IBM Cloud Classic resources, such as bare metal servers and Direct Link service.
 
@@ -65,7 +66,7 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 4. Customers won't be able to set up custom routes in the IBM Cloud VPC. All the subnets in Virtual Private Cloud can communicate with each other by default.
 
-5. IBM Cloud VPC won't support multicast or broadcast domains.
+5. IBM Cloud VPC won't support multicast or broadcast domains.
 
 6. IBM Cloud VPC has nothing to do with the fast provisioning of the VSIs. It's targeted by a different work stream.
 
@@ -75,17 +76,17 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 9. A subnet cannot be on multiple Zones.
 
-10. A customer cannot attach or detach a subnet to or from an availability Zone.
+10. A customer cannot attach or detach a subnet to or from an availability Zone.
 
 11. A customer cannot resize a subnet.
 
 12. A customer cannot provision a bare metal server in IBM Cloud VPC.
 
-13. IBM Cloud Classic resources cannot be in the same subnet in the IBM Cloud VPC. 
+13. IBM Cloud Classic resources cannot be in the same subnet in the IBM Cloud VPC.
 
 14. There's no support for IPv6, neither as bring your own private IP in VPC, nor as Floating Public IP.
 
-15. The customer may not use his or her own public IP as a Floating IP. The floating IP pool is provided by IBM.
+15. The customer may not use his or her own public IP as a Floating IP. The floating IP pool is provided by IBM.
 
 16. A Floating IP is bound to a Zone. For example, a Floating IP reserved from a pool in Zone 1 won't be assigned to a VSI in Zone 2 in the same VPC.
 
@@ -97,6 +98,8 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 20. IBM Cloud VPC comes with its own Network as a Service tools such as LBaaS, ACLs, and security groups. A customer cannot use their network appliances (for example, a Vyatta Gateway or other load balancer) to control any resource in the IBM Cloud VPC. A customer cannot use their loadbalancer or security groups services in IBM Cloud Classic (SoftLayer) to control their resources in the IBM Cloud VPC.
 
-21. The public gateway does not allow the traffic to be intiated from the Internet to a VSI in the IBM Cloud VPC. For that purpose, a floating IP must be used.
+21. The public gateway does not allow the traffic to be initiated from the Internet to a VSI in the IBM Cloud VPC. For that purpose, a floating IP must be used.
 
-22. ACL is stateless, so return traffic must be allowed explicity in ACL rules.
+22. ACL is stateless, so return traffic must be allowed explicitly in ACL rules.
+
+23. VPN for IBM Cloud VPC does not have High Availability (HA) support.

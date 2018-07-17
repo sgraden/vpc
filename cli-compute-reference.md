@@ -63,6 +63,8 @@ List all images available in the region
 
 **Options**
 
+- `--json`: Format output in JSON
+
 ---
 
 ### `ibmcloud is image`
@@ -106,10 +108,8 @@ Show details of a key
 
 **Options**
 
-- `KEY_NAME`: Name of the key
 - `KEY_ID`: ID of the key
 - `--json`: Format output in JSON
-- `--id`: show ID only
 
 ---
 
