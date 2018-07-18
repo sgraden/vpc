@@ -261,7 +261,7 @@ floating_ip="<YOUR_FLOATING_IP_ID>"
 ```
 {: codeblock}
 
-## SSH into your Virtual Server Instance
+## [SSH into your Virtual Server Instance](https://console.bluemix.net/docs/vsi-is/vsi_is_connecting_linux_gc.html#connecting-to-your-instance-using-linux)
 
 To SSH to the server, use the `address` of the Floating IP you created. To get the `address` of the Floating IP, run the following command:
 

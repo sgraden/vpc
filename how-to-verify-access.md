@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-23"
+lastupdated: "2018-07-18"
 
 ---
 
@@ -84,7 +84,7 @@ ibmcloud is help instance-create
     
 ```
 ibmcloud is regions
-ibmcloud is zones
+ibmcloud is zones _region-name_ (For example, _us-south_)
 ibmcloud is vpcs
 ibmcloud is subnets
 ibmcloud is instances
