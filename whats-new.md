@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-07-17"
 
 ---
 
@@ -17,6 +17,10 @@ lastupdated: "2018-06-21"
 # What's New in IBM Cloud VPC Beta release
 
 Check back with this page to get information about changes and updates to the IBM Cloud VPC Beta release.
+
+## July 2018
+
+The VPN feature is released for the Beta program.
 
 ## June 2018
 

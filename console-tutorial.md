@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-16"
+lastupdated: "2018-07-18"
 
 ---
 
@@ -174,7 +174,7 @@ To create a VPN:
 1. To configure how the cloud gateway sends messages to check that the peer gateway is active, specify the following information in the **Dead peer detection** section.
     * **Dead peer detection action**: The action to take if a peer gateway stops responding. For example, select **Restart** if you want the gateway to immediately renegotiate the connection.
     * **Interval**: How often to check that the peer gateway is active. By default, messages are sent every 30 seconds.
-    * **Timeout**: How long to wait for a response from the peer gateway. By default, a peer gateway is no longer considered active if a response isn't received within 140 seconds.
+    * **Timeout**: How long to wait for a response from the peer gateway. By default, a peer gateway is no longer considered active if a response isn't received within 120 seconds.
 1. Specify the IKE and IPsec security parameters for the connection. 
     * Select **Auto** if you want the cloud gateway to try to automatically establish the connection. 
     * Select or create custom policies if you need to enforce particular security requirements, or the VPN gateway for the other netork doesn't support the security proposals that are tried by autonegotiation.
