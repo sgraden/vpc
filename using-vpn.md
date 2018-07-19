@@ -81,6 +81,7 @@ The following section gives details about APIs you can use for VPN in your VPC e
 In the following example, you'll be able to connect two VPCs together using VPN, which means you can connect
 subnets in two separate VPCs as if they were a single network. The IP addresses of the subnets must not overlap.
 Here is what the scenario looks like (with some VMs added in each VPC):
+
 ![An example VPN scenario](images/vpn-demo-diagram.png)
 
 ### Example Steps
