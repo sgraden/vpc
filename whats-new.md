@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-17"
+lastupdated: "2018-07-19"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-07-17"
 {:tip: .tip}
 {:download: .download}
 
-# What's New in IBM Cloud VPC Beta release
+# What's New
 
 Check back with this page to get information about changes and updates to the IBM Cloud VPC Beta release.
 
