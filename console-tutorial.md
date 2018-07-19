@@ -157,7 +157,7 @@ Since you created your instance with a public SSH key, you can now connect to it
 `ssh -i <path-to-private-key-file> root@<public-ip-address>`
 
 ## Creating a VPN
-You can create a virtual private network (VPN) so your VPC can connect securely to another private network, such as an on-premises network or another VPC.
+You can create a virtual private network (VPN) so your VPC can connect securely to another private network, such as an on-premises network or another VPC. 
 
 To create a VPN:
 1. In the navigation pane, click **VPNs**.
@@ -177,7 +177,7 @@ To create a VPN:
     * **Timeout**: How long to wait for a response from the peer gateway. By default, a peer gateway is no longer considered active if a response isn't received within 120 seconds.
 1. Specify the IKE and IPsec security parameters for the connection. 
     * Select **Auto** if you want the cloud gateway to try to automatically establish the connection. 
-    * Select or create custom policies if you need to enforce particular security requirements, or the VPN gateway for the other netork doesn't support the security proposals that are tried by autonegotiation.
+    * Select or create custom policies if you need to enforce particular security requirements, or the VPN gateway for the other network doesn't support the security proposals that are tried by auto-negotiation.
 
   **Important**: The IKE and IPsec security parameters that you specify for the connection must be the same parameters that are set on the gateway for the network outside of your VPC.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-06"
+lastupdated: "2018-07-17"
 
 ---
 
@@ -27,15 +27,11 @@ These features are available using the IBM Cloud Console UI, the API, and the CL
  * Use network access control lists (ACLs) to provide security for your subnets
  * Single-homed VSIs, using one virtual network interface card (vNIC)
  * Single-zone deployment, in US-South region
+ * Internet access by VPN
  
 ## Features available later in the Beta release timeframe
  
- * Deployment in multiple zones
- * Internet access by VPN
  * Load Balancing (LB) that's native to VPC
- * Peering between VPC and IBM Cloud Classic Infrastructure
- * Direct Link connectivity by means of peering between VPC and IBM Cloud Classic Infrastructure
- * Bare metal access by means of peering between VPC and IBM Cloud Classic Infrastructure
  * Multi-homed, multi-vNIC Virtual Server Instances (VSIs)
 
 For a list of upcoming features that will be released by General Availability (GA), please refer to [this Planned Experience document](planned-experience.html)

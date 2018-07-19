@@ -123,12 +123,12 @@ To fix this problem, be sure the content of your request is valid JSON and that 
 ## validation_invalid_cidr                       
 **Message**: The value is not a valid CIDR.
 
-Certain IP address ranges are reserved. For further instructions to fix this problem, see TBD.
+Certain IP address ranges are reserved. More information about reserved IP ranges is available in our overview of [Using your VPC with Regions and Subnets](regions-and-subnets.html){: new_window}. For further instructions to fix this problem, you can look at TBD.
 
 ## validation_invalid_ipv4_cidr        
 **Message**: The value is not a valid IPv4 CIDR.
 
-Certain IP address ranges are reserved. For further instructions to fix this problem, see TBD.
+Certain IP address ranges are reserved. More information about reserved IP ranges is available in our overview of [Using your VPC with Regions and Subnets](regions-and-subnets.html){: new_window}. For further instructions to fix this problem, see TBD.
 		
 ## validation_invalid_ipv6_cidr
 **Message**: The value is not a valid IPv6 CIDR.
@@ -138,17 +138,17 @@ For VPC Beta release, IPv6 is not supported. For further instructions to fix thi
 ## validation_invalid_address
 **Message**: The value is not a valid address.
 
-A list of reserved IP addresses is given in the [About](about.html) document. For further instructions to fix this problem, see TBD
+A list of individually reserved IP addresses is given in the [About](about.html) document. More information about reserved IP ranges is available in our overview of [Using your VPC with Regions and Subnets](regions-and-subnets.html){: new_window}. For further instructions to fix this problem, see TBD.
 
 ## validation_invalid_ipv4_address
 **Message**: The value is not a valid IPv4 address.
 
-Give a valid IPv4 address. For further instructions to fix this problem, see TBD
+Give a valid IPv4 address. For further instructions to fix this problem, see TBD.
 
 ## validation_invalid_ipv6_address
 **Message**: The value is not a valid IPv6 address.
 
-Give a valid IPv6 address. For VPC Beta release, IPv6 is not supported. For further instructions to fix this problem, see TBD
+Give a valid IPv6 address. For VPC Beta release, IPv6 is not supported. For further instructions to fix this problem, see TBD.
 
 ## validation_invalid_field_type
 **Message**: The value type does not match the field type.

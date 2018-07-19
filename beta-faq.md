@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-18"
+lastupdated: "2018-07-18"
 
 ---
 
@@ -68,7 +68,7 @@ The Regional Infrastructure API Service (RIAS) enforces this limit.
 
 ## How does VRF affect my other networking capabilities and my subnets?
 
-Caveats for VLANS and VRF:
+Caveats for VLANs and VRF:
 
 * Inter-account VLAN spanning is not allowed in the VRF environment.
 * IPSec VPN service is limited.
@@ -80,4 +80,8 @@ Caveats for VLANS and VRF:
 
  You have to allocate a floating IP and then provide the address on the interface floating IP add
  
- For example: `bx is floating-ip-reserve FLOATING_IP_NAME (--zone ZONE | --nic NIC_ID)` . Provide zone.
+ For example: `ibmcloud is floating-ip-reserve FLOATING_IP_NAME (--zone ZONE | --nic NIC_ID)` . Provide zone.
+ 
+ ## Why do I need to specify a subnet when I set up my VPN, and what should I specify?
+ 
+When you’re setting up a VPN gateway, you must specify a subnet, so that the VPN gateway can obtain the IP addresses it requires for the VPN service. By specifying the subnet, you retain control over how your VPN traffic is handled, and you have the flexibilty to specify a location that’s closer to the resources that utilize the VPN. In this way, you can reduce latency and improve performance. (For the Beta release, there is only one region, so the option to specify a nearby gateway location is not yet available.)
