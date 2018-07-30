@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-06"
+  
+lastupdated: "2018-07-19"
+
 
 ---
 
@@ -16,7 +18,7 @@ lastupdated: "2018-07-06"
 
 # About VPC
 
-A Virtual Private Cloud (VPC) is a virtual network that is tied to your customer account. It offers you a cost-effective entry point that provides you with cloud security, and the ability to scale dynamically with growth. It offers you fine-grained control over your virtual infrastructure and your network traffic segmentation.
+A Virtual Private Cloud (VPC) is a virtual network that is tied to your customer account. It offers you a cost-effective entry point that provides cloud security, and the ability to scale dynamically with growth. It gives you fine-grained control over your virtual infrastructure and your network traffic segmentation.
 
 IBM Cloud VPC is part of the next generation of the IBM One Cloud platform, which redefines the traditional industry standards for performance, service growth, flexibility, and deployment freedom.
 
@@ -32,6 +34,10 @@ Major Benefits:
 IBM Cloud VPC offers an isolated, security-rich environment. It gives you the security of a private cloud, with the agility and ease of use of a public cloud. With IBM Cloud VPC, you can manage key network services and launch Virtual Servers as needed to support your mission-critical, cloud-based applications.
 
 A Virtual Private Cloud is ideal for cloud-native workloads. For a detailed list of the key features that IBM Cloud VPC can provide for your workloads, skip to [this section](about.html#use-ibm-cloud-vpc-for-cloud-native-workloads).
+
+For a view of the **Planned Experience** as we move from Beta toward GA for IBM Cloud VPC, skip to [this section](about.html#planned-ibm-virtual-private-cloud-experience).
+
+For a list of features currently available in our Beta program, please refer to our [Beta Feature List document](about-vpc-beta.html).
 
 ## How it works
 
@@ -84,3 +90,35 @@ The feature set described in the folllowing section is part of the **Planned IBM
 
  * VSI Fast Provisioning is being handled separately, not as part of VPC.  
  * Virtual Private Cloud does not provide E2E encryption, but supports it.
+ 
+## Planned IBM Virtual Private Cloud Experience
+
+This section describes what we aim to deliver as we move from Beta toward GA in our timeline.
+
+IBM Virtual Private Cloud (IBM Cloud VPC) combines a fully-virtualized, software-defined networking experience, with superior isolation in the IBM public cloud. It supports your mission-critical applications and a variety of connectivity options. With IBM Cloud VPC, you can provision your resources and connect them to each other, or isolate them from one another. You can define your networking policies on-premises or with other public clouds. 
+
+## Networking Capabilities
+
+IBM Cloud VPC offers a comprehensive set of networking capabilities, including IP address range selection, virtual firewalls, site-to-site Virtual Private Networks (VPN), and Load Balancing (LBaaS) with elasticity.
+
+You can configure your virtual topology automatically, using our suggested prefix ranges and pre-configured network policies. Later, you can customize your IBM Cloud VPC and adapt it to your changing requirements, seamlessly. In addition, you have the ability both to bring your own private IP and to assign a floating IP.
+
+## Global Connectivity
+
+You can scope your services locally or globally, without bounds, to span across multiple regions. Using VPN, you can create private connections to other projects and other portions of your hybrid cloud deployments.
+
+## Network Security
+
+Security is integrated into your IBM Cloud VPC, with security groups that act as virtual firewalls for instance-level protection, and with access control lists (ACLs) for subnet-level protection. 
+
+## Load Balancing
+
+Within your IBM Cloud VPC, use Load Balancing to distribute your network traffic across a set of targets to improve performance and HA. Load Balancers also monitor the health of your applications and services. You can set up a Load Balancer to distribute incoming application traffic across instances in a single Zone or across multiple Zones.
+
+## Internet Access
+
+Using a Public Gateway (PGW) you can enable your virtual server instances (VSIs) to communicate with the public internet, if you choose. There is no charge for using a PGW, except for the bandwith used.
+
+**Figure: The Planned IBM Cloud VPC Experience**
+
+![Planned Experience](images/planned-vpc-experience.png)

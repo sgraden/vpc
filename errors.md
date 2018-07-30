@@ -58,12 +58,12 @@ Try again later. If this problem persists, contact support.
 ## http_request_size_exceeded                    
 **Message**: The HTTP request is too large.
 
-To fix this problem, be sure the content of your request conforms to the [RIAS API documentation](apis.html){: new_window} for the endpoint you are calling.
+This problem occurs when the payload you have sent in your request is too large. You must try again, with a smaller payload. for example, instead of trying to do everything in a single request, try creating a minimal resource in one request, and then appending state to it incrementally in several subsequent requests. Consult the [RIAS API documentation](apis.html){: new_window} for the endpoint you are calling, to see what alternatives exist.
 
 ## image_bad_file
 **Message**: The image template you supplied was invalid.
 
-To fix this problem, be sure the content of your request conforms to the [RIAS API documentation](apis.html){: new_window} for the endpoint you are calling.
+Try again, providing a valid image file. Consult the [RIAS API documentation](apis.html){: new_window} for the endpoint you are calling.
 		
 ## internal_solution                             
 **Message**: Please contact your administrator.
