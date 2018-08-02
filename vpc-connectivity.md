@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-06-08"
 
 * Subnets can connect to the public internet through an optional Public Gateway (PGW). 
 * You can assign a Floating IP address (FIP) to a VSI to reach it from the internet, or vice versa. 
-* At General Availablity, you'll use VPN and Direct Link to obtain access to the internet and to your on-premise data centers, securely. VPN will be available later in the Beta timeframe, Direct Link will be available after GA. For more information, see our [Planned Experience document](planned-experience.html#planned-ibm-virtual-private-cloud-experience).
+* At General Availablity, you'll use VPN and Direct Link to obtain access to the internet and to your on-premise data centers, securely. VPN will be available later in the Beta timeframe, Direct Link will be available after GA. For more information, see our [Planned Experience document](about.html#planned-ibm-virtual-private-cloud-experience).
 
 ## Private connectivity within your IBM Cloud VPC
 Subnets in the IBM Cloud VPC can talk to each other over a private link. Customers do not need to set up any routes.
@@ -36,22 +36,17 @@ A **Public Gateway (PGW)** enables a subnet (with all the VSIs attached to the s
 
 PGW uses _Many-to-1 NAT_, which means that thousands of VSIs with private addresses will use 1 public IP address to talk to the public internet. PGW does not enable the internet to initiate a connection with those instances. Use the API to attach and detach subnets to and from your PGW.
 
-For more general information, here are some external links you can follow:
-
- * [What is a public gateway?](https://en.wikipedia.org/wiki/Default_gateway)
- * [What is a subnet?](https://en.wikipedia.org/wiki/Subnetwork)
- * [What is a Floating IP address?](https://wiki.lunanode.com/index.php/Floating_IP_addresses)
- * [What is MANY-TO-ONE NAT?](https://en.wikipedia.org/wiki/Network_address_translation)
- * [What is VPN?](https://en.wikipedia.org/wiki/Virtual_private_network)
 
 ### Use a Floating IP address for external connectivity of a VSI 
-**Floating IP addresses** are public IP addresses that are provided by the system. You cannot bring your own public IP. Floating IP addresses are reachable from  the internet, and they can be associated to an instance (for example, a VSI, a loadbalancer, and a VPN gateway). You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud. 
+**Floating IP addresses** are IP addresses that are provided by the system and are reachable from the public internet. You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud. You cannot bring your own public IP. Any Floating IP addresse can be associated to various types of virtual server instances (VSIs), for example, a load balancer or a VPN gateway. 
 
-Your Floating IP address cannot be associated with multiple interfaces. You must specify the interface of VSI that will be associated with that Floating IP. That interface also will have a private IP address. The backend system will perform 1-to-1 NAT operations between the Floating IP and the Private IP of that interface. A Floating IP is released only when you specifically request the release action. 
+Your Floating IP address cannot be associated with multiple interfaces. You must specify the interface on the VSI that will be associated with that individual Floating IP. That interface also will have a private IP address. The backend system performs _1-to-1 NAT_ operations between the Floating IP and the Private IP of that interface. A Floating IP is released only when you specifically request the release action. 
+
+For more information about NAT operations, please refer to [the related Internet RFC document](http://www.faqs.org/rfcs/rfc1631.html).
 
 **Note: Currently, Floating IP supports only IPv4 addresses.**
 
-### Use VPN for Secure External Connectivity (available later in Beta release timeframe)
+### Use VPN for Secure External Connectivity
 Virtual Private Network (VPN) service is available for users to connect to their IBM Cloud VPC from the internet, securely.
 
 **Available User Action**
