@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-07-09"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -27,7 +27,7 @@ Security groups are scoped to a single VPC. This scoping implies that security g
 
 When a VSI is created without any security groups specified, the VSI's primary network interface is put into the _default_ security group of that VSI's VPC. IBM Cloud VPC Beta release has a defined default security group that does allow certain traffic.
 
-For more information, including examples of how to provision a VSI with security groups, please see our [Security Groups Usage Examples document](security-groups-usage-examples.html)
+For more information, including examples of how to provision a VSI with security groups, please see our [Security Groups Usage Examples document](security-group-usage-examples.html)
 
 ### Default Security Groups
 
