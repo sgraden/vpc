@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -29,7 +29,7 @@ Subnets in the IBM Cloud VPC can talk to each other over a private link. Custome
 
 ## Terminology
 
-This [glossary](vpc-glossary.html) contains definitions and information about commonly-used terms for IBM Cloud VPC.
+This [glossary](vpc-glossary.html) contains definitions and information about termsused in this document for IBM Cloud VPC.
 
 ### Use a Public Gateway For External Connectivity of a Subnet
 A **Public Gateway (PGW)** enables a subnet (with all the VSIs attached to the subnet) to connect to the internet. Note that subnets are private by default; however, optionally, you can create a PGW and attach a subnet to the PGW. After a subnet is attached to the PGW, all the VSIs in that subnet can connect to the internet. 
@@ -38,9 +38,11 @@ PGW uses _Many-to-1 NAT_, which means that thousands of VSIs with private addres
 
 
 ### Use a Floating IP address for external connectivity of a VSI 
-**Floating IP addresses** are IP addresses that are provided by the system and are reachable from the public internet. You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud. You cannot bring your own public IP. Any Floating IP addresse can be associated to various types of virtual server instances (VSIs), for example, a load balancer or a VPN gateway. 
+**Floating IP addresses** are IP addresses that are provided by the system and are reachable from the public internet. You can reserve a Floating IP address from the pool of available Floating IP addresses provided by IBM, and you can associate or unassociate it to (or from) any instance in the same Virtual Private Cloud, by means of the vNIC for that instance. You cannot bring your own public IP. Any Floating IP address can be associated to various types of virtual server instances (VSIs), for example, a load balancer or a VPN gateway. 
 
 Your Floating IP address cannot be associated with multiple interfaces. You must specify the interface on the VSI that will be associated with that individual Floating IP. That interface also will have a private IP address. The backend system performs _1-to-1 NAT_ operations between the Floating IP and the Private IP of that interface. A Floating IP is released only when you specifically request the release action. 
+
+**Note: Associating a Floating IP address with a VSI removes the VSI from the PGW's Many-to-1 NAT mentioned previously.**
 
 For more information about NAT operations, please refer to [the related Internet RFC document](http://www.faqs.org/rfcs/rfc1631.html).
 
