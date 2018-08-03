@@ -4,7 +4,7 @@ copyright:
 
   years: 2018
 
-lastupdated: "2018-07-18"
+lastupdated: "2018-07-30"
 
 ---
 
@@ -178,10 +178,38 @@ For further instructions to fix this problem, refer to the [API documentation](a
 ## validation_discriminator_required
 **Message**: The discriminator field requires this substructure.
 
+If the discriminator value does not match an implicit or explicit mapping, no schema can be determined and validation SHOULD fail.
+
+For example, if you specify
+```
+{
+protocol: icmp
+port_min: 5
+port_max: 100
+}
+```
+
+The protocol is `icmp`, and _port_min_ is a `tcp` field, so you'll get an error.
+1. validation_discriminator_required for missing `icmp` rules
+2. validation_discriminator_forbidden for `tcp` fields with `icmp` specified
+
 For further instructions to fix this problem, refer to the [API documentation](apis.html){: new_window}.
 
 ## validation_discriminator_forbidden
 **Message**: The discriminator field forbids this substructure.
+
+For example, if you specify
+```
+{
+protocol: icmp
+port_min: 5
+port_max: 100
+}
+```
+
+The protocol is `icmp`, and _port_min_ is a `tcp` field, so you'll get an error.
+1. validation_discriminator_required for missing `icmp` rules
+2. validation_discriminator_forbidden for `tcp` fields with `icmp` specified
 
 For further instructions to fix this problem, refer to the [API documentation](apis.html){: new_window}.
 

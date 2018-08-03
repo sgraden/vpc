@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-07-09"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -50,7 +50,6 @@ The following table is a summary of ACL-related APIs and CLIs available in the B
 |Retrieves a specific ACL rule| `GET /network_acls/{network_acl_id}/rules/{id}`| `ibmcloud is network-acl-rule`|
 |Updates a specific ACL rule| `PATCH /network_acls/{network_acl_id}/rules/{id}`| `ibmcloud is network-acl-rule-update`|
 |Deletes a specific ACL rule| `DELETE /network_acls/{network_acl_id}/rules/{id}`| `ibmcloud is network-acl-rule-delete`|
-|Retrieves the ACL attached to a subnet| `GET /subnets/{id}/network_acl`| `ibmcloud is subnet`| 
 |Attaches an ACL to a subnet|`PUT /subnets/{id}/network_acl`| `ibmcloud is subnet-network-acl-attach` |
 |Detaches an ACL from a subnet|  | `ibmcloud is subnet-network-acl-detach`|
 
@@ -94,28 +93,28 @@ The example rules that follow show how to set up the ACL rules for a basic scena
 
 **ACL-1 example rules**:
 
-| Ingress/Egress| Rule Sequence    | Allow/Deny | Source/Destination IP | Protocol | Port | Description|
-|--------------|-------------------|-----------|------|------|------------------|-------|
-| Ingress | 10 | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic from the Internet| 
-| Ingress | 20 | Allow | 0.0.0.0/0 | TCP | 443 | Allow HTTPS traffic from the Internet| 
-| Ingress | 100| Allow| 10.10.20.0/24 |all| all| Allow all ingress traffic from the subnet 10.10.20.0/24 where the backend servers are placed|
-| Ingress | 200| Deny| 0.0.0.0/0|all| all| Deny all other traffic inbound|
-| Egress | 10| Allow | 0.0.0.0/0 | TCP|80 | Allow HTTP traffic to the Internet| 
-| Egress | 20 | Allow | 0.0.0.0/0 | TCP|443 | Allow HTTPS traffic to the Internet|
-| Egress | 100| Allow| 10.10.20.0/24 |all| all| Allow all egress traffic to the subnet 10.10.20.0/24 where the backend servers are placed|
-| Egress | 200| Deny| 0.0.0.0/0|all| all| Deny all other traffic outbound|
+| Ingress/Egress| Allow/Deny | Source/Destination IP | Protocol | Port | Description|
+|--------------|-----------|------|------|------------------|-------|
+| Ingress | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic from the Internet| 
+| Ingress | Allow | 0.0.0.0/0 | TCP | 443 | Allow HTTPS traffic from the Internet| 
+| Ingress | Allow| 10.10.20.0/24 |all| all| Allow all ingress traffic from the subnet 10.10.20.0/24 where the backend servers are placed|
+| Ingress | Deny| 0.0.0.0/0|all| all| Deny all other traffic inbound|
+| Egress | Allow | 0.0.0.0/0 | TCP|80 | Allow HTTP traffic to the Internet| 
+| Egress | Allow | 0.0.0.0/0 | TCP|443 | Allow HTTPS traffic to the Internet|
+| Egress | Allow| 10.10.20.0/24 |all| all| Allow all egress traffic to the subnet 10.10.20.0/24 where the backend servers are placed|
+| Egress | Deny| 0.0.0.0/0|all| all| Deny all other traffic outbound|
 
 
 **ACL-2 example rules**:
 
-| Ingress/Egress| Rule Sequence    | Allow/Deny | Source/Destination IP | Protocol| Port | Description|
-|--------------|-------------------|-----------|------|------|------------------|--------|
-| Ingress | 10| Allow| 10.10.10.0/24 |all| all| Allow all ingress traffic from the subnet 10.10.10.0/24 where the web servers are placed|
-| Ingress | 20| Deny| 0.0.0.0/0|all| all| Deny all other traffic inbound|
-| Egress | 10| Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic to the Internet| 
-| Egress | 20 | Allow | 0.0.0.0/0 | TCP| 443 | Allow HTTPS traffic to the Internet|
-| Egress | 100| Allow| 10.10.10.0/24 |all| all| Allow all egress traffic to the subnet 10.10.10.0/24 where the web servers are placed|
-| Egress | 200| Deny| 0.0.0.0/0|all| all| Deny all other traffic outbound|
+| Ingress/Egress| Allow/Deny | Source/Destination IP | Protocol| Port | Description|
+|--------------|-----------|------|------|------------------|--------|
+| Ingress | Allow| 10.10.10.0/24 |all| all| Allow all ingress traffic from the subnet 10.10.10.0/24 where the web servers are placed|
+| Ingress | Deny| 0.0.0.0/0|all| all| Deny all other traffic inbound|
+| Egress | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic to the Internet| 
+| Egress | Allow | 0.0.0.0/0 | TCP| 443 | Allow HTTPS traffic to the Internet|
+| Egress | Allow| 10.10.10.0/24 |all| all| Allow all egress traffic to the subnet 10.10.10.0/24 where the web servers are placed|
+| Egress | Deny| 0.0.0.0/0|all| all| Deny all other traffic outbound|
 
 **Note:** This example is for general cases only. In your scenarios, you may also want to have more granular control over the traffic:
 
