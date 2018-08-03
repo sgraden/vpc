@@ -29,7 +29,7 @@ Subnets in the IBM Cloud VPC can talk to each other over a private link. Custome
 
 ## Terminology
 
-This [glossary](vpc-glossary.html) contains definitions and information about termsused in this document for IBM Cloud VPC.
+This [glossary](vpc-glossary.html) contains definitions and information about terms used in this document for IBM Cloud VPC.
 
 ### Use a Public Gateway For External Connectivity of a Subnet
 A **Public Gateway (PGW)** enables a subnet (with all the VSIs attached to the subnet) to connect to the internet. Note that subnets are private by default; however, optionally, you can create a PGW and attach a subnet to the PGW. After a subnet is attached to the PGW, all the VSIs in that subnet can connect to the internet. 
