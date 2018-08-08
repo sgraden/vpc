@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-13"
+lastupdated: "2018-08-07"
 
 ---
 
@@ -18,13 +18,22 @@ lastupdated: "2018-07-13"
 
 This document covers common difficulties you might encounter, and offers some helpful tips.
 
-## Using DEBUG mode or `verbose` mode 
+## Turning on `TRACE` mode
 
-When you're having trouble diagnosing a difficulty, you can use the CLI to get into DEBUG mode, by giving the following command before any other call you make to the IBM Cloud CLI. For example, for the command `ibmcloud is pubgws` you'd write:
+You can use the IBM Cloud `TRACE` options to turn on `TRACE` mode, by entering any of the following commands:
+
+ * `IBMCLOUD_TRACE=true`
+ * `IS_TRACE=true`
+ * `BLUEMIX_TRACE=true`
+ 
+ ## Using DEBUG mode or `verbose` mode 
+
+When you're having trouble diagnosing a difficulty, you can use the CLI to get into DEBUG mode, by giving the TRACE command before any other call you make to the IBM Cloud CLI. For example, for the command `ibmcloud is pubgws` you'd write:
 
 ```
-RIAAS_DEBUG=yes ibmcloud is pubgws
+IBMCLOUD_TRACE=true ibmcloud is pubgws
 ```
+
 The debug information is helpful to you and also to the support team who may be called upon to diagnose your problem.
 
 **Another option is to use verbose mode**
@@ -48,16 +57,8 @@ strict-transport-security: max-age=15724800; includeSubDomains;
 
 ### If Trace ID is blank
 
-Usually, when the Trace ID is blank, it is because the JSON returned does not match what is expected from the Swagger. Try `RIAAS_DEBUG=yes ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
+Usually, when the Trace ID is blank, it is because the JSON returned does not match what is expected from the Swagger. Try `IBMCLOUD_TRACE=true ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
 
-## Turning on `TRACE` mode
-
-You can use the IBM Cloud `TRACE` options to turn on `TRACE` mode, by entering any of the following commands:
-
-
- * `IBMCLOUD_TRACE=true`
- * `IS_TRACE=true`
- * `BLUEMIX_TRACE=true`
  
  ## Other Issues
 

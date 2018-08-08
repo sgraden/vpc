@@ -16,9 +16,9 @@ lastupdated: "2018-07-18"
 
 # Verifying your IBM Cloud VPC Access for the Beta release
 
-IBM Virtual Private Cloud (VPC) functionality is available through the IBM Console UI, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [Getting Started](getting-started.html) for the steps of how to be added.
+IBM Virtual Private Cloud (VPC) functionality is available through the IBM Console UI, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [How to Participate](how-to-participate.html) for the steps of how to be added to the Beta release.
 
-To manage VPC resources and instantiate Virtual Server Instances (VSIs), review each user's [permissions](vpc-user-permissions.html).
+To manage VPC resources and instantiate Virtual Server Instances (VSIs), first review each user's [permissions](vpc-user-permissions.html).
 
 To learn how to use the IBM Console UI to manage VPC resources, follow the steps in our [UI guide](console-tutorial.html).
 
@@ -27,6 +27,7 @@ To use the CLI and API, follow the steps below.
 ## Pre-requisites:
 
 1. Install the [IBM Cloud CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){: new_window}.
+
 2. Generate a public SSH key to provision Virtual Server Instances (VSIs).
 
 You may have a public SSH key already. Look for a file called ``id_rsa.pub`` under an ``.ssh`` directory under your home directory, for example, ``/Users/<USERNAME>/.ssh/id_rsa.pub``. The file starts with ``ssh-rsa`` and ends with your email address.
@@ -93,9 +94,9 @@ ibmcloud is instances --json
 
 For more details on CLI capability, see:
 
-- [Geography APIs](cli-geo-reference.html)
-- [Network APIs](cli-network-reference.html)
-- [Compute APIs](cli-compute-reference.html)
+- [Geography APIs](cli-reference.html#geography)
+- [Network APIs](cli-reference.html#network)
+- [Compute APIs](cli-reference.html#compute)
 
 ## API Access 
 

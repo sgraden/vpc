@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-17"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -33,8 +33,9 @@ These features are available using the IBM Cloud Console UI, the API, and the CL
  
  * Load Balancing (LB) that's native to VPC
  * Multi-homed, multi-vNIC Virtual Server Instances (VSIs)
+ 
 
-For a list of upcoming features that will be released by General Availability (GA), please refer to [this Planned Experience document](planned-experience.html)
+For a list of upcoming features that will be released by General Availability (GA), please refer to [this Planned Experience document](about.html#planned-ibm-virtual-private-cloud-experience)
 
 For a list of known limitations and features not supported during the Beta release, please refer to [this Known Limitations document](known-limitations.html).
 

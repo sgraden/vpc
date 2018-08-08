@@ -6,9 +6,9 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="learn"}
     getting-started.md
+    how-to-participate.md
     about-vpc-beta.md
     about.md
-    quick-overview.md
     whats-new.md
     vpc-connectivity.md
     vpc-security.md
@@ -16,15 +16,21 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="howto"}
     step-by-step-pages.md
-    console-tutorial.md
-    example-code.md
-    how-to-verify-access.md
-    sl-2-factor-auth.md
     vpc-user-permissions.md
     vpc-regions-and-subnets.md
     security-groups.md
     using-acls.md
     using-vpn.md
+    sl-2-factor-auth.md
+
+    {: .topicgroup}
+    All Step-By-Step Guides
+        console-tutorial.md
+        example-code.md
+        how-to-verify-access.md
+    
+    
+    [Linking IaaS and PaaS Accounts](https://www.ibm.com/blogs/bluemix/2018/03/follow-steps-link-iaas-paas-accounts/)
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -32,7 +38,6 @@ Virtual Private Cloud (VPC)
     vpc-glossary.md
     apis.md
     cli-reference.md
-    [Linking IaaS and PaaS Accounts](https://www.ibm.com/blogs/bluemix/2018/03/follow-steps-link-iaas-paas-accounts/)
     related-links.md
     external-resources.md
     {: .navgroup-end}
