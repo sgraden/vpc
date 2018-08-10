@@ -4,7 +4,7 @@ copyright:
 
   years: 2018
 
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-09"
 
 ---
 
@@ -352,7 +352,9 @@ For further instructions to fix this problem, refer to the [API documentation](a
 ## iam_failure
 **Message**: None
 
-For further instructions to fix this problem, refer to the [API documentation](apis.html){: new_window}. If this problem persists, contact support.
+This message can be displayed when there's been a failure to convert an IAM token to an IMS token.  Ie may mean that the token you provided is not supported, or there is an invalid key ID. If this problem persists, contact support.
+
+For further instructions to fix this problem, refer to the [API documentation](apis.html){: new_window}. 
 
 ## validation_internal_error
 **Message**: None

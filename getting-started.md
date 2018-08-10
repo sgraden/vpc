@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-10"
 
 ---
 
@@ -16,7 +16,31 @@ lastupdated: "2018-08-03"
 
 # Getting started with IBM Cloud Virtual Private Cloud Beta release
 
-You can create, name, and resize your IBM Cloud VPC using the [IBM Console](console-tutorial.html), the [`ibmcloud` CLI](cli-network-reference.html), or the [VPC REST API](apis.html) provided by IBM Cloud. For step-by-step instructions, refer to these documents:
+You can create, name, and resize your IBM Cloud VPC using three different interfaces: 
+
+ * the [IBM Console](console-tutorial.html), which offers a graphical user interface,
+ * the [`ibmcloud` command line interface](cli-network-reference.html), which is available by downloading a plugin, 
+ * the [VPC REST API](apis.html), which is part of the Regional Application Interface Service (RIAS) provided by IBM Cloud. 
+
+## Overview steps for setting up your IBM Cloud VPC
+
+Whichever interface method you may choose, here's the general flow for how to get going:
+
+1. Create a Virtual Private Cloud.
+2. Create one or more subnets in the Virtual Private Cloud in one or more zones.
+3. Create network Access Control Lists (ACLs) to manage traffic to your subnets.
+4. Select the profiles of virtual server instances (VSIs) you'd like to run, and instantiate them.
+5. Create security groups to manage traffic to your virtual servers.
+6. Reserve a Floating IP address, and associate it with a server.
+7. Create a public gateway (PGW) if you want public internet traffic to your subnet.
+8. Create servers in one or more zones of a Virtual Private Cloud.
+9. Deploy your service or applications across those servers
+
+**Note: You can delete a Virtual Private Cloud if there are no running instances in it.**
+
+## Step-by-step instructions
+
+For step-by-step instructions on how to get started, refer to these documents:
 
  * [Using the IBM Consule UI to set up your VPC and its resources](console-tutorial.html)
  * [Using the `ibmcloud` command line interface to set up your VPC and its resources](how-to-verify-access.html#cli-access)
@@ -38,19 +62,6 @@ Depending on which interface you decide to use, you may need to perform some or 
 
 * **API endpoint**: For API access, you will receive an endpoint through email.
 
-## Overview steps for setting up your IBM Cloud VPC
+## What's next?
 
-Here's the general flow for how to get going, using whichever interface method you may choose:
-
-1. Create a Virtual Private Cloud.
-2. Create one or more subnets in the Virtual Private Cloud in one or more zones.
-3. Create network Access Control Lists (ACLs) to manage traffic to your subnets.
-4. Select the profiles of virtual server instances (VSIs) you'd like to run, and instantiate them.
-5. Create security groups to manage traffic to your virtual servers.
-6. Reserve a Floating IP address, and associate it with a server.
-7. Create a public gateway (PGW) if you want public internet traffic to your subnet.
-8. Create servers in one or more zones of a Virtual Private Cloud.
-9. Deploy your service or applications across those servers
-
-
-**Note: You can delete a Virtual Private Cloud if there are no running instances in it.**
+Start creating your VPC and its resources!
