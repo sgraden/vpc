@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-10"
 
 ---
 
@@ -59,6 +59,7 @@ Once you've been notified that your participation is approved, follow these inst
 * [Instructions](how-to-verify-access.html) to verify access to the user interface, command line interface and APIs for the IBM Cloud Virtual Private Cloud Beta.
 * [Instructions](vpc-user-permissions.html) to verify or obtain the correct permissions, which must be granted by the master or primary user of your account.
 
+**Note:** You must be whitelisted additionally if you wish to participate in Beta for these features: VPN for VPC, WindowsOS for VPC, and LBaaS for VPC.
 
 ## General Overview of Steps
 
