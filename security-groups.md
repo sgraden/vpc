@@ -19,13 +19,13 @@ lastupdated: "2018-08-02"
 
 Security groups give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance (VSI), based on IP address.
 
-By default, a security group denies all traffic. As rules are added to a security group, it defines the traffic that the security group permits. 
+By default, a security group denies all traffic. As rules are added to a security group, it defines the traffic that the security group permits.
 
 Rules are _stateful_, which means that reverse traffic in response to allowed traffic is automatically permitted. So for example, a rule allowing inbound TCP traffic on port 80 also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for an additional rule.
 
 Security groups are scoped to a single VPC. This scoping implies that security group can be attached _only_ to network interfaces of VSIs within the same VPC.
 
-When a VSI is created without any security groups specified, the VSI's primary network interface is put into the _default_ security group of that VSI's VPC. IBM Cloud VPC Beta release has a defined default security group that does allow certain traffic.
+When a VSI is created without any security groups specified, the VSI's primary network interface is put into the _default_ security group of that VSI's VPC. {{site.data.keyword.cloud}} VPC Beta release has a defined default security group that does allow certain traffic.
 
 For more information, including examples of how to provision a VSI with security groups, please see our [Security Groups Usage Examples document](security-group-usage-examples.html)
 
@@ -44,7 +44,7 @@ If you edit the rules of the default security group, those edited rules will the
 
 ```
 # Add rules allowing SSH and PING
-ibmcloud is sg-rule-add --direction ingress --protocol tcp --ipv 4 --min-port 22 --max-port 22 634533 
+ibmcloud is sg-rule-add --direction ingress --protocol tcp --ipv 4 --min-port 22 --max-port 22 634533
 ibmcloud is sg-rule-add --direction ingress --protocol icmp --icmp-type 8 --icmp-code 0 634533
 ```
 
@@ -83,8 +83,8 @@ curl -X GET $rias_endpoint/v1/security_groups -H "X-Auth-Token: $iam_token"
  * Default security groups are available for VPCs created after May 24 only.
 
  * Adding or removing network interfaces from a security group works for network interfaces on servers ordered after May 19 only.
- 
- * Network interfaces added to a security group are functional, however they are not viewble through the API for VSIs created before June 22. This is a permanent limitation for VSIs ordered before June 22, 2018.
+
+ * Network interfaces added to a security group are functional, however they are not viewable through the API for VSIs created before June 22. This is a permanent limitation for VSIs ordered before June 22, 2018.
 
 
 ### Coming soon in IBM Cloud VPC Beta
@@ -98,7 +98,7 @@ curl -X GET $rias_endpoint/v1/security_groups -H "X-Auth-Token: $iam_token"
 
 In the example that follows, you'll create a VSI with a security group enabled, using the command line interface (CLI). Here's what the scenario looks like.
 
-![image3](/images/security-groups-demo-schematic.png)
+![image3](/images/security-groups-schematic.png)
 
 Notice in the figure that the VSI named **SG4** has a floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.0.0.5`; therefore, it can talk to the public internet. The security group assigned to VSI **SG4** is named "demosg".
 
@@ -112,8 +112,6 @@ Notice that you must create the security group first, with the `ibmcloud is sg-c
 
 This example code skips a few steps, so here's where you can find more information:
 
- * If you're new to the VPC Beta release, the procedure for how to log in is included in [another file](sl-2-factor-auth.html#using-2-factor-authentication-for-ibm-cloud-infrastructure-initialization-with-ibm-cloud-vpc).
-
  * Instructions for creating a VPC and a subnet are available in our [example code document](example-code.html#example-code-tutorial).
 
 You can copy and paste commands from this example CLI code to get you started creating a VSI that has a security group attached. System responses are not shown completely in this sample code. You'll need to update your commands with the correct resource IDs for your _VPC_, _subnet_, _image_, and _key_, and the correct _security group ID number_.
@@ -126,9 +124,9 @@ ibmcloud sl init
 ```
 {: codeblock}
 
-**Step 2. Choose how to configure IBM Cloud Infrastructure (Softlayer) authentication:**
+**Step 2. Choose how to configure IBM Cloud Infrastructure (SoftLayer) authentication:**
 
-1. Login with your Softlayer user name and password or API key
+1. Login with your SoftLayer user name and password or API key
 
 2. Use Bluemix Single-Sign-On
 
@@ -184,4 +182,3 @@ To add a security group rule, here's an example command for adding a PING ingres
 ibmcloud is sg-rule-add --direction ingress --protocol icmp --icmp-type 8 --icmp-code 0 569403
 ```
 {: codeblock}
-

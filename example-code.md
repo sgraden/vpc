@@ -16,11 +16,11 @@ lastupdated: "2018-07-06"
 
 # Example Code Tutorial
 
-The following example helps you create an IBM Cloud VPC, a subnet, a gateway, a virtual server instance, and then to associate a floating IP address, using the IBM Cloud VPC (Beta) REST APIs.
+The following example helps you create an {{site.data.keyword.cloud}} VPC, a subnet, a gateway, a virtual server instance, and then to associate a floating IP address, using the {{site.data.keyword.cloud}} VPC (Beta) REST APIs.
 
-## Verify access to the Regional APIs
+## Verify access to the Regional API Service
 
-Get an IAM token, source your variables, and verify that you have access to the Regional APIs (RIAS) by following these [instructions](how-to-verify-access.html) first. 
+Get an IAM token, source your variables, and verify that you have access to the Regional Infrastructure API service (RIAS) by following these [instructions](how-to-verify-access.html) first.
 
 If you run into unexpected results, add the `--verbose` (debug) flag after the `curl` command to obtain detailed logging information. You also can check out the commonly encountered errors in our [troubleshooting page](troubleshooting.html).
 
@@ -78,13 +78,13 @@ As with the Virtual Private Cloud, save the ID of the subnet in a variable.
 
 ```bash
 # Something like this: `subnet="35fb0489-7105-41b9-99de-033fae723006"`
-subnet="<YOUR_SUBNET_ID"
+subnet="<YOUR_SUBNET_ID>"
 ```
 {: codeblock}
 
 ## Check the Status of your Subnet
 
-To provision resources in your subnet, the subnet must be in `available` status. Query the subnet resource and make sure the status is `available` before you continue. If the status is `failed`, contact [support](getting-help.html) with the details. You can attempt to continue by trying to provision another subnet. 
+To provision resources in your subnet, the subnet must be in `available` status. Query the subnet resource and make sure the status is `available` before you continue. If the status is `failed`, contact [support](getting-help.html) with the details. You can attempt to continue by trying to provision another subnet.
 
 ```bash
 curl $rias_endpoint/v1/subnets/$subnet -H "X-Auth-Token: $iam_token"
@@ -111,7 +111,7 @@ As you did with the Virtual Private Cloud and the subnet, save the ID of the pub
 
 ```bash
 # Something like this: `gateway="35fb0489-7105-41b9-99de-033fae723006"`
-gateway="<YOUR_GATEWAY_ID"
+gateway="<YOUR_GATEWAY_ID>"
 ```
 {: codeblock}
 
@@ -148,7 +148,7 @@ curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
-To get additional details about the profiles, you can query the global catalog using the IBM Cloud CLI command `ibmcloud catalog entry <profile-name> --json`. For example, 
+To get additional details about the profiles, you can query the global catalog using the IBM Cloud CLI command `ibmcloud catalog entry <profile-name> --json`. For example,
 
 ```
 ibmcloud catalog entry b-2x8 --json
@@ -173,7 +173,7 @@ image_id="<CHOSEN_IMAGE_ID>"
 
 ## Provision a Virtual Server Instance
 
-Provision a virtual server instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned. 
+Provision a virtual server instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
 ```bash
 curl -X POST $rias_endpoint/v1/instances \
@@ -209,7 +209,7 @@ As you did with the other resources, save the ID of the virtual server instance 
 
 ```bash
 # Something like this: `server="35fb0489-7105-41b9-99de-033fae723006"`
-server="<YOUR_SERVER_ID"
+server="<YOUR_SERVER_ID>"
 ```
 {: codeblock}
 
@@ -229,7 +229,7 @@ Also save the ID of the primary network interface of the virtual server instance
 
 ```bash
 # Something like this: `network_interface="7710e766-dd6e-41ef-9d36-06f7adbef33d"`
-network_interface="<YOUR_NETWORK_INTERFACE_ID"
+network_interface="<YOUR_NETWORK_INTERFACE_ID>"
 ```
 {: codeblock}
 
@@ -267,7 +267,7 @@ To SSH to the server, use the `address` of the Floating IP you created. To get t
 
 ```bash
 curl -X GET $rias_endpoint/v1/floating_ips/$floating_ip \
-  -H "X-Auth-Token:$iam_token" 
+  -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
@@ -294,7 +294,7 @@ curl -X DELETE $rias_endpoint/v1/floating_ips/$floating_ip \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/instances/$server \
-  -H "X-Auth-Token:$iam_token" 
+  -H "X-Auth-Token:$iam_token"
 ```
 {: codeblock}
 
@@ -302,7 +302,7 @@ curl -X DELETE $rias_endpoint/v1/instances/$server \
 
 ```bash
 curl -X DELETE $rias_endpoint/v1/keys/$key \
-  -H "X-Auth-Token: $iam_token" 
+  -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
@@ -334,5 +334,3 @@ curl -X DELETE $rias_endpoint/v1/vpcs/$vpc \
 ## Ready for more?
 
 Check out the [API Reference](apis.html).
-
-

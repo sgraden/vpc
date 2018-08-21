@@ -22,4 +22,4 @@ lastupdated: "2018-06-01"
 
 ## Beta
 
-For information about opening an IBM support tcket, or about support levels and ticket severities, see [Contacting support](https://console.bluemix.net/docs/support/index.html#contacting-support).
+For information about opening an {{site.data.keyword.cloud}} support ticket, or about support levels and ticket severities, see [Contacting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/support/index.html#contacting-support){: new_window}.

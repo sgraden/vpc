@@ -16,7 +16,7 @@ lastupdated: "2018-07-18"
 
 # Verifying your IBM Cloud VPC Access for the Beta release
 
-IBM Virtual Private Cloud (VPC) functionality is available through the IBM Console UI, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [How to Participate](how-to-participate.html) for the steps of how to be added to the Beta release.
+{{site.data.keyword.cloud}} Virtual Private Cloud (VPC) functionality is available through the IBM Console UI, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [How to Participate](how-to-participate.html) for the steps of how to be added to the Beta release.
 
 To manage VPC resources and instantiate Virtual Server Instances (VSIs), first review each user's [permissions](vpc-user-permissions.html).
 
@@ -36,7 +36,7 @@ If you do not have a public SSH key or if you forgot the password of an existing
 
 ## CLI Access
 
-The VPC CLI actions use the extension `is`. 
+The VPC CLI actions use the extension `is`.
 
 ### Step 1: Install or update the VPC Plugin to the IBM Cloud CLI.
 
@@ -74,7 +74,7 @@ ibmcloud login
 {: codeblock}
 
 ### Step 3: To learn how to use the commands, you can run:
-    
+
 ```
 ibmcloud is help
 ibmcloud is help vpc-create
@@ -82,7 +82,7 @@ ibmcloud is help instance-create
 ```
 
 ### Step 4: Start running VPC CLIs!
-    
+
 ```
 ibmcloud is regions
 ibmcloud is zones _region-name_ (For example, _us-south_)
@@ -94,13 +94,16 @@ ibmcloud is instances --json
 
 For more details on CLI capability, see:
 
-- [Geography APIs](cli-reference.html#geography)
 - [Network APIs](cli-reference.html#network)
 - [Compute APIs](cli-reference.html#compute)
+- [Regions and Zones APIs](cli-reference.html#geography)
 
-## API Access 
+## API Access
 
 Once your account has been granted access, you will receive an email with the API endpoint. The following steps take you through a simple example using cURL, if you are ready to get more advanced, follow more advanced [sample code](example-code.html).
+
+**NOTE:** add ``` | json_pp ``` after curl command to get readable JSON string
+
 
 ### Step 1: Log in to IBM Cloud.
 
@@ -111,7 +114,7 @@ ibmcloud login --sso
 
 This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you will get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose an account. Choose the account that was granted access to participate in the Beta. Respond to any remaining prompts to finish logging in.
 
-### Step 2: Get an IBM Identity and Access Management (IAM) Token 
+### Step 2: Get an IBM Identity and Access Management (IAM) Token
 
 ```
 iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')
@@ -124,7 +127,7 @@ This command calls the IBM Cloud CLI, parses out the IAM token, and stores it in
 
 ### Step 3: Store the Endpoint as a Variable
 
-For `rias_endpoint`, use the API endpoint given to you during onboarding.
+For `rias_endpoint`, use the API endpoint given to you during on-boarding.
 
 ```
 rias_endpoint="<RIAS_API_ENDPOINT>"
@@ -140,7 +143,7 @@ curl $rias_endpoint/v1/regions -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
-The previous command returns the regions available for VPC, in JSON format. At least one object should return. 
+The previous command returns the regions available for VPC, in JSON format. At least one object should return.
 
 ### Step 5: Run the GET Zones API
 
@@ -151,7 +154,7 @@ curl $rias_endpoint/v1/regions/us-south/zones -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
-The previous command returns the zones available for VPC in region `us-south`, in JSON format. At least one object should return. 
+The previous command returns the zones available for VPC in region `us-south`, in JSON format. At least one object should return.
 
 ### Step 6: Run the GET Profiles API
 
@@ -185,7 +188,7 @@ curl $rias_endpoint/v1/vpcs -H "X-Auth-Token: $iam_token"
 ```
 {: codeblock}
 
-The previous command returns the VPCs that have been created under your account (if any), in JSON format. 
+The previous command returns the VPCs that have been created under your account (if any), in JSON format.
 
 ## What Happens Next
 

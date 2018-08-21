@@ -16,7 +16,7 @@ lastupdated: "2018-06-27"
 
 # Security Group Usage Examples
 
-The following examples demonstrate how to create and manage security groups, using the IBM Cloud VPC (Beta) REST APIs.
+The following examples demonstrate how to create and manage security groups, using the {{site.data.keyword.cloud}} VPC (Beta) REST APIs.
 
 
 ## Prerequisites

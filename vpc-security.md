@@ -16,9 +16,9 @@ lastupdated: "2018-06-14"
 
 # Setting up security in your IBM Cloud VPC
 
-![Security for Beta](/images/vpc-beta.png)
-
 **Figure: Security groups and ACLs add security to your subnets and instances.**
+
+![Security for Beta](/images/vpc-connectivity.png)
 
 * Traffic to and from a subnet can be controlled by Access Control Lists (ACLs)
 * A Security Group (SG) can control the traffic at the VSI level
@@ -26,12 +26,12 @@ lastupdated: "2018-06-14"
 
 ## Terminology
 
-This [glossary](vpc-glossary.html) provides definitions and descriptions of ACLs and SGs, and the actions you can perform with them. The section that follows descibes basic functionality of ACLs and security groups, and how VPC supports end-to-end encryption.
+This [glossary](vpc-glossary.html) provides definitions and descriptions of ACLs and SGs, and the actions you can perform with them. The section that follows describes basic functionality of ACLs and security groups, and how VPC supports end-to-end encryption.
 
 ### Access Control List
-An **Access Control List (ACL)** can manage (that is, it can allow or deny) ingress and egress traffic for a subnet. An ACL is stateless, which means that ingress and egress rules must be specified separately and explicitly. Each ACL consists of rules, based upon a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*. 
+An **Access Control List (ACL)** can manage (that is, it can allow or deny) ingress and egress traffic for a subnet. An ACL is stateless, which means that ingress and egress rules must be specified separately and explicitly. Each ACL consists of rules, based upon a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*.
 
-In IBM Cloud VPC, every subnet is created with a default ACL, which allows inbound and outbound traffic, but customers can create custom ACLs. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets. For more information about how to use ACLs during the Beta release, please see our [ACL guide](using-acls.html).
+In {{site.data.keyword.cloud}} VPC, every subnet is created with a default ACL, which allows inbound and outbound traffic, but customers can create custom ACLs. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets. For more information about how to use ACLs during the Beta release, please see our [ACL guide](using-acls.html).
 
 **Available User Actions**
 

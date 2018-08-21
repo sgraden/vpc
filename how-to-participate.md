@@ -16,20 +16,20 @@ lastupdated: "2018-08-10"
 
 # How to Participate in the IBM Cloud Virtual Private Cloud (VPC) Beta release
 
-Get early access to the [IBM Cloud VPC experience](about-vpc-beta.html) by participating in our Beta trial. To request access, send email to [vpc@us.ibm.com](mailto:vpc@us.ibm.com) with your use case and include your IBM Cloud Account ID and linked Infrastructure Account ID. Follow [these instructions](how-to-get-account.html) to get your account information. 
+Get early access to the {{site.data.keyword.cloud}} VPC experience by participating in our Beta trial. To request access, send email to [vpc@us.ibm.com](mailto:vpc@us.ibm.com) with your use case and include your IBM Cloud Account ID and linked Infrastructure Account ID. Follow [these instructions](how-to-get-account.html) to get your account information.
 
 ## Conditions
 
 By participating in this Beta release, you agree to these conditions:
 
 * Limit use to functionality testing: no scale, performance, load, or pressure testing.
-* Provide feedback so we can improve the offering. Send feedback to [vpc@us.ibm.com](mailto:vpc@us.ibm.com). 
-* Abide by the quotas below. 
+* Provide feedback so we can improve the offering. Send feedback to [vpc@us.ibm.com](mailto:vpc@us.ibm.com).
+* Abide by the quotas below.
 * Agree to the current limitations. There is no Service Level Agreement during the Beta trial and any resources created are not guaranteed to be available when the offering becomes generally available.
 
 ### Quotas
 
-Limited resources are available in the Beta environment. Therefore, accounts have the following quotas: 
+Limited resources are available in the Beta environment. Therefore, accounts have the following quotas:
 
 |   Resource     | Maximum Number |
 | ------- | :------: |
@@ -40,27 +40,18 @@ Limited resources are available in the Beta environment. Therefore, accounts hav
 
 ### Service Level Agreement (SLA)
 
-The VPC Beta release does not have a Service Level Agreement. All issues are handled as **minor severity** with next business day response. 
+The VPC Beta release does not have a Service Level Agreement. All issues are handled as **minor severity** with next business day response.
 
-### IBM Cloud VPC Beta agreement document
+### IBM Cloud VPC Beta Agreement
 
-You can view the entire [Beta agreement](https://public.dhe.ibm.com/cloud/bluemix/network/vpc/beta_agreement_for_use.pdf){: new_window}.
+Agree to the following [Beta agreement ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://public.dhe.ibm.com/cloud/bluemix/network/vpc/beta_agreement_for_use.pdf){: new_window}.
 
 **We will inform you _one week before_ the IBM Cloud VPC Beta program closes. When the Beta program is over, your configuration and data within the VPC Beta environment will be deleted.**
 
 ## Beta Support
 
-Support is provided through the [IBM Cloud support](https://console.bluemix.net/docs/support/index.html#contacting-support)  team. 
+Support is provided through the [IBM Cloud support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/support/index.html#contacting-support){: new_window} team.
 
 ## Ready?
 
-Once you've been notified that your participation is approved, follow these instructions to verify your permissions and access:
-
-* [Instructions](how-to-verify-access.html) to verify access to the user interface, command line interface and APIs for the IBM Cloud Virtual Private Cloud Beta.
-* [Instructions](vpc-user-permissions.html) to verify or obtain the correct permissions, which must be granted by the master or primary user of your account.
-
-**Note:** You must be whitelisted additionally if you wish to participate in Beta for these features: VPN for VPC, WindowsOS for VPC, and LBaaS for VPC.
-
-## General Overview of Steps
-
-For a "big picture" overview of how you'll set up your VPC and get it going, please refer to our [Quick Overview Document](quick-overview.html).
+Once you've been notified that your participation is approved and your account has been whitelisted, follow these [instructions](getting-started.html) to get started!

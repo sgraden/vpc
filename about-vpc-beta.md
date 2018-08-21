@@ -14,9 +14,9 @@ lastupdated: "2018-08-03"
 {:tip: .tip}
 {:download: .download}
 
-# Features available for Beta release 
+# Features available for Beta Release
 
-These features are available using the IBM Cloud Console UI, the API, and the CLI:
+The following features are available today:
 
  * Create a Virtual Private Cloud
  * Create subnets, and bring your own private IP (BYOIP)
@@ -28,15 +28,16 @@ These features are available using the IBM Cloud Console UI, the API, and the CL
  * Single-homed VSIs, using one virtual network interface card (vNIC)
  * Single-zone deployment, in US-South region
  * Internet access by VPN
- 
-## Features available later in the Beta release timeframe
- 
+
+## Features available soon
+
  * Load Balancing (LB) that's native to VPC
  * Multi-homed, multi-vNIC Virtual Server Instances (VSIs)
- 
 
-For a list of upcoming features that will be released by General Availability (GA), please refer to [this Planned Experience document](about.html#planned-ibm-virtual-private-cloud-experience)
+## Planned Features
 
-For a list of known limitations and features not supported during the Beta release, please refer to [this Known Limitations document](known-limitations.html).
+For an overview of planned features, please refer to [About VPC](about.html).
 
+## Known Limitations
 
+For a list of known limitations and features not supported during the Beta release, please refer to [the Known Limitations](known-limitations.html).

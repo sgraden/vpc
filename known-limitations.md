@@ -24,7 +24,7 @@ Here's an overview of what's not supported for the Beta release as of the date o
 
 ### Features not supported during Beta
 
-* Access to existing IBM Cloud Infrastructure Classic resources such as bare metal or Direct Link (that is, there's no peering)
+* Access to existing {{site.data.keyword.cloud}} Infrastructure Classic resources such as bare metal or Direct Link (that is, there's no peering)
 * IBM Cloud VPC Private Services Endpoints (phasing in during Beta)
 
 ### APIs not supported during Beta
@@ -96,7 +96,7 @@ This section gives a detailed list of unsupported features and use cases for thi
 
 19. A customer cannot designate the specific IP address of the VSI, only specify the IP range for the subnet. Once the customer attaches a VSI to a subnet, the system assigns a private IP from that subnet.
 
-20. IBM Cloud VPC comes with its own Network as a Service tools such as LBaaS, ACLs, and security groups. A customer cannot use their network appliances (for example, a Vyatta Gateway or other load balancer) to control any resource in the IBM Cloud VPC. A customer cannot use their loadbalancer or security groups services in IBM Cloud Classic (SoftLayer) to control their resources in the IBM Cloud VPC.
+20. IBM Cloud VPC comes with its own Network as a Service tools such as LBaaS, ACLs, and security groups. A customer cannot use their network appliances (for example, a Vyatta Gateway or other load balancer) to control any resource in the IBM Cloud VPC. A customer cannot use their load balancer or security groups services in IBM Cloud Classic (SoftLayer) to control their resources in the IBM Cloud VPC.
 
 21. The public gateway does not allow the traffic to be initiated from the Internet to a VSI in the IBM Cloud VPC. For that purpose, a floating IP must be used.
 

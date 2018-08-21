@@ -3,7 +3,7 @@
 copyright:
   years: 2018
 
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-16"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-08-03"
 
 # Using Network ACLs in the IBM Cloud VPC Beta release
 
-By using the Access Control Lists (ACLs) functionality available in IBM Cloud Virtual Private Cloud, you can control incoming and outgoing traffic for critical business workloads on the cloud, at the subnet level. Similar to the security group, an ACL is a built-in virtual firewall with granular control. 
+By using the Access Control Lists (ACLs) functionality available in {{site.data.keyword.cloud}} Virtual Private Cloud, you can control incoming and outgoing traffic for critical business workloads on the cloud, at the subnet level. Similar to the security group, an ACL is a built-in virtual firewall with granular control.
 
 The difference between the security groups and ACLs is the following:
 
@@ -26,17 +26,17 @@ The difference between the security groups and ACLs is the following:
 | Control level  | VSI instance    | Subnet  |
 | State   | Stateful - Return traffic is allowed by default | Stateless - Return traffic is denied by default and needs to be explicitly allowed |
 | Supported rules | Allow rules only | Both allow and deny rules|
-| How rules are applied | All rules are considered. | Rules are processed in sequence. | 
+| How rules are applied | All rules are considered. | Rules are processed in sequence. |
 | Relations with the associated resource | An instance can be associated with multiple security groups.| Multiple subnets can be associated with the same ACL.|
 
 By following the example given in this document, you'll be able to create network ACLs in your VPC and protect your subnets.
 
 ## APIs and CLIs currently available
 
-The following table is a summary of ACL-related APIs and CLIs available in the Beta release. 
+The following table is a summary of ACL-related APIs and CLIs available in the Beta release.
 
-* For the parameters, request body, and response details for each API, see the [APIs](apis.md) topic. 
-* For command details, installing the CLI plugin, and the prerequsite steps of using CLI, see the [Using CLI](how-to-verify-access.html#cli-access) topic. 
+* For the parameters, request body, and response details for each API, see the [APIs](apis.html) topic.
+* For command details, installing the CLI plugin, and the prerequisite steps of using CLI, see the [Using CLI](cli-reference.html) topic.
 
 | Description | API | CLI |
 |-------------|-----|-----|
@@ -58,48 +58,48 @@ The following table is a summary of ACL-related APIs and CLIs available in the B
 
 ### ACL rules
 
-With a network ACL you can create multiple ingress and egress rules. 
+With a network ACL you can create multiple ingress and egress rules.
 
 * With ingress/egress rules, you can allow or deny traffic from a source IP range or to a destination IP range with specified protocols and ports.  
-* ACL rules are considered in sequence. Low priority rules are evaluated only when the higher priority rules do not match. 
-* Ingress rules are separated from egress rules. 
-* The protocols currently supported are TCP, UDP, and ICMP. You also can use the **all** option to designate _all_ or _other_ (if a rule with a higher priority is specified) protocols. 
+* ACL rules are considered in sequence. Low priority rules are evaluated only when the higher priority rules do not match.
+* Ingress rules are separated from egress rules.
+* The protocols currently supported are TCP, UDP, and ICMP. You also can use the **all** option to designate _all_ or _other_ (if a rule with a higher priority is specified) protocols.
 
-For the current limitations, see the [Known limitations for the Beta release](#known-limitation-for-the-beta-release) section.
+For the current limitations, see the [Known limitations for the Beta release](known-limitations.html).
 
 ### Attaching an ACL to a subnet
 
 You have two options when attaching an ACL to a subnet:
 
-* When you create a new subnet, you can specify an ACL to attach. If you do not specify any ACL, a default network ACL is attached. The default ACL allows all ingress traffic destined for this subnet, and all egress traffic from this subnet. 
+* When you create a new subnet, you can specify an ACL to attach. If you do not specify any ACL, a default network ACL is attached. The default ACL allows all ingress traffic destined for this subnet, and all egress traffic from this subnet.
 * You also can attach an ACL to an existing subnet. If another ACL is attached to this subnet already, that ACL is detached before the new ACL is attached.
 
 ## ACL demo examples
 
 In the example that follows, you'll be able to create two ACLs and attach them with two subnets from the command line interface (CLI). Here's what the scenario looks like:
 
-![An example ACL scenario](images/acl-example-code.png)
+![An example ACL scenario](images/vpc-acls.png)
 
 As the figure illustrates, you have two web servers dealing with requests from the Internet and two backend servers that you want to hide from the public. In this example, you place the servers into two separate subnets, 10.10.10.0/24 and 10.10.20.0/24 respectively, and you need to allow the web servers to exchange data with the backend servers. Also, you want to allow limited outbound traffic in the backend servers.
 
 ### Example rules
 
-The example rules that follow show how to set up the ACL rules for a basic scenario as described previously. 
+The example rules that follow show how to set up the ACL rules for a basic scenario as described previously.
 
-**Note:** 
+**Note:**
 
 * The rule sequences in this example are used to demonstrate the priority of these rules (a smaller number is evaluated before a larger number). It is not a known attribute of an ACL rule.  
-* It's recommended that you should give fine-grained rules a higher priority than coarse-grained rules. That because, if you have a rule blocking all traffic from the subnet 10.10.30.0/24, and it is matched with a higher priority, the fine-grained rule with lower priority to allow traffic from 10.10.30.5 will never be applied. 
+* It's recommended that you should give fine-grained rules a higher priority than coarse-grained rules. That because, if you have a rule blocking all traffic from the subnet 10.10.30.0/24, and it is matched with a higher priority, the fine-grained rule with lower priority to allow traffic from 10.10.30.5 will never be applied.
 
 **ACL-1 example rules**:
 
 | Ingress/Egress| Allow/Deny | Source/Destination IP | Protocol | Port | Description|
 |--------------|-----------|------|------|------------------|-------|
-| Ingress | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic from the Internet| 
-| Ingress | Allow | 0.0.0.0/0 | TCP | 443 | Allow HTTPS traffic from the Internet| 
+| Ingress | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic from the Internet|
+| Ingress | Allow | 0.0.0.0/0 | TCP | 443 | Allow HTTPS traffic from the Internet|
 | Ingress | Allow| 10.10.20.0/24 |all| all| Allow all ingress traffic from the subnet 10.10.20.0/24 where the backend servers are placed|
 | Ingress | Deny| 0.0.0.0/0|all| all| Deny all other traffic inbound|
-| Egress | Allow | 0.0.0.0/0 | TCP|80 | Allow HTTP traffic to the Internet| 
+| Egress | Allow | 0.0.0.0/0 | TCP|80 | Allow HTTP traffic to the Internet|
 | Egress | Allow | 0.0.0.0/0 | TCP|443 | Allow HTTPS traffic to the Internet|
 | Egress | Allow| 10.10.20.0/24 |all| all| Allow all egress traffic to the subnet 10.10.20.0/24 where the backend servers are placed|
 | Egress | Deny| 0.0.0.0/0|all| all| Deny all other traffic outbound|
@@ -111,31 +111,31 @@ The example rules that follow show how to set up the ACL rules for a basic scena
 |--------------|-----------|------|------|------------------|--------|
 | Ingress | Allow| 10.10.10.0/24 |all| all| Allow all ingress traffic from the subnet 10.10.10.0/24 where the web servers are placed|
 | Ingress | Deny| 0.0.0.0/0|all| all| Deny all other traffic inbound|
-| Egress | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic to the Internet| 
+| Egress | Allow | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic to the Internet|
 | Egress | Allow | 0.0.0.0/0 | TCP| 443 | Allow HTTPS traffic to the Internet|
 | Egress | Allow| 10.10.10.0/24 |all| all| Allow all egress traffic to the subnet 10.10.10.0/24 where the web servers are placed|
 | Egress | Deny| 0.0.0.0/0|all| all| Deny all other traffic outbound|
 
 **Note:** This example is for general cases only. In your scenarios, you may also want to have more granular control over the traffic:
 
-* You could have a network administrator who needs access to the 10.10.10.0/24 subnet from a remote network for operation purposes. In that case, you'll need to allow SSH traffic from the Internet to this subnet. 
-* You might want to narrow down the protocol scope that you allow between your two subnets. 
+* You could have a network administrator who needs access to the 10.10.10.0/24 subnet from a remote network for operation purposes. In that case, you'll need to allow SSH traffic from the Internet to this subnet.
+* You might want to narrow down the protocol scope that you allow between your two subnets.
 
 ### Example Steps
 
-The example steps that follow skip the prerequsite steps of using IBM Cloud Internal Beta API/CLI and creating VPCs. For more information, see [Getting Started](getting-started.md) and [VPC setup with APIs](vpc-setup-with-apis.md).
+The example steps that follow skip the prerequisite steps of using IBM Cloud Internal Beta API/CLI and creating VPCs. For more information, see [Getting Started](getting-started.html) and [VPC setup with APIs](example-code.html).
 
 #### Step 1. Log in
-   
+
 ```
 ibmcloud login -sso
 ibmcloud sl init
 ```
 {: codeblock}
 
-#### Step 2. Choose how to configure IBM Cloud (Softlayer) authentication
+#### Step 2. Choose how to configure IBM Cloud (SoftLayer) authentication
 
-1. Login with your IBM Cloud infrastructure (Softlayer) user name and password or API key.
+1. Login with your IBM Cloud infrastructure (SoftLayer) user name and password or API key.
 
 2. Use the IBM Cloud (Bluemix) Single-Sign-On.
 
@@ -156,7 +156,7 @@ The response includes the newly created ACL IDs, for example, `a4e28308-8ee7-46a
 
 #### Step 4. Retrieve default rules
 
-Before adding new rules, retrieve the default ingress and egress ACL rules so that you can insert new rules before them. 
+Before adding new rules, retrieve the default ingress and egress ACL rules so that you can insert new rules before them.
 
 ```
 ibmcloud is network-acl-rules my_web_subnet_acl --direction ingress
@@ -213,7 +213,7 @@ ibmcloud is network-acl-rule-add --action allow --direction ingress --source 10.
 --before-rule-name my_web_acl_rule200 \
 my_web_subnet_acl my_web_acl_rule100
 
-ibmcloud is network-acl-rule-add --action allow --direction ingress --source 0.0.0.0/0 --protocol TCP \ 
+ibmcloud is network-acl-rule-add --action allow --direction ingress --source 0.0.0.0/0 --protocol TCP \
 --port-max 443 --port-min 443 --before-rule-name my_web_acl_rule100 my_web_subnet_acl my_web_acl_rule20
 
 ibmcloud is network-acl-rule-add --action allow --direction ingress --source 0.0.0.0/0 --protocol TCP \
@@ -261,7 +261,7 @@ ibmcloud is network-acl-rule-add --action allow --direction ingress --source 10.
 ibmcloud is network-acl-rule-add --action deny --direction egress --source 0.0.0.0/0 \
  --protocol all --before-rule-name allow-all-egress-rule-0d092544-b796-4cc9-bd7b-1aae7d44ee61 \
 my_backend_subnet_acl my_backend_acl_rule200e
- 
+
 ibmcloud is network-acl-rule-add --action allow --direction egress --source 10.10.10.0/24 \
 --protocol all --before-rule-name my_backend_acl_rule200e my_backend_subnet_acl my_backend_acl_rule100e
 
@@ -269,7 +269,7 @@ ibmcloud is network-acl-rule-add --action allow --direction egress --source 0.0.
 --protocol TCP --port-max 443 --port-min 443 --before-rule-name my_backend_acl_rule100e my_backend_subnet_acl my_backend_acl_rule20e
 
 ibmcloud is network-acl-rule-add --action allow --direction egress --source 0.0.0.0/0 --protocol TCP \
---port-max 80 --port-min 80 --before-rule-name my_backend_acl_rule20e my_backend_subnet_acl my_backend_acl_rule10e 
+--port-max 80 --port-min 80 --before-rule-name my_backend_acl_rule20e my_backend_subnet_acl my_backend_acl_rule10e
 
 ```
 {: codeblock}
@@ -278,10 +278,10 @@ ibmcloud is network-acl-rule-add --action allow --direction egress --source 0.0.
 
 ```
 ibmcloud is subnet-create my_web_subnet my_VPC my_region --ipv4_cidr_block 10.10.10.0/24 \
---generation gc --network-acl-name my_web_subnet_acl 
+--generation gc --network-acl-name my_web_subnet_acl
 
 ibmcloud is subnet-create my_backend_subnet my_VPC my_region --ipv4_cidr_block 10.10.20.0/24 \
---generation gc --network-acl-name my_web_backend_acl 
+--generation gc --network-acl-name my_web_backend_acl
 ```
 {: codeblock}
 
@@ -332,7 +332,3 @@ To add an ACL rule, here's an example command for adding a PING ingress rule bef
 ibmcloud is network-acl-rule-add --action allow --direction ingress --protocol icmp --icmp-type 8 --icmp-code --before-rule-name <default_acl_rule_name> <acl_name> <new_acl_rule_name>
 ```
 {: codeblock}
-
-## Known Limitation for the Beta release
-
-See the [known limitations](known-limitations.html) about the Beta release.

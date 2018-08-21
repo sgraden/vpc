@@ -16,7 +16,7 @@ lastupdated: "2018-06-23"
 
 # Summary of Supported APIs for IBM Cloud VPC Beta
 
-Here is a comprehensive list of REST APIs that are supported in the VPC Beta release.
+Here is a list of REST APIs that are supported in the {{site.data.keyword.cloud}} VPC Beta release.
 
 | Component | Functions | Comments |
 |-----------|------------|-----------|

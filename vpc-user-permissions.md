@@ -16,7 +16,7 @@ lastupdated: "2018-06-11"
 
 # Granting Permissions Needed for IBM Cloud VPC Users
 
-Certain permissions must be granted so that an IBM Cloud VPC user can provision and manage resources such as servers and keys. The master of the account can add additional users to the IBM Cloud account and grant the required permissions.
+Certain permissions must be granted so that an {{site.data.keyword.cloud}} VPC user can provision and manage resources such as servers and keys. The master of the account can add additional users to the IBM Cloud account and grant the required permissions.
 
 1. Log in to the [IBM Cloud Portal ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/){: new_window} and make sure you are in the context of the correct account. To verify the correct account, click on the **Profile** icon on the top right corner and check the **Account** field. Click on the **Account** field to change to the correct account, if needed.
 2. Navigate to **Manage > Account > Users**.
@@ -26,9 +26,9 @@ Certain permissions must be granted so that an IBM Cloud VPC user can provision 
 6. Click on the Portal Permissions section and the Devices tab.
 
   ![Devices Permissions](images/Devices-Permissions.png)
-  
+
   At least the following device permissions must be set:
-  
+
   * View Virtual Server Details
   * Manage Load Balancers
   * Manage Device Monitoring
@@ -36,16 +36,16 @@ Certain permissions must be granted so that an IBM Cloud VPC user can provision 
   * Upgrade Server
   * Edit Hostname/Domain
   * Issue OS Reloads and Initiate Rescue Kernel
-  * Manage Port Control 
+  * Manage Port Control
 
   Click on the **Edit Portal Permissions** button to save the changes.
 
 7. Still on the **Portal Permissions** section, click on the **Services** tab.
 
   ![Services Permissions](images/Services-Permissions.png)
-  
+
   At least the following service permissions must be set:
-  
+
   * Manage SSH Keys
   * Upgrade Services
 
@@ -54,9 +54,9 @@ Certain permissions must be granted so that an IBM Cloud VPC user can provision 
 8. Still on the **Portal Permissions** section, click on the **Account** tab.
 
   ![Account Permissions](images/Account-Permissions.png)
-  
+
   At least the following account permissions must be set:
-  
+
   * Add/Upgrade Cloud Instances
   * Upgrade Payment Details
   * Cancel Server

@@ -29,7 +29,7 @@ Here's the general flow for how to get going:
 
 ## Overview of managing your IBM Cloud VPC
 
-You can create, name, and resize your IBM Cloud VPC using the [IBM Console](console-tutorial.html), the [CLI](cli-network-reference.html), or the [REST API](apis.html) provided by IBM Cloud. 
+You can create, name, and resize your {{site.data.keyword.cloud}} VPC using the [IBM Console](console-tutorial.html), the [CLI](cli-network-reference.html), or the [REST API](apis.html) provided by IBM Cloud. 
 
 You can delete a Virtual Private Cloud if there are no running instances in it.
 
@@ -39,21 +39,21 @@ A subnet is an IP address range (CIDR block). Subnets are bound to a single Zone
 
 **Note: For the Beta release, there is only one Zone and one Region.**
 
-### Zones 
+### Zones
 
 A Zone is an abstraction designed to assist with improved fault tolerance and decreased latency. A Zone guarantees the following properties:
 
  * Each Zone is an independent fault domain and it is extremely unlikely for two Zones in a region to fail simultaneously
  * Traffic between Zones in a region will be < 2 ms latency
- 
+
 **Note: For the Beta release, there is only one Zone and one Region.**
 
 ### Reserved IP Addresses
 
-Certain IP addresses are reserved for use by IBM when operating the Virtual Private Cloud. Here are the reserved addresses: 
+Certain IP addresses are reserved for use by IBM when operating the Virtual Private Cloud. Here are the reserved addresses:
 
  * 10.0.0.0: Network address.
  * 10.0.0.1: Reserved by IBM for the VPC router.
  * 10.0.0.2: Reserved by IBM.
  * 10.0.0.3: Reserved by IBM for future use.
- * 10.0.0.255: Network broadcast address used by IBM. 
+ * 10.0.0.255: Network broadcast address used by IBM.

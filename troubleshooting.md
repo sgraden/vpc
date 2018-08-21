@@ -25,8 +25,8 @@ You can use the IBM Cloud `TRACE` options to turn on `TRACE` mode, by entering a
  * `IBMCLOUD_TRACE=true`
  * `IS_TRACE=true`
  * `BLUEMIX_TRACE=true`
- 
- ## Using DEBUG mode or `verbose` mode 
+
+## Using DEBUG mode or `verbose` mode 
 
 When you're having trouble diagnosing a difficulty, you can use the CLI to get into DEBUG mode, by giving the TRACE command before any other call you make to the IBM Cloud CLI. For example, for the command `ibmcloud is pubgws` you'd write:
 
@@ -44,7 +44,7 @@ For example, you can add `--verbose` to your `curl` command and send us the `x-r
 
 ```
 curl -i https://${credentials}@rias.wrig.me:5000/v1/vpcs/0ba0c6f1-705a-4e37-9e26-0f2d7e505329 -H X-Auth-Token:$iam_token -H X-Subject-Token:$subject_token
-HTTP/2 200 
+HTTP/2 200
 server: nginx/1.13.5
 date: Fri, 25 May 2018 14:45:31 GMT
 content-type: application/json; charset=utf-8
@@ -59,7 +59,7 @@ strict-transport-security: max-age=15724800; includeSubDomains;
 
 Usually, when the Trace ID is blank, it is because the JSON returned does not match what is expected from the Swagger. Try `IBMCLOUD_TRACE=true ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
 
- 
+
  ## Other Issues
 
 Here are a few difficulties you might encounter:
@@ -80,7 +80,7 @@ Most likely you do not have adequate permissions to view the server status. Make
 
 **Problem:** Service is no longer returning any JSON, instead of just giving an HTTP 403 status to all of my requests.  My earlier requests were going through. What happened?
 
-**Answer:** This error will happen after about an hour if your IAM token has expired. Refresh your IAM token by re-running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`. 
+**Answer:** This error will happen after about an hour if your IAM token has expired. Refresh your IAM token by re-running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
 
 ### Different instance ID is returned
 

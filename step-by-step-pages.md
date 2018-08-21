@@ -19,7 +19,7 @@ lastupdated: "2018-07-18"
 # Virtual Private Cloud Step-By-Step
 {: #tutorials}
 
-Use these comprehensive step-by-step guides to build and customize your VPC.
+Use these comprehensive step-by-step guides to build and customize your {{site.data.keyword.cloud}} VPC.
 
 <style>
     .solutionBox {

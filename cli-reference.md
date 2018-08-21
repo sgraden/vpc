@@ -16,7 +16,7 @@ lastupdated: "2018-07-19"
 
 # IBM Cloud VPC Beta CLI Reference
 
-This document provides a reference of the command line interface (CLI) commands available for the functionality of the IBM Cloud Virtual Private Cloud Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
+This document provides a reference of the command line interface (CLI) commands available for the functionality of the {{site.data.keyword.cloud}} Virtual Private Cloud Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
 
 This document is organized into three sections:
 * [Network CLI commands](#network)
@@ -24,6 +24,44 @@ This document is organized into three sections:
 * [Regions and Zones CLI commands](#geography)
 
 You can scroll through the Table of Contents menu at the right side of your screen to view the functional groupings of commands, such as those related to subnets, Floating IPs, and so forth.
+
+## Pre-requisites:
+
+1. Install the [IBM Cloud CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){: new_window}.
+2. Install or update the infrastructure-service plugin.
+
+  ```
+  ibmcloud plugin install infrastructure-service
+  ```
+  {: codeblock}
+
+  To update:
+
+  ```
+  ibmcloud plugin update
+  ```
+  {: codeblock}
+
+  To view installed plugins and versions:
+
+  ```
+  ibmcloud plugin list
+  ```
+  {: codeblock}
+
+3. Log in to IBM Cloud.
+
+  If you have a federated account:
+  ```
+  ibmcloud login -sso
+  ```
+  {: codeblock}
+
+  otherwise
+  ```
+  ibmcloud login
+  ```
+  {: codeblock}
 
 <p style="font-size:24px">Network CLI Commands</p>
 {: #network}
@@ -74,7 +112,7 @@ Reserve a floating IP in current resource group
 
 - `FLOATING_IP_NAME`: Name of the floating IP
 - `--zone `: Name of the target zone. This is exclusive with `--nic`
-- `--nic`: ID of the target network interface. This is exclusive with `--zone` 
+- `--nic`: ID of the target network interface. This is exclusive with `--zone`
 - `--json`: Format output in JSON
 
 ---
@@ -111,11 +149,11 @@ Update a floating IP
 ---
 
 
-## Public gateway 
+## Public Gateways
 
 ### `ibmcloud is public-gateways`
 
-List all public gateways 
+List all public gateways
 
 **Syntax**
 
@@ -189,11 +227,11 @@ Delete a public gateway
 - `GATEWAY_ID `: ID of the public gateway
 - `-f, --force`: Delete without confirmation
 
-## Network ACL 
+## Network ACLs
 
 ### `ibmcloud is network-acls`
 
-List all network ACLs 
+List all network ACLs
 
 **Syntax**
 
@@ -316,8 +354,8 @@ Add a rule to a network ACL
 - `--icmp-code`: ICMP traffic code to allow. Valid values from 0 to 255. This is specified only when protocol is set to `icmp`
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
 - `--port-max`: Maximum port number. Valid values are from 1 to 65535.This is specified only when protocol is set to `tcp` or `udp`
-- `--port-min`: Minimum port nubmer. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
-- `--before-rule`: ID of the rule id that this rule is inserted before. 
+- `--port-min`: Minimum port number. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
+- `--before-rule`: ID of the rule id that this rule is inserted before.
 
 ---
 
@@ -342,7 +380,7 @@ Update a rule of network ACL
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
 - `--port-max`: Maximum port number. Valid values are from 1 to 65535.This is specified only when protocol is set to `tcp` or `udp`
 - `--port-min`: Minimum port number. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
-- `--before-rule`: ID of the rule id that this rule is inserted before. 
+- `--before-rule`: ID of the rule id that this rule is inserted before.
 
 ---
 
@@ -366,7 +404,7 @@ Delete a rule from network ACL
 
 ### `ibmcloud is subnets`
 
-List all subnets 
+List all subnets
 
 **Syntax**
 
@@ -375,7 +413,7 @@ List all subnets
 **Options**
 
 - `--zone`: List public gateways which belongs to given zone
-- `--vpc: List public gateways which contains the specified VPC. 
+- `--vpc: List public gateways which contains the specified VPC.
 - `--network-acl`: Filter with the network ACL with specified ID, this is exclusive with `--network-acl-name`
 - `--json`: Format output in JSON
 
@@ -429,7 +467,7 @@ Update a subnet
 
 **Options**
 
-- `SUBNET_ID `: ID of the subnet 
+- `SUBNET_ID `: ID of the subnet
 - `--name`: New name of the network ACL
 - `--json`: Format output in JSON
 
@@ -445,7 +483,7 @@ Delete a subnet
 
 **Options**
 
-- `SUBNET_ID `: ID of the subnet 
+- `SUBNET_ID `: ID of the subnet
 - `-f, --force`: Delete without confirmation
 
 ---
@@ -461,7 +499,7 @@ Attach a pubic gateway to a subnet
 **Options**
 
 - `SUBNET_ID `: ID of the subnet
-- `GATEWAY_ID`: ID of the publie public gateway
+- `GATEWAY_ID`: ID of the public public gateway
 - `--json`: Format output in JSON
 
 ---
@@ -511,11 +549,11 @@ Detach the network acl from a subnet
 - `--json`: Format output in JSON
 ---
 
-## Security Group 
+## Security Groups
 
 ### `ibmcloud is security-groups`
 
-List all security groups 
+List all security groups
 
 **Syntax**
 
@@ -665,14 +703,14 @@ Add a rule to a security group. The IP version defaults to IPv4.
 
 - `GROUP_ID `: ID of the security group
 - `DIRECTION`: Direction of traffic to enforce. Valid values are `ingress` or `egress`
-- `PROCOTOL`: Protocol to enforce. Valid values are `all`, `icmp`, `tcp` and `udp`
+- `PROTOCOL`: Protocol to enforce. Valid values are `all`, `icmp`, `tcp` and `udp`
 - `REMOTE_ADDRESS`: IP address from/to which this rule should allow traffic. This is exclusive with `REMOTE_CIDR_BLOCK` and `PEER_SECURITY_GROUP_ID`
 - `REMOTE_CIDR_BLOCK`: Range of IPv4 addresses in CIDR format from/to which this rule should allow traffic.  This is exclusive with `REMOTE_ADDRESS` and `PEER_SECURITY_GROUP_ID`
 - `PEER_SECURITY_GROUP`: ID of the security group with remote addresses. This is exclusive with `REMOTE_ADDRESS` and `REMOTE_CIDR_BLOCK`
 - `--icmp-code`: ICMP traffic code to allow. Valid values from 0 to 255. This is specified only when protocol is set to `icmp`
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
 - `--port-max`: Maximum port number. Valid values are from 1 to 65535.This is specified only when protocol is set to `tcp` or `udp`
-- `--port-min`: Minimum port nubmer. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
+- `--port-min`: Minimum port number. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
 - `--json`: show output in JSON format
 ---
 
@@ -695,13 +733,13 @@ Update a rule of a security group. The IP version defaults to IPv4.
 - `--icmp-code`: ICMP traffic code to allow. Valid values from 0 to 255. This is specified only when protocol is set to `icmp`
 - `--icmp-type`: ICMP traffic type to allow. Valid values from 0 to 254. This is specified only when protocol is set to `icmp`
 - `--port-max`: Maximum port number. Valid values are from 1 to 65535.This is specified only when protocol is set to `tcp` or `udp`
-- `--port-min`: Minimum port nubmer. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
+- `--port-min`: Minimum port number. Valid values are from 1 to 65535. This is specified only when protocol is set to `tcp` or `udp`
 - `--json`: show output in JSON format
 ---
 
 ### `ibmcloud is security-group-rule-delete`
 
-Delete a rule fom a security group
+Delete a rule from a security group
 
 **Syntax**
 
@@ -715,7 +753,7 @@ Delete a rule fom a security group
 
 ---
 
-## VPC 
+## VPCs
 
 ### `ibmcloud is vpcs`
 
@@ -741,7 +779,7 @@ View details of a VPC
 
 **Options**
 
-- `VPC_ID `: ID of the VPC 
+- `VPC_ID `: ID of the VPC
 - `--json`: Format output in JSON
 
 ---
@@ -795,7 +833,7 @@ Delete a vpc
 
 ### `ibmcloud is vpc-default-network-acl-set`
 
-Set the default network ACL for a VPC 
+Set the default network ACL for a VPC
 
 **Syntax**
 
@@ -815,12 +853,11 @@ Set the default network ACL for a VPC
 
 This section contains a reference for the CLI commands related to Compute functionality in the IBM Cloud VPC Beta release. Similar commands to execute these functions also are available as [API commands](apis.html).
 
-
-## Instance Profile CLI commands
+## Profiles
 
 ### `ibmcloud is instance-profiles`
 
-List all instance profiles available in the region. 
+List all instance profiles available in the region.
 
 **Syntax**
 
@@ -847,7 +884,7 @@ View details of an instance profile
 
 ---
 
-## Image Commands
+## Images
 
 ### `ibmcloud is images`
 
@@ -878,7 +915,7 @@ Show details of an image
 
 ---
 
-## Key Commands
+## Keys
 
 ### `ibmcloud is keys`
 
@@ -954,7 +991,7 @@ Delete a key
 
 ---
 
-## Instance Commands
+## Instances
 
 ### `ibmcloud is instances`
 
@@ -967,7 +1004,7 @@ List all server instances
 **Options**
 
 - `--zone ZONE`: Zone name to which the server instance belongs.
-- `--subnet-id SUBNET_ID`: ID of the subnet to which the server instance belongs. 
+- `--subnet-id SUBNET_ID`: ID of the subnet to which the server instance belongs.
 - `--vpc-id VPC_ID`: ID of the VPC to which the server instance belongs.
 - `--json`: Format output in JSON
 
@@ -1002,7 +1039,7 @@ Create a server instance
 - `INSTANCE_NAME `: Name of the server instance
 - `VPC_ID`: ID of the VPC.
 - `ZONE`: Name of the zone
-- `PROFILE`: Name of the profile. 
+- `PROFILE`: Name of the profile.
 - `--image-id IMAGE_ID`: ID of the image. This is exclusive with `--boot-volume`
 - `--boot-volume VOLUME_ID`: ID of the boot volume. This is exclusive with `--image`
 - `--volumes VOLUME_ID1,VOLUME_ID2...`: IDs of the volumes to attached to the server instance
@@ -1030,7 +1067,7 @@ Update a server instance
 
 ### `ibmcloud is instance-delete`
 
-Delete a server intance 
+Delete a server instance
 
 **Syntax**
 
@@ -1119,7 +1156,7 @@ Retrieves all pending, running, and recent actions on a server instance.
 
 ### `ibmcloud is instance-action`
 
-Show details of an action on a server instance 
+Show details of an action on a server instance
 
 **Syntax**
 
@@ -1302,55 +1339,59 @@ Disassociate a floating IP from a server
 
 This section gives details about the CLI commands available for working with regions and zones.
 
-## Region
-
-`ibmcloud is region --help`
-
-NAME:
-   `region` - View details about a region
-
-USAGE:
-   `ibmcloud is region` _`<region name>`_
-
-OPTIONS:
-   `--json`  Format output in JSON
-
 ## Regions
 
-`ibmcloud is regions --help`
+### `ibmcloud is regions`
 
-NAME:
-   `regions` - List all regions
+List all regions
 
-USAGE:
-   `ibmcloud is regions`
+**Syntax**
 
-OPTIONS:
-   `--json`  Format output in JSON
+`ibmcloud is regions [--json]`
 
-## Zone
+**Options**
 
-`ibmcloud is zone --help`
+- `--json`: Format output in JSON
 
-NAME:
-   `zone` - View details about a zone
+### `ibmcloud is region`
 
-USAGE:
-   `ibmcloud is zone` _`<region name>`_ _`<zone name>`_
+View details about a region
 
-OPTIONS:
-  ` --json`  Format output in JSON
+**Syntax**
+
+`ibmcloud is region REGION_NAME [--json]`
+
+**Options**
+
+- `REGION_NAME`: Name of region
+- `--json`: Format output in JSON
 
 ## Zones
 
-`ibmcloud is zones --help`
+### ibmcloud is zones
 
-NAME:
-   `zones` - List all zones in a region
+View all zones in a region
 
-USAGE:
-   `ibmcloud is zones` _`<region name>`_
+**Syntax**
 
-OPTIONS:
-   `--json`  Format output in JSON
-   
+`ibmcloud is zones REGION_NAME [--json]`
+
+**Options**
+
+- `REGION_NAME`: Name of region
+- `--json`: Format output in JSON
+
+### ibmcloud is zone
+
+View details about a zone
+
+**Syntax**
+
+`ibmcloud is zone REGION_NAME ZONE_NAME [--json]`
+
+**Options**
+
+- `REGION_NAME`: Name of region
+- `ZONE_NAME`: Name of zone
+- `--json`: Format output in JSON
+

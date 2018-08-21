@@ -16,7 +16,7 @@ lastupdated: "2018-04-13"
 
 # Using 2-factor authentication for IBM Cloud Infrastructure initialization with IBM Cloud VPC
 
-This sequence of commands must be executed from the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started).
+This sequence of commands must be executed from the [IBM Cloud CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){: new_window}.
 
 **Step 1. Get the IAM token for the IBM Cloud account**
 
@@ -69,4 +69,3 @@ ims_subject={"ims":{"token":"<IMS TOKEN>","account":<ACCOUNT ID>,"user":<USER ID
 **Step 3. Pass both tokens to Regional APIs**
 
 Pass the IAM token as the `X-Auth-Token:` and the IMS Subject token as the `X-Subject-Token:` in the header as parameters to the VPC APIs.
-

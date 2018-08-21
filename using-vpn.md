@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017,2018
-lastupdated: "2018-07-13"
+lastupdated: "2018-08-16"
 
 
 ---
@@ -22,10 +22,22 @@ lastupdated: "2018-07-13"
 
 VPN service allows you to connect private networks in a secure fashion.
 
-For the IBM Cloud VPC Beta release, you can use VPN to set up an IPSec site-to-site tunnel between your VPC and
+For the {{site.data.keyword.cloud}} VPC Beta release, you can use VPN to set up an IPSec site-to-site tunnel between your VPC and
 your on-premise private network or another VPC. Only policy-based routing is supported in the current release.
 
-For a more detailed list of features, see the [Features for the Beta release](#beta-release-list) section.
+## Features
+
+* IKEv1 and IKEv2
+* Authentication algorithms: `md5`, `sha1`, `sha256`
+* Encryption algorithms: `3des`, `aes128`, `aes256`
+* Diffie-Hellman (DH) groups: 2, 5, 14
+* IKE negotiation mode: main
+* IPSec transform protocol: ESP
+* IPSec encapsulation mode: tunnel
+* Perfect Forward Secrecy (PFS)
+* Dead Peer Detection
+* Routing: Policy-based
+* Authentication Mode: Pre-shared key
 
 ## APIs Available
 
@@ -81,12 +93,11 @@ The following section gives details about APIs you can use for VPN in your VPC e
 In the following example, you'll be able to connect two VPCs together using VPN, which means you can connect
 subnets in two separate VPCs as if they were a single network. The IP addresses of the subnets must not overlap.
 Here is what the scenario looks like (with some VMs added in each VPC):
-
-![An example VPN scenario](images/vpn-demo-diagram.png)
+![An example VPN scenario](images/vpc-vpn.png)
 
 ### Example Steps
 
-The example steps that follow skip the prerequsite steps of using IBM Cloud Internal Beta API or CLI to create VPCs. For more information, see [Getting Started](getting-started.md) and [VPC setup with APIs](vpc-setup-with-apis.md).
+The example steps that follow skip the prerequsite steps of using IBM Cloud Internal Beta API or CLI to create VPCs. For more information, see [Getting Started](getting-started.html) and [VPC setup with APIs](example-code.html).
 
 **Step 1. Create a VPN gateway on your VPC subnet.**
 
@@ -318,17 +329,3 @@ The subnet cannot be deleted if any instances are present, including the VPN gat
 
 #### Are there default IKE and IPSec policies?
 When you create a VPN connection without referencing a policy ID (IKE or IPSec), auto-negotiation is used.
-
-## Features for the Beta release <a name="beta-release-list"></a>
-
-* IKEv1 and IKEv2
-* Authentication algorithms: `md5`, `sha1`, `sha256`
-* Encryption algorithms: `3des`, `aes128`, `aes256`
-* Diffie-Hellman (DH) groups: 2, 5, 14
-* IKE negotiation mode: main
-* IPSec transform protocol: ESP
-* IPSec encapsulation mode: tunnel
-* Perfect Forward Secrecy (PFS)
-* Dead Peer Detection
-* Routing: Policy-based
-* Authentication Mode: Pre-shared key
