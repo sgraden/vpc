@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-09-10"
 
 
 ---
@@ -22,4 +22,5 @@ lastupdated: "2018-06-01"
 
 ## Beta
 
-For information about opening an {{site.data.keyword.cloud}} support ticket, or about support levels and ticket severities, see [Contacting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/support/index.html#contacting-support){: new_window}.
+Support for Virtual Private Cloud is handled by {{site.data.keyword.cloud}} representatives.
+
