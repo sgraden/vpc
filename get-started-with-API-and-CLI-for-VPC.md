@@ -14,7 +14,7 @@ lastupdated: "2018-07-18"
 {:tip: .tip}
 {:download: .download}
 
-# Verifying your IBM Cloud VPC Access for the Beta release
+# Getting started with the API and CLI for VPC
 
 {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) functionality is available through the IBM Console UI, IBM Cloud CLI, and REST API. For the Beta release, accounts must be granted access before the functionality is available. See [How to Participate](how-to-participate.html) for the steps of how to be added to the Beta release.
 
@@ -28,13 +28,19 @@ To use the CLI and API, follow the steps below.
 
 1. Install the [IBM Cloud CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){: new_window}.
 
-2. Generate a public SSH key to provision Virtual Server Instances (VSIs).
+2. [Create an API Key ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/userid_keys.html#creating-an-api-key ){: new_window}.
 
-You may have a public SSH key already. Look for a file called ``id_rsa.pub`` under an ``.ssh`` directory under your home directory, for example, ``/Users/<USERNAME>/.ssh/id_rsa.pub``. The file starts with ``ssh-rsa`` and ends with your email address.
 
-If you do not have a public SSH key or if you forgot the password of an existing one, generate a new one by running the ``ssh-keygen`` command and following the prompts.
+## Processes:
 
-## CLI Access
+1. Install the infrastructure-services plugin for CLI
+
+1. Generate IAM token
+
+1. Get API access and run cURL commands
+
+
+## Process 1: Setup the infrastructure-services plugin for CLI
 
 The VPC CLI actions use the extension `is`.
 
@@ -76,45 +82,25 @@ ibmcloud login
 ### Step 3: To learn how to use the commands, you can run:
 
 ```
-ibmcloud is help
-ibmcloud is help vpc-create
-ibmcloud is help instance-create
+ibmcloud is help <Command name>
 ```
 
-### Step 4: Start running VPC CLIs!
+### Step 4: Start running VPC CLI commands!
 
 ```
 ibmcloud is regions
 ibmcloud is zones _region-name_ (For example, _us-south_)
-ibmcloud is vpcs
-ibmcloud is subnets
-ibmcloud is instances
 ibmcloud is instances --json
 ```
 
 For more details on CLI capability, see:
 
-- [Network APIs](cli-reference.html#network)
-- [Compute APIs](cli-reference.html#compute)
-- [Regions and Zones APIs](cli-reference.html#geography)
-
-## API Access
-
-Once your account has been granted access, you will receive an email with the API endpoint. The following steps take you through a simple example using cURL, if you are ready to get more advanced, follow more advanced [sample code](example-code.html).
-
-**NOTE:** add ``` | json_pp ``` after curl command to get readable JSON string
+- [Network CLI](cli-reference.html#network)
+- [Compute CLI](cli-reference.html#compute)
+- [Regions and Zones CLI](cli-reference.html#geography)
 
 
-### Step 1: Log in to IBM Cloud.
-
-```
-ibmcloud login --sso
- ```
-{: codeblock}
-
-This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you will get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose an account. Choose the account that was granted access to participate in the Beta. Respond to any remaining prompts to finish logging in.
-
-### Step 2: Get an IBM Identity and Access Management (IAM) Token
+## Process 2: Generate an IAM token
 
 ```
 iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')
@@ -125,8 +111,26 @@ This command calls the IBM Cloud CLI, parses out the IAM token, and stores it in
 
 **Note that you must repeat the preceding step to refresh your IAM token every hour, because the token expires.**
 
-### Step 3: Store the Endpoint as a Variable
 
+## Process 3: Get API access and run cURL commands
+
+Once your account has been granted access, you will receive an email with the API endpoint. The following steps take you through a simple example using cURL, if you are ready to get more advanced, follow more advanced [sample code](example-code.html).
+
+**NOTE:** add ``` | json_pp ``` after curl command to get readable JSON string
+
+### Step 1: Login into the CLI (See above) <Hotlink to anchor above?>
+
+### Step 2: Get an IBM Identity and Access Management (IAM) token and store it
+```
+iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')
+```
+{: codeblock}
+
+This command calls the IBM Cloud CLI, parses out the IAM token, and stores it in a variable you can use in later commands. To view your IAM token, run the command ``echo $iam_token``.
+
+**Note that you must repeat the preceding step to refresh your IAM token every hour, because the token expires.**
+
+### Step 3: Store the endpoint
 For `rias_endpoint`, use the API endpoint given to you during on-boarding.
 
 ```
@@ -136,8 +140,10 @@ rias_endpoint="<RIAS_API_ENDPOINT>"
 
 Run the previous command to store the value as a variable in your session. To verify that this variable was saved, run ``echo $rias_endpoint`` and make sure the response is not empty.
 
-### Step 4: Run the GET Regions API
 
+### Step 4: Run a couple commands using the stored variables
+
+#### GET Regions API
 ```
 curl $rias_endpoint/v1/regions -H "X-Auth-Token: $iam_token"
 ```
@@ -145,8 +151,7 @@ curl $rias_endpoint/v1/regions -H "X-Auth-Token: $iam_token"
 
 The previous command returns the regions available for VPC, in JSON format. At least one object should return.
 
-### Step 5: Run the GET Zones API
-
+### GET Zone API
 Note that currently, there is only one region `us-south` available.
 
 ```
@@ -156,40 +161,53 @@ curl $rias_endpoint/v1/regions/us-south/zones -H "X-Auth-Token: $iam_token"
 
 The previous command returns the zones available for VPC in region `us-south`, in JSON format. At least one object should return.
 
-### Step 6: Run the GET Profiles API
 
-```
-curl $rias_endpoint/v1/instance/profiles -H "X-Auth-Token: $iam_token"
-```
-{: codeblock}
+#### Create VPC API
+Create an IBM Cloud VPC called `my-vpc`.
 
-The previous command returns the profiles available for your VSIs, in JSON format. At least one object should return.
-
-If the API output is limited by pagination, set the limit higher than the `total_count`, for example:
-
-```
-curl $rias_endpoint/v1/instance/profiles?limit=50 -H "X-Auth-Token: $iam_token"
+```bash
+curl -X POST $rias_endpoint/v1/vpcs \
+  -H "X-Auth-Token:$iam_token" \
+  -d '{
+      	"is_default": true,
+      	"name": "my-vpc"
+      }'
 ```
 {: codeblock}
 
-### Step 7: Run the GET Images API
+For the rest of the calls, you'll need to know the ID of the newly created IBM Cloud VPC. Paste its ID into the variable, as shown:
 
-```
-curl $rias_endpoint/v1/images -H "X-Auth-Token: $iam_token"
-```
-{: codeblock}
-
-The previous command returns the images available for your VSIs, in JSON format. At least one object should return.
-
-### Step 8: Run the GET VPCs API
-
-```
-curl $rias_endpoint/v1/vpcs -H "X-Auth-Token: $iam_token"
+```bash
+# Something like this: `vpc="35fb0489-7105-41b9-99de-033fae723006"`
+vpc="<YOUR_VPC_ID>"
 ```
 {: codeblock}
 
-The previous command returns the VPCs that have been created under your account (if any), in JSON format.
+#### Create Subnet API
+Create a subnet in your IBM Cloud VPC. For example, let's put it in the `us-south-2` zone.
+
+```bash
+curl -X POST $rias_endpoint/v1/subnets \
+  -H "X-Auth-Token:$iam_token" \
+  -d '{
+        "name": "my-subnet",
+        "ipv4_cidr_block": "10.0.1.0/24",
+        "zone": { "name": "us-south-2" },
+        "vpc": { "id": "'$vpc'" }
+      }'
+```
+{: codeblock}
+
+As with the Virtual Private Cloud, save the ID of the subnet in a variable.
+
+```bash
+# Something like this: `subnet="35fb0489-7105-41b9-99de-033fae723006"`
+subnet="<YOUR_SUBNET_ID>"
+```
+{: codeblock}
+
 
 ## What Happens Next
 
-Success! You are ready to move on to more advanced APIs. Check out more [sample code](example-code.html). To see the complete list of available APIs, see [API Reference](apis.html).
+Success! You are ready to move on to more advanced API and CLI usage. Check out more [sample code](example-code.html). To see the complete list of available APIs, see [API Reference](apis.html).
+
