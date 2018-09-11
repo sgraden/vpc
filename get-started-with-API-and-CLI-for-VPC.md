@@ -33,9 +33,9 @@ To use the CLI and API, follow the steps below.
 
 ## Processes:
 
-1. Install the infrastructure-services plugin for CLI
+1. Install the infrastructure-services plugin for IBM Cloud CLI
 
-1. Generate IAM token
+1. Generate an IAM token
 
 1. Get API access and run cURL commands
 
@@ -79,18 +79,16 @@ ibmcloud login
 ```
 {: codeblock}
 
-### Step 3: To learn how to use the commands, you can run:
-
-```
-ibmcloud is help <Command name>
-```
-
-### Step 4: Start running VPC CLI commands!
-
+### Step 3: Start running VPC CLI commands.
 ```
 ibmcloud is regions
 ibmcloud is zones _region-name_ (For example, _us-south_)
 ibmcloud is instances --json
+```
+
+To learn how to use the CLI commands, you can run
+```
+ibmcloud is help <Command name>
 ```
 
 For more details on CLI capability, see:
@@ -120,15 +118,7 @@ Once your account has been granted access, you will receive an email with the AP
 
 ### Step 1: Login into the CLI (See above) <Hotlink to anchor above?>
 
-### Step 2: Get an IBM Identity and Access Management (IAM) token and store it
-```
-iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')
-```
-{: codeblock}
-
-This command calls the IBM Cloud CLI, parses out the IAM token, and stores it in a variable you can use in later commands. To view your IAM token, run the command ``echo $iam_token``.
-
-**Note that you must repeat the preceding step to refresh your IAM token every hour, because the token expires.**
+### Step 2: Get an IBM Identity and Access Management (IAM) token and store it (See above) <Hotlink to anchor above>
 
 ### Step 3: Store the endpoint
 For `rias_endpoint`, use the API endpoint given to you during on-boarding.
@@ -141,7 +131,7 @@ rias_endpoint="<RIAS_API_ENDPOINT>"
 Run the previous command to store the value as a variable in your session. To verify that this variable was saved, run ``echo $rias_endpoint`` and make sure the response is not empty.
 
 
-### Step 4: Run a couple commands using the stored variables
+### Step 4: Run cURL commands using the stored variables
 
 #### GET Regions API
 ```
