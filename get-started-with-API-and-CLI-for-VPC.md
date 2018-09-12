@@ -135,7 +135,7 @@ Run the previous command to store the value as a variable in your session. To ve
 
 #### GET Regions API
 ```
-curl $rias_endpoint/v1/regions -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/regions -H "Authorization: bearer $iam_token"
 ```
 {: codeblock}
 
@@ -145,7 +145,7 @@ The previous command returns the regions available for VPC, in JSON format. At l
 Note that currently, there is only one region `us-south` available.
 
 ```
-curl $rias_endpoint/v1/regions/us-south/zones -H "X-Auth-Token: $iam_token"
+curl $rias_endpoint/v1/regions/us-south/zones -H "Authorization: $iam_token"
 ```
 {: codeblock}
 
@@ -157,7 +157,7 @@ Create an IBM Cloud VPC called `my-vpc`.
 
 ```bash
 curl -X POST $rias_endpoint/v1/vpcs \
-  -H "X-Auth-Token:$iam_token" \
+  -H "Authorization:$iam_token" \
   -d '{
       	"is_default": true,
       	"name": "my-vpc"
@@ -178,7 +178,7 @@ Create a subnet in your IBM Cloud VPC. For example, let's put it in the `us-sout
 
 ```bash
 curl -X POST $rias_endpoint/v1/subnets \
-  -H "X-Auth-Token:$iam_token" \
+  -H "Authorization:$iam_token" \
   -d '{
         "name": "my-subnet",
         "ipv4_cidr_block": "10.0.1.0/24",
